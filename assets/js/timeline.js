@@ -2391,7 +2391,11 @@ timeline = {
 
 		//close lightbox
 		.on('click', '.timeline-lightbox *', function(e){
-			e.preventDefault(); e.stopPropagation();
+
+				if( !$(e.target).is('a') ){
+					e.preventDefault(); e.stopPropagation();
+				}
+
 			var $el = $(this);
 
 			// console.log('overlay');

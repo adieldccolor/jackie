@@ -6075,7 +6075,7 @@ body.timeline {
           body.timeline .toolbars .page-toolbar .container .more-info span {
             display: block; }
         body.timeline .toolbars .page-toolbar .container .row {
-          padding: 0; }
+          padding: 0; margin: 0; }
           @media screen and (max-width: 900px) {
             body.timeline .toolbars .page-toolbar .container .row {
               display: none; } }
