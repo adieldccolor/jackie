@@ -507,7 +507,8 @@ timeline = {
 						innerWidth = $inner.outerWidth(),
 						top = vh(100) < innerHeight ? 20 : ( vh(100) - innerHeight ) / 2;
 
-					top = isMobile ? 85 : top;
+					top = isMobile ? top + 40 : top;
+					//top = isMobile ? 85 : top;
 
 					$wrapper.css({ top: top, paddingBottom: 50, width: innerWidth  });
 					$elems['preloader'].css({ opacity: 0, zIndex: 0 });
@@ -522,7 +523,7 @@ timeline = {
 					innerWidth = $inner.outerWidth(),
 					top = vh(100) < innerHeight ? 20 : ( vh(100) - innerHeight ) / 2;
 
-				top = isMobile ? 85 : top;
+				//top = isMobile ? 85 : top;
 
 				$wrapper.css({ top: top, paddingBottom: 50, width: innerWidth  });
 
@@ -1596,7 +1597,7 @@ timeline = {
 				}
 
 				TweenMax.to( $ptoolbar.find('.row'), 0, { width: 'auto', delay: mdelay } );
-				TweenMax.to( $ptoolbar.find('.container'), 0, { width: 'auto', padding: '0 15px', delay: mdelay } );
+				TweenMax.to( $ptoolbar.find('.container'), 0, { width: 'auto', padding: '0 0', delay: mdelay } );
 
 
 				//show button

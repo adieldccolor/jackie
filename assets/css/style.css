@@ -6216,7 +6216,7 @@ body.timeline {
     opacity: 0; }
     @media screen and (max-width: 900px) {
       body.timeline .timeline-lightbox {
-        top: 65px;
+        top: 0px;
         bottom: 0;
         height: auto; } }
     body.timeline .timeline-lightbox .overlay {
