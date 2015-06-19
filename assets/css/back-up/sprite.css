@@ -1,0 +1,221 @@
+.icon {
+  display: inline-block;
+  background: url(../img/sprite.png) 0 0 no-repeat; }
+  .icon.arrowLeft, .icon.arrowRight {
+    width: 18px;
+    height: 32px; }
+    .icon.arrowLeft.arrowRight, .icon.arrowRight.arrowRight {
+      background-position: -50px 0;
+      background-position-x: -50px; }
+    .icon.arrowLeft.inverted, .icon.arrowRight.inverted {
+      background-position-y: -59px;
+      background-position: 0px -59px; }
+      .icon.arrowLeft.inverted.arrowRight, .icon.arrowRight.inverted.arrowRight {
+        background-position: -50px -59px; }
+  .icon.arrowDown {
+    width: 30px;
+    height: 18px;
+    background-position: -200px 0; }
+    .icon.arrowDown.small {
+      background-position: -230px 0; }
+    .icon.arrowDown.inverted {
+      background-position: -200px -18px; }
+      .icon.arrowDown.inverted.small {
+        background-position: -230px -18px; }
+  .icon.twitterIcon {
+    width: 40px;
+    height: 40px;
+    background-position: -350px 3px; }
+  .icon.pdfIcon {
+    width: 40px;
+    height: 40px;
+    background-position: -347px -41px; }
+  .icon.shareIcon {
+    width: 11px;
+    height: 11px;
+    background-position: -503px 0;
+    background-position-x: -503px; }
+    .icon.shareIcon.bigShareIcon {
+      background-position: -531px 0;
+      background-position-x: -531px; }
+    .icon.shareIcon.blueShareIcon {
+      background-position: -503px -26px;
+      background-position-y: -26px; }
+      .icon.shareIcon.blueShareIcon.bigShareIcon {
+        background-position: -531px -26px; }
+    .icon.shareIcon.grayShareIcon {
+      background-position: -503px -53px;
+      background-position-y: -53px; }
+      .icon.shareIcon.grayShareIcon.bigShareIcon {
+        background-position: -531px -53px; }
+    .icon.shareIcon.whiteShareIcon {
+      background-position: -503px -80px;
+      background-position-y: -80px; }
+      .icon.shareIcon.whiteShareIcon.bigShareIcon {
+        background-position: -531px -80px; }
+  .icon.collapseIcon {
+    width: 35px;
+    height: 35px;
+    background-position: -602px 0;
+    background-position-x: -602px; }
+    .icon.collapseIcon.collapsedIcon {
+      background-position: -602px -45px;
+      background-position-y: -45px; }
+  .icon.quoteIcon {
+    width: 31px;
+    height: 30px;
+    background-position: -700px 0;
+    background-position-x: -700px; }
+    .icon.quoteIcon.inverted {
+      background-position: -700px -40px;
+      background-position-y: -40px; }
+  .icon.socialIcon {
+    width: 80px;
+    height: 80px;
+    background-position: 0 -161px;
+    background-position-y: -161px; }
+    .icon.socialIcon.filledIcon {
+      background-position: 0 -288px;
+      background-position-y: -288px; }
+    .icon.socialIcon.twitterSocialIcon {
+      background-position: -202 -161px;
+      background-position-x: -202px; }
+      .icon.socialIcon.twitterSocialIcon.filledIcon {
+        background-position: -202px -288px; }
+    .icon.socialIcon.pinterestSocialIcon {
+      background-position: -403px -161px;
+      background-position-x: -403px; }
+      .icon.socialIcon.pinterestSocialIcon.filledIcon {
+        background-position: -403px -288px; }
+    .icon.socialIcon.linkedinSocialIcon {
+      background-position: -601px -161px;
+      background-position-x: -601px; }
+      .icon.socialIcon.linkedinSocialIcon.filledIcon {
+        background-position: -601px -288px; }
+  .icon.smallSocialIcon {
+    width: 40px;
+    height: 40px;
+    background-position: 0 -481px;
+    background-position-y: -481px; }
+    .icon.smallSocialIcon.inverted {
+      background-position: -400px -481px;
+      background-position-x: -400px; }
+    .icon.smallSocialIcon.filledIcon {
+      background-position: 0 -550px;
+      background-position-y: -550px; }
+    .icon.smallSocialIcon.twitterSmallSocialIcon {
+      background-position: -100px -481px;
+      background-position-x: -100px -481px; }
+      .icon.smallSocialIcon.twitterSmallSocialIcon.inverted {
+        background-position: -500px -481px;
+        background-position-x: -500px; }
+      .icon.smallSocialIcon.twitterSmallSocialIcon.filledIcon {
+        background-position: -500px -550px; }
+    .icon.smallSocialIcon.pinterestSmallSocialIcon {
+      background-position: -199px -481px;
+      background-position-x: -199px; }
+      .icon.smallSocialIcon.pinterestSmallSocialIcon.inverted {
+        background-position: -599px -481px;
+        background-position-x: -599px; }
+      .icon.smallSocialIcon.pinterestSmallSocialIcon.filledIcon {
+        background-position: -599px -550px; }
+    .icon.smallSocialIcon.linkedinSmallSocialIcon {
+      background-position: -299px -481px;
+      background-position-x: -299px; }
+      .icon.smallSocialIcon.linkedinSmallSocialIcon.inverted {
+        background-position: -700px -481px;
+        background-position-x: -700px; }
+      .icon.smallSocialIcon.linkedinSmallSocialIcon.filledIcon {
+        background-position: -700px -550px; }
+  .icon.tinySocialIcon {
+    width: 24px;
+    height: 24px;
+    background-position: 0 -640px;
+    background-position-y: -640px; }
+    .icon.tinySocialIcon.twitterTinySocialIcon {
+      background-position: -50px -640px;
+      background-position-x: -50px; }
+    .icon.tinySocialIcon.youtubeTinySocialIcon {
+      background-position: -100px -640px;
+      background-position-x: -100px; }
+    .icon.tinySocialIcon.linkedinTinySocialIcon {
+      background-position: -150px -640px;
+      background-position-x: -150px; }
+    .icon.tinySocialIcon.instagramTinySocialIcon {
+      background-position: -200px -640px;
+      background-position-x: -200px; }
+  .icon.mapMarker {
+    width: 15px;
+    height: 20px;
+    background-position: -250px -640px; }
+  .icon.pdfDocIcon {
+    width: 15px;
+    height: 20px;
+    background-position: -300px -640px; }
+    .icon.pdfDocIcon.inverted {
+      background-position: -300px -680px;
+      background-position-y: -680px; }
+  .icon.romboIcon {
+    width: 13px;
+    height: 14px;
+    background-position: -350px -640px; }
+  .icon.mediumSocialIcon {
+    width: 53px;
+    height: 53px;
+    background-position: -450px -640px; }
+    .icon.mediumSocialIcon.inverted {
+      background-position: -450px -730px;
+      background-position-y: -730px; }
+    .icon.mediumSocialIcon.twitterMediumSocialIcon {
+      background-position: -550px -640px;
+      background-position-x: -550px; }
+      .icon.mediumSocialIcon.twitterMediumSocialIcon.inverted {
+        background-position: -550px -730px; }
+    .icon.mediumSocialIcon.pinterestMediumSocialIcon {
+      background-position: -650px -640px;
+      background-position-x: -650px; }
+      .icon.mediumSocialIcon.pinterestMediumSocialIcon.inverted {
+        background-position: -650px -730px; }
+  .icon.searchIcon {
+    width: 24px;
+    height: 24px;
+    background-position: 0 -800px; }
+    .icon.searchIcon.inverted {
+      background-position: 0 -848px;
+      background-position-y: -848px; }
+  .icon.menuIcon {
+    width: 35px;
+    height: 23px;
+    background-position: -100px -800px; }
+    .icon.menuIcon.inverted {
+      background-position: -100px -844px;
+      background-position-y: -844px; }
+  .icon.smallCollapseIcon {
+    width: 20px;
+    height: 20px;
+    background-position: -200px -800px; }
+    .icon.smallCollapseIcon.collapsedIcon {
+      background-position: -200px -830px;
+      background-position-y: -830px; }
+  .icon.playIcon {
+    width: 92px;
+    height: 92px;
+    background-position: 0 -960px; }
+  .icon.timesIcon, .icon.lb-close {
+    width: 30px;
+    height: 30px;
+    background-position: -202px -960px; }
+  .icon.arrowUp {
+    width: 75px;
+    height: 75px;
+    background-position: -350px -960px; }
+    .icon.arrowUp.inverted {
+      background-position: -350px -1045px;
+      background-position-y: -1045px; }
+
+.quote {
+  display: inline-block;
+  background: url(../img/inverted-quote-icon.png) 0 0 no-repeat;
+  height: 20px;
+  width: 20px;
+  margin-left: 10px; }

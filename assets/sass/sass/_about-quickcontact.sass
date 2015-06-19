@@ -1,0 +1,55 @@
+.about-quickcontact
+	background-color: #263752
+	padding-bottom: 45px
+	.container
+		max-width: 1010px
+		color: #fff
+		@extend .bodytext1
+		font-weight: 300
+
+		h1, h2, h3, h4
+			margin-top: 40px
+			margin-bottom: 35px
+
+		p
+			margin-bottom: 30px
+			b, strong
+				font-weight: 400
+
+		.address-wrapper
+			@media screen and (min-width: 992px)
+				margin: 0 70px
+			@media screen and (max-width: 768px)
+				padding-top: 30px
+			@media screen and (max-width: 480px)
+				text-align: center
+				p, h1, h2, h3, h4, h5, a
+					text-align: center
+				.col-xxs
+					width: 100%
+					float: none
+					display: block
+
+
+
+.form-group
+	label
+		@extend .bodytext1
+		font-weight: 400
+	.form-control
+		border-radius: 0px
+		box-shadow: none
+		@extend .bodytext1
+		font-weight: 300
+	input.form-control, select.form-control
+		height: 44px
+	textarea.form-control
+		min-height: 265px
+		max-width: 100%
+		min-width: 100%
+
+	button, input[type="button"], input[type="submit"]
+		@media screen and (max-width: 480px)
+			margin-left: auto
+			margin-right: auto
+			display: block

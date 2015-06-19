@@ -1,0 +1,1336 @@
+body
+	&.timeline
+		background-color: #000
+		color: #fff
+		font-size: 0
+		height: 100%
+		min-height: 300px
+
+		overflow-x: auto
+
+		overflow: hidden
+
+
+
+		.body
+			opacity: 0
+			visibility: hidden
+			font-size: 10px
+
+		.menuTop
+			background-color: transparent
+			border: none
+			position: relative
+			min-height: 75px
+			font-size: $em
+			z-index: 150
+			@media screen and (max-width: 760px)
+				min-height: 65px
+				background-color: #000
+				z-index: 10000
+			&.forced
+				min-height: 65px
+				background-color: #000
+				z-index: 1000000000
+				position: absolute
+				top: 0
+				width: 100%
+			&.sticky
+				position: fixed
+				width: 100%
+				top: 0
+			.logo
+				width: auto
+				height: auto
+				margin-top: 10px
+				&.timeline-logo
+					margin-left: 25px
+					@media screen and (max-width: 1124px)
+						margin-bottom: 10px
+						padding: 0
+
+					img
+						@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)
+							display: none
+						&.logo-retina
+							display: none
+							width: 50%
+							@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)
+								display: block
+
+			.nav-container
+				position: absolute
+				right: 0
+				top: 0
+				display: none
+				@media screen and (max-width: 760px)
+					display: block
+				&.forced
+					display: block
+
+				a.nav-trigger
+					display: block
+					position: relative
+					margin: 18px 18px 0 0
+
+
+				.overlay
+					position: fixed
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					background-color: #000
+					opacity: 0
+					visibility: hidden
+					-webkit-transition: all 0.3s
+					-moz-transition: all 0.3s
+					-ms-transition: all 0.3s
+					-o-transition: all 0.3s
+					transition: all 0.3s
+
+				.menu-navigation
+					position: fixed
+					top: 0
+					bottom: -50px
+					right: -241px
+					width: 240px
+					background-color: #000
+					border-left: 1px solid #313131
+					overflow-y: auto
+					overflow-x: visible
+					z-index: 100
+
+
+
+					.menu-header
+						min-height: 65px
+						font-size: 10px
+						position: relative
+						z-index: 2
+
+						.nav-trigger
+							padding: 18px 18px 0 18px
+							margin: 0
+							display: inline-block
+
+						.close-nav
+							display: block
+							position: absolute
+							right: 18px
+							top: 50%
+							margin-top: -9px
+
+							font-family: $sourcesans
+							font-size: 1.3em
+							font-weight: 600
+							text-transform: uppercase
+							color: #fff
+							text-decoration: none
+
+							.icon
+								vertical-align: middle
+							&:hover, &:focus
+								text-decoration: none
+								color: #fff
+
+
+					ul
+						list-style: none
+						margin: 10px 0 0
+						padding: 0
+						position: relative
+						z-index: 2
+
+						li
+							border-bottom: 1px solid #313131
+							padding: 17px 20px 18px 10px
+							font-size: 10px
+
+							.icon
+								margin-right: 10px
+								vertical-align: middle
+								float: left
+								margin-top: 0px
+
+							input
+								display: block
+								position: absolute
+								width: 1px
+								visibility: hidden
+								opacity: 0
+
+								&:checked
+									& + .box-blue, & + .box-aqua, & + .box-green
+										background-position: -206px -227px
+
+							label
+								font-family: $sourcesans
+								font-size: 1.6em
+								font-weight: 400
+								cursor: pointer
+								margin: 0
+
+
+							&:last-child
+								border-bottom: none
+
+				&.open
+					.overlay
+						display: block
+						visibility: visible
+						opacity: 0.2
+						z-index: 0
+
+		.arrow-icon
+			background: url(../img/sprite-timeline.png) -334px -229px no-repeat
+			width: 24px
+			height: 15px
+			display: block
+			position: relative
+			margin: 2px auto -3px
+
+			@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)
+				background-image: url(../img/sprite-timeline@2x.png)
+				-webkit-background-size: 400px 450px
+				background-size: 400px 450px
+
+			&.arrow-icon-up
+				background-position: -334px -200px
+
+			&.second-arrow
+				-webkit-animation-delay: 0.2s
+				-moz-animation-delay: 0.2s
+				-o-animation-delay: 0.2s
+				animation-delay: 0.2s
+			&.thid-arrow
+				-webkit-animation-delay: 0.4s
+				-moz-animation-delay: 0.4s
+				-o-animation-delay: 0.4s
+				animation-delay: 0.4s
+
+		h1, h2, h3, h4, h5, h6
+			line-height: 1em
+
+		h1
+			font-size: 10.6em
+			@media screen and (max-width: 600px)
+				font-size: 6.9em
+			&.min
+				font-size: 6.9em
+				line-height: 0.75em
+				margin: 0
+
+		h2
+			font-size: 6.2em
+			@media screen and (max-width: 600px)
+				font-size: 4.2em
+
+		h3
+			font-size: 5.5em
+			@media screen and (max-width: 600px)
+				font-size: 3.2em
+
+			&.min
+				font-size: 3.2em
+				margin-bottom: 10px
+
+		h4
+			font-size: 5.6em
+			@media screen and (max-width: 600px)
+				font-size: 3.2em
+
+		h5
+			font-size: 4.2em
+			@media screen and (max-width: 600px)
+				font-size: 3.2em
+
+		h6
+			font-size: 3em
+
+		.subheader1
+			font-family: $robotoslab
+			font-size: 2.8em
+			font-weight: 700
+		.subheader2
+			font-family: $sourcesans
+			font-weight: 400
+			font-size: 2.4em
+			@media screen and (max-width: 650px)
+				font-size: 2em
+			@media screen and (max-width: 600px)
+				font-size: 1.8em
+				// color: #333333
+			&.time-title
+				font-family: $robotoslab
+				font-weight: 300
+				font-size: 5.6em
+				line-height: 100%
+				margin: 10px 0 15px
+				@media screen and (max-width: 650px)
+					font-size: 4.8em
+				@media screen and (max-width: 600px)
+					font-size: 3.2em
+			&.italic, i, .italic
+				font-style: italic
+		.subheader3
+			font-family: $robotoslab
+			font-size: 2em
+			font-weight: 700
+		.subheader4
+			font-family: $sourcesans
+			font-weight: 600
+			font-size: 1.7em
+			line-height: 1.4em
+
+		.bodytext1
+			font-size: 2em
+			line-height: 1.5em
+			@media screen and (max-width: 768px)
+				font-size: 1.8em
+
+		.bodytext2
+			font-family: $sourcesans
+			font-size: 1.8em
+			line-height: 1.4em
+
+		.bodytext3
+			font-family: $sourcesans
+			font-size: 1.6em
+			line-height: 1.4em
+
+		.link1, ul.links a
+			font-family: $sourcesans
+			font-size: 2em
+			line-height: 1.5em
+			text-decoration: underline
+		
+		.link2
+			font-family: $sourcesans
+			font-size: 1.8em
+			line-height: 1.4em
+
+		.link1, .link2
+			.icon
+				vertical-align: middle
+
+		.button-primary
+			color: #fff
+			width: 205px
+			height: 50px
+			line-height: 44px
+			font-family: $sourcesans
+			font-weight: 600
+			font-size: 2em
+
+			&:hover, &:focus
+				text-decoration: none
+
+			&.darkblue
+				background-color: #263752
+				border-color: #263752
+				&:hover
+					background-color: transparent
+					border-color: #fff
+			&.skyblue
+				background-color: #71ADAF
+				border-color: #71ADAF
+				&:hover
+					background-color: transparent
+					border-color: #fff
+			&.lightgreen
+				background-color: #94B933
+				border-color: #94B933
+				&:hover
+					background-color: transparent
+					border-color: #fff
+			&.ghost
+				border: 2px solid #fff
+				background-color: transparent
+				&:hover
+					background-color: #2AA5D1
+					border-color: #2AA5D1
+
+		#canvasloader-container
+			position: absolute
+			top: 50%
+			left: 50%
+
+		.overlay-title
+			position: relative
+			z-index: 99
+			top: 0px
+			left: 0
+			width: 100%
+			opacity: 0
+			@media screen and (max-width: 760px)
+				position: absolute
+			h1, h2, h3, h4, h5, h6
+				margin: 0
+				padding: 0
+			h3
+				&.min
+					margin-bottom: 10px
+
+		.overlay-year
+			position: fixed
+			z-index: 99
+			top: 85px
+			left: 56px
+			opacity: 0
+			visibility: hidden
+			&.visible
+				visibility: visible
+
+		.toolbars
+			position: fixed
+			bottom: 0
+			left: 0
+			width: 100%
+			z-index: 50
+			opacity: 0
+
+			@media screen and (max-width: 760px)
+				position: relative
+
+			.share-button
+				width: 60px
+				height: 25px
+				position: fixed
+				right: 20px
+				bottom: 20px
+				border: 2px solid #d6d6d6
+				color: #d6d6d6
+				font-family: $sourcesans
+				font-weight: 600
+				font-size: 1.4em
+				text-align: center
+				z-index: 50
+				.icon
+					vertical-align: middle
+					background-position: 0px -199px
+					height: 13px
+
+				&:hover, &:focus
+					background-color: #d6d6d6
+					color: #000
+					text-decoration: none
+					.icon
+						background-position: 0px -232px
+
+				@media screen and (max-width: 900px)
+					visibility: hidden
+					opacity: 0
+
+			.home-toolbar
+				position: relative
+				.timeline-triggers
+					display: none
+					background-color: #263752
+					position: relative
+					z-index: 2
+					@media screen and (max-width: 760px)
+						display: block
+
+					.colorbox
+						color: #fff
+						background-color: #263752
+						@extend .link1
+						text-decoration: none
+						height: 90px
+						line-height: 90px
+						text-align: center
+						padding: 0 20px
+						display: block
+						&.lightgreen
+							background-color: #94B933
+						&.skyblue
+							background-color: #71ADAF
+						&:hover, &:focus
+							color: #fff
+							text-decoration: none
+
+				.share-button
+					display: none
+					@media screen and (max-width: 650px)
+						display: block
+						height: 50px
+						line-height: 50px
+						color: #666666
+						visibility: visible !important
+						opacity: 1 !important
+						display: block
+						top: 0
+						bottom: 0
+						left: 0
+						right: 0
+						width: 100%
+						position: relative
+						background-color: #d6d6d6
+
+						&:before
+							content: ""
+							display: block
+							position: absolute
+							left: 50%
+							top: -24px
+							margin-left: -14px
+							margin-left: -13.5px
+							width: 0
+							height: 0
+							border-color: transparent
+							border-style: solid
+							border-width: 12px
+							border-left-width: 14px
+							border-left-width: 13.5px
+							border-right-width: 14px
+							border-bottom-color: #d6d6d6
+
+						.icon
+							background-position: 0px -215px
+							height: 13px
+				.bg-overlay
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					background-color: #000
+					opacity: 0.65
+				.container
+					position: relative
+					height: 100px
+					line-height: 100px
+					z-index: 2
+
+					@media screen and (max-width: 650px)
+						height: auto
+
+					span, .button-primary
+						display: inline-block
+						vertical-align: middle
+					span, .button-wrapper
+						@media screen and (max-width: 760px)
+							line-height: 3em
+							margin-bottom: 1.2em
+							margin-top: 0.2em
+					.button-wrapper
+						font-size: 10px
+						display: inline-block
+						vertical-align: middle
+						padding: 0
+						margin-left: 10px
+
+						@media screen and (max-width: 760px)
+							display: block
+							margin-left: 0
+						.button-primary
+							font-size: 10px
+							font-size: 2em
+							margin: 0
+
+			.page-toolbar
+				position: relative
+				opacity: 0
+				visibility: hidden
+				display: none
+
+				@media screen and (max-width: 760px)
+					position: fixed
+					bottom: 0
+					left: 50%
+				.toolbar-title
+					position: absolute
+					bottom: 64px
+					left: 0
+					@media screen and (max-width: 900px)
+						display: none
+				.bg-overlay
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					background-color: #000
+					opacity: 0.7
+					@media screen and (max-width: 900px)
+						display: none
+
+				.container
+					height: 60px
+					position: relative
+					z-index: 2
+					max-width: 978px
+					font-size: 10px
+					@media screen and (max-width: 1300px)
+						max-width: 920px
+					@media screen and (max-width: 1220px)
+						max-width: 800px
+					@media screen and (max-width: 940px)
+						max-width: 730px
+
+					@media screen and (max-width: 900px)
+						width: 0
+						padding: 0
+
+					.more-info
+						position: relative
+						z-index: 2
+						position: absolute
+						right: -62px
+						bottom: 0
+						width: 60px
+						height: 60px
+						background-color: #000
+						color: #fff
+
+						font-family: $sourcesans
+						font-weight: 400
+						font-size: 0.9em
+						text-align: center
+
+						visibility: hidden
+						opacity: 0
+
+						@media screen and (max-width: 1125px)
+							right: -31px
+
+						.icon
+							margin-top: 6px
+
+						span
+							display: block
+
+					.row
+						padding: 0
+						@media screen and (max-width: 900px)
+							display: none
+						[class*="col-"]
+							padding: 0
+
+							text-align: center
+							font-size: 10px
+							height: 52px
+							line-height: 52px
+
+							label
+								font-family: $sourcesans
+								font-size: 1.6em
+								font-weight: 400
+								color: #fff
+								display: inline-block
+								vertical-align: middle
+								cursor: pointer
+
+								input
+									opacity: 0
+									visibility: hidden
+									position: absolute
+									width: 1px
+									height: 1px
+
+								.icon
+									vertical-align: middle
+									background-position: 25px 25px
+									margin-right: 5px
+									width: 25px
+									height: 25px
+									border: 2px solid #fff
+
+								input:checked + .icon
+									background-position: -206px -227px
+
+					.colored-bar
+						background-color: #263752
+						height: 8px
+						margin-bottom: 0px
+						&.skyblue
+							background-color: #71ADAF
+						&.lightgreen
+							background-color: #94B933
+
+				&.interchange
+					.toolbar-title
+						display: none
+					.more-info
+						right: -31px
+					.container
+						width: 0
+						padding: 0
+					.row
+						display: none
+
+
+
+
+		.navigation-arrows
+			position: fixed
+			top: 50%
+			z-index: 100
+			left: 0
+			right: 0
+			margin-top: -63px
+			@media screen and (max-width: 760px)
+				margin-top: 0
+			@media screen and (max-width: 650px)
+				visibility: hidden
+			.arrow
+				z-index: 90
+				position: fixed
+				left: 25px
+				.abs-year
+					position: absolute
+					color: #fff
+					bottom: 67px
+					opacity: 0
+
+				&.next-slide
+					left: auto
+					right: 25px
+				&.prev-slide
+					opacity: 0
+
+			.arrow-down, .arrow-up
+				position: fixed
+				bottom: 120px
+				left: 50%
+				margin-left: -12px
+				width: 24px
+
+				z-index: 200
+
+				opacity: 0
+				visibility: hidden
+
+				color: #fff
+
+				&.arrow-up
+					bottom: auto
+					top: 70px
+
+				@media screen and (max-width: 750px)
+					bottom: 70px
+
+					&.arrow-up
+						bottom: auto
+
+				.date
+					margin-top: 10px
+					display: block
+					width: 200px
+					text-align: center
+					position: absolute
+					margin-left: -88px
+
+					@media screen and (max-width: 750px)
+						display: none
+
+
+
+
+
+
+		.close-button
+			font-family: $sourcesans
+			font-size: 100px
+			color: #fff
+			font-weight: 100
+			top: 20px
+			right: 55px
+			position: fixed
+			z-index: 9999999
+			height: 45px
+			width: 45px
+			line-height: 45px
+			text-decoration: none
+			opacity: 0
+			visibility: hidden
+
+			.close-medium
+				display: none
+
+			@media screen and (max-width: 900px)
+				top: 80px
+				right: 30px
+
+				.close-medium
+					display: block
+				.close-big
+					display: none
+
+
+
+
+
+
+		.timeline-lightbox
+			position: fixed
+			z-index: 190
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			visibility: hidden
+			opacity: 0
+			@media screen and (max-width: 900px)
+				top: 65px
+				bottom: 0
+				height: auto
+			.overlay
+				background-color: #000
+				position: fixed
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				opacity: 0.92
+			.content
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				overflow: auto
+				z-index: 2
+
+				@media screen and (max-width: 900px)
+					top: 0px
+					bottom: 0
+
+				.wrapper
+					position: relative
+					margin: 0 auto
+					top: 50%
+
+					.inner
+						position: relative
+						text-align: center
+						display: inline-block
+						
+						h6
+							margin: 0 30px 20px
+							padding: 0 5px
+						ul.links
+							margin: 0
+							padding: 0
+							list-style: none
+							li
+								padding: 15px 0px
+								margin: 0
+								.icon
+									vertical-align: middle
+									margin-right: 5px
+								&:last-child
+									padding-bottom: 0
+						ul.social-links
+							list-style: none
+							padding: 0
+							margin: 0
+							li
+								display: inline-block
+								margin-right: 7px
+
+								&.small-icons
+									display: none
+
+								@media screen and (max-width: 760px)
+									&.small-icons
+										display: inline-block
+									&.big-icons
+										display: none
+						img
+							max-width: 95%
+
+
+					a
+						color: #fff
+
+					a, .link1, .link2
+						&:hover, &:focus
+							text-decoration: none
+
+			&.open
+				visibility: visible
+
+				.content
+					.wrapper
+						.inner
+							h6
+								padding: 0
+		
+
+
+
+
+
+		.timeline-wrapper
+			position: absolute
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+			padding: 0
+			margin: 0
+			z-index: 2
+			overflow: hidden
+
+			@media screen and (max-width: 760px)
+				position: relative
+				height: 488px
+
+				&.timeline
+					height: 100%
+					position: absolute
+
+			@media screen and (max-width: 600px)
+				height: 388px
+			@media screen and (max-width: 480px)
+				height: 250px
+
+			.stagesWrapper
+				height: 100%
+				width: 100%
+				margin: 0
+				padding: 0
+				position: absolute
+
+				.stage-wrapper
+					overflow: hidden
+
+				.stage
+					width: 33.33%
+					height: 100%
+					float: left
+					padding: 0
+					margin: 0
+					position: relative
+
+					.roomsWrapper
+						position: absolute
+						width: 50%
+						height: 100%
+						padding: 0
+						margin: 0
+						overflow: hidden
+
+						.room
+							background-size: cover
+							-webkit-background-size: cover
+							position: relative
+							width: 100%
+							height: 100vh
+							padding: 0
+							margin: 0
+							overflow: hidden
+
+							.bg-overlay, .bg-overlay-intense
+								position: absolute
+								top: 0
+								left: 0
+								width: 100%
+								height: 100%
+								background-color: #000000
+								opacity: 0.7
+
+							.colored-bar
+								height: 10px
+								position: relative
+								background-color: #263752
+								z-index: 2
+
+								@media screen and (max-width: 760px)
+									display: none
+
+							.wrapper
+								width: 200%
+								position: relative
+								top: 50%
+								padding: 20px 30px 0
+								opacity: 0
+								z-index: 2
+								margin-top: -20px
+
+								@media screen and (max-width: 760px)
+									opacity: 0
+									visibility: hidden
+
+								p
+									&.button-wrapper
+										font-size: 10px
+										@media screen and (max-height: 610px)
+											margin-bottom: 0
+											.button-primary, .ghost, a.button-primary
+												margin-top: 10px
+												margin-bottom: 0
+
+
+							.internal-stage
+								position: relative
+								height: 100vh
+								width: 25vw
+								float: left
+								display: none
+								&.static
+									background-color: #263752
+									.link1, .link2, a.link1, a.link2, .link1 span, .link2 span
+										&:hover, &:focus
+											color: #fff
+											text-decoration: none
+								&.skyblue
+									background-color: #71ADAF
+								&.lightgreen
+									background-color: #94B933
+
+								&.active
+									display: block
+
+
+								.bg-overlay
+									opacity: 0.5
+								.bg-overlay-intense
+									opacity: 0
+									visibility: hidden
+									-webkit-transition: all 0.3s
+									-moz-transition: all 0.3s
+									-ms-transition: all 0.3s
+									-o-transition: all 0.3s
+									transition: all 0.3s
+									&.textured
+										background: transparent url(../img/timeline/texture.png) center center
+
+								.internal-wrapper
+									position: relative
+									padding: 0 20px
+									z-index: 2
+
+									@media screen and (max-width: 1125px)
+										padding: 0 10px
+
+
+									.hidden-data
+										display: none
+										opacity: 0
+										visibility: hidden
+
+										.button-wrapper
+											.button-primary
+												margin: 0
+
+
+								.internal-room
+									position: absolute
+									top: 0
+									left: 0
+									width: 100%
+									height: 100%
+									opacity: 0
+									visibility: hidden
+
+									.sub-stage
+										float: left
+										width: 100%
+										position: relative
+
+										.container
+											max-width: 1100px
+
+											@media screen and (max-width: 850px)
+												max-width: 700px
+											@media screen and (max-width: 800px)
+												max-width: 680px
+											@media screen and (max-width: 768px)
+												margin: 0 50px
+
+										.internal-container
+											padding: 0 25px
+
+										.time-text
+											p
+												margin-bottom: 0
+											.button-primary.ghost, a.button-primary, a.ghost
+												margin-top: 20px
+
+
+								&.static
+									.internal-wrapper
+										p, .button-wrapper
+											a.button-primary, .button-primary
+												margin-top: 5px
+
+								&.hover
+									.bg-overlay-intense
+										opacity: 0.65
+										visibility: visible
+										&.textured
+											opacity: 0
+									.hidden-data
+										display: block
+										visibility: visible
+										opacity: 1
+										-webkit-transition: display 0s, visibility 0.3s, opacity 0.3s
+										-moz-transition: display 0s, visibility 0.3s, opacity 0.3s
+										-ms-transition: display 0s, visibility 0.3s, opacity 0.3s
+										-o-transition: display 0s, visibility 0.3s, opacity 0.3s
+										transition: display 0s, visibility 0.3s, opacity 0.3s
+
+								&.overviewing, &.preview
+									.bg-overlay-intense
+										&.textured
+											opacity: 1
+											visibility: visible
+
+
+
+					&.jr-stage
+						.roomsWrapper
+							.room
+								.colored-bar
+									background-color: #71ADAF
+					&.rr-stage
+						.roomsWrapper
+							.room
+								.colored-bar
+									background-color: #94B933
+
+
+
+
+
+
+		.timeline-wrapper-mobile
+			display: none
+
+			background-color: #FFF
+			position: relative
+
+			color: #333333
+
+			font-size: 10px
+
+			.time-entry
+				display: none
+
+			.acordion
+				.accordion-item
+					border-top: 2px solid #eeeeee
+					margin: 0 10px
+					display: none
+
+					h4
+						background-color: #fff
+						line-height: 31px
+						padding: 17px 40px 20px 15px
+						margin-bottom: 0px
+						margin-top: 0px
+						position: relative
+						cursor: pointer
+						font-size: 2.8em
+						font-family: $robotoslab
+						font-weight: 700
+						
+						.icon
+							position: absolute
+							right: 12px
+							top: 50%
+							margin-top: -12px
+							cursor: pointer
+						
+
+					.acordion-text
+						font-size: 10px
+						padding: 0 0
+						visibility: hidden
+						opacity: 0
+						overflow: hidden
+						font-family: $sourcesans
+						font-weight: 400
+
+						max-height: 0
+						-webkit-transition: height 1s, opacity 0.3s, visibility 0.3s
+						-moz-transition: height 1s, opacity 0.3s, visibility 0.3s
+						-ms-transition: height 1s, opacity 0.3s, visibility 0.3s
+						-o-transition: height 1s, opacity 0.3s, visibility 0.3s
+						transition: height 1s, opacity 0.3s, visibility 0.3s
+						p
+							span
+								display: block
+								margin-top: 20px
+								i
+									margin-right: 20px
+
+						.text-wrapper
+							padding: 0 20px 10px
+							font-size: 10px
+
+							p, .date-header, ul
+								font-size: 1.8em
+							.date-header
+								margin-bottom: 5px
+
+							h3
+								font-size: 3.2em
+								line-height: 1em
+								font-weight: 300
+								margin: 0 0 15px
+								padding: 0
+
+							.semibold
+								font-weight: 600
+
+							.divider
+								display: block
+								clear: both
+								height: 2px
+								background-color: #eeeeee
+								margin: 20px 0 15px
+
+							.links-list
+								padding: 0
+								margin: 0
+								list-style: none
+								li
+									margin-bottom: 15px
+									&:last-child
+										margin-bottom: 0
+									a
+										text-decoration: underline
+										color: #333333
+
+										.icon
+											vertical-align: middle
+									
+
+						.feature-image
+							position: relative
+							max-height: 205px
+							overflow: hidden
+							font-size: 10px
+							padding-bottom: 50.5%
+							margin: 0 0 15px
+							img
+								position: relative
+								width: 100%
+							.overlay
+								position: absolute
+								width: 100%
+								height: 100%
+								top: 0
+								left: 0
+								z-index: 1
+								background-color: #000
+								opacity: 0.5
+							.feature-text
+								position: absolute
+								bottom: 0
+								left: 0
+								width: 100%
+								z-index: 2
+								padding: 0 10px
+
+								.magnify-zoom
+									position: absolute
+									z-index: 1
+									right: 10px
+									bottom: 0
+
+								h2
+									color: #fff
+									font-size: 4.2em
+									position: relative
+
+						.share-button
+							margin-top: 25px
+							display: block
+							height: 50px
+							line-height: 45px
+							color: #666666
+							visibility: visible
+							opacity: 1
+							display: block
+							top: 0
+							bottom: 0
+							left: 0
+							right: 0
+							width: 100%
+							position: relative
+							background-color: #d6d6d6
+							border: 2px solid #d6d6d6
+							font-family: $sourcesans
+							font-weight: 600
+							font-size: 1.6em
+							text-align: center
+
+							&:before
+								content: ""
+								display: block
+								position: absolute
+								left: 50%
+								top: -24px
+								margin-left: -14px
+								margin-left: -13.5px
+								width: 0
+								height: 0
+								border-color: transparent
+								border-style: solid
+								border-width: 12px
+								border-left-width: 14px
+								border-left-width: 13.5px
+								border-right-width: 14px
+								border-bottom-color: #d6d6d6
+
+							.icon
+								background-position: 0 -216px
+								vertical-align: middle
+
+
+					&.expanded
+						> h4 .icon.plus-color
+							background-position: -238px -291px
+						> .acordion-text
+							padding: 0 0px 15px
+							margin: 0 -10px
+							opacity: 1
+							visibility: visible
+							max-height: 100000px
+
+					&.colored
+						color: #fff
+						border-top: none
+						margin: 0
+						padding: 0 10px
+						&.skyblue
+							background-color: #71ADAF
+						&.lightgreen
+							background-color: #94B933
+						&.blue
+							background-color: #263752
+
+						h4
+							font-size: 2em
+							background-color: transparent
+
+							.icon.plus-color
+								background-position: -192px -263px
+						
+						.acordion-text
+							color: #fff
+							.text-wrapper
+								p, .date-header, ul
+									// font-size: 1.8em
+
+						&.expanded
+							> h4 .icon.plus-color
+								background-position: -192px -291px
+
+			&.jrf-filter
+				.acordion
+					.accordion-item.jrf-filter, .jrf-filter.time-entry
+						display: block
+			&.jr-filter
+				.acordion
+					.accordion-item.jr-filter, .jr-filter.time-entry
+						display: block
+			&.rr-filter
+				.acordion
+					.accordion-item.rr-filter, .rr-filter.time-entry
+						display: block

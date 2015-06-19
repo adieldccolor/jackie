@@ -1,0 +1,41 @@
+.faqs .container {
+  max-width: 1010px; }
+.faqs .icon.smallCollapseIcon.collapsedIcon {
+  background-position-y: -825px !important; }
+.faqs .page .container h3 {
+  first-child-margin-top: 7px; }
+.faqs .acordion h4 {
+  background-color: #eeeeee;
+  line-height: 31px;
+  padding: 14.5px 30px;
+  margin-bottom: 20px; }
+.faqs .acordion .acordion-text {
+  padding: 5px 30px 1px 30px; }
+  .faqs .acordion .acordion-text p span {
+    display: block;
+    margin-top: 20px; }
+    .faqs .acordion .acordion-text p span i {
+      margin-right: 20px; }
+  .faqs .acordion .acordion-text ul {
+    padding: 0px 20px; }
+    .faqs .acordion .acordion-text ul li {
+      list-style-image: url(../img/bullet.png);
+      padding-left: 12px;
+      margin-bottom: 26px;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 1em;
+      line-height: 140%;
+      letter-spacing: 0.03em;
+      font-weight: 400; }
+.faqs .left {
+  text-aling: left; }
+.faqs a {
+  margin-top: 19px;
+  margin-bottom: 9px; }
+.faqs .last {
+  margin-bottom: -30px; }
+.faqs .social_media {
+  float: left;
+  margin-top: 8px;
+  color: #263752;
+  margin-right: 10px; }

@@ -1,0 +1,195 @@
+@import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto+Slab:400,700);
+
+body {
+    font-size: 14px !important;
+    background-color: #263752;
+}
+
+
+#social {
+    background: #263752 url(../img/half-bg.png) 50% 0 repeat-y;
+    min-height: 36em;
+    display: block;
+    width: 100%;
+    color: white;
+    font-size: 1em;
+    display: block;
+    clear: both;
+    position: relative;
+}
+@media screen and (max-width: 767px) {
+    #social {
+        background-image: none;
+    }
+}
+#social .other {
+    min-height: 18em;
+    background-image: url(../img/newsletterBack.jpg);
+    background-size: cover;
+    position: relative;
+}
+#social .blog {
+    min-height: 24em;
+    background-color: white;
+    color: #263752;
+}
+#social .blog .wrapper {
+    padding: 0 2em;
+}
+@media screen and (max-width: 767px) {
+    #social .blog .wrapper {
+        text-align: center;
+    }
+}
+#social .blog h2 {
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
+    margin-top: 1.3em;
+    margin-bottom: 0.6322em;
+}
+#social .blog p {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.7em;
+    font-weight: 300;
+}
+#social .blog .button-primary {
+    margin: 1.2em 0 0 0;
+}
+@media screen and (max-width: 767px) {
+    #social .blog .button-primary {
+        display: inline-block;
+    }
+}
+#social .twitter {
+    min-height: 24em;
+}
+#social .twitter .wrapper {
+    padding: 1em 2em;
+}
+@media screen and (max-width: 767px) {
+    #social .twitter .wrapper {
+        text-align: center;
+    }
+}
+#social .twitter h2 {
+    font-family: "Roboto Slab", serif;
+    display: inline-block;
+    margin-left: 0.4em;
+    margin-bottom: 0.7em;
+    font-weight: 700;
+}
+#social .twitter p {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.7em;
+    font-weight: 300;
+}
+#social .twitter .button-second {
+    margin: 1.2em 0 0 0;
+    margin: auto;
+}
+#social .newsletter {
+    position: relative;
+    min-height: 18em;
+}
+@media screen and (max-width: 767px) {
+    #social .newsletter {
+        background-image: url(../img/newsletterBack.jpg);
+    }
+}
+#social .newsletter .wrapper {
+    padding: 0 2em;
+}
+@media screen and (max-width: 767px) {
+    #social .newsletter .wrapper {
+        text-align: center;
+    }
+}
+#social .newsletter h2 {
+    font-family: "Roboto Slab", serif;
+    display: inline-block;
+    margin-left: 0;
+    margin-bottom: 0.7em;
+    font-weight: 700;
+}
+#social .newsletter p {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.7em;
+    font-weight: 300;
+}
+#social .newsletter .button-second {
+    margin: 1.2em 0 0 0;
+}
+#social .shareThis {
+    min-height: 18em;
+}
+@media screen and (max-width: 767px) {
+    #social .shareThis {
+        background-color: #000;
+    }
+}
+#social .shareThis .wrapper {
+    padding: 0 2em;
+}
+@media screen and (max-width: 767px) {
+    #social .shareThis .wrapper {
+        text-align: center;
+    }
+}
+#social .shareThis h2 {
+    font-family: "Roboto Slab", serif;
+    display: inline-block;
+    margin-left: 0;
+    margin-bottom: 0.7em;
+    font-weight: 700;
+}
+#social .shareThis p {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.7em;
+    font-weight: 300;
+}
+
+#footer {
+    background-color: #222222;
+    min-height: 15.5em;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding-top: 3em;
+}
+#footer .link-body {
+    color: white;
+    margin-left: 3.3em;
+    font-size: 1.2em;
+    text-decoration: underline;
+    padding-bottom: 2em;
+    display: inline-block;
+}
+#footer .link-body:first-child {
+    margin-left: 0;
+}
+@media screen and (max-width: 980px) {
+    #footer .link-body {
+        font-size: 1em;
+        margin-left: 3em;
+    }
+}
+@media screen and (max-width: 767px) {
+    #footer .link-body {
+        margin-left: 2em;
+    }
+}
+#footer .icons-f {
+    width: 100%;
+    margin: 0 auto;
+}
+#footer .p-f {
+    color: white;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+@-moz-document url-prefix() {
+    #menuTop .logo {
+        margin-left: -7em;
+    }
+}

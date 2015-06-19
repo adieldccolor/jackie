@@ -1,0 +1,367 @@
+.gallery-row
+	.gallery-column
+		@media screen and (max-width: 600px)
+			width: 50%
+		@media screen and (max-width: 480px)
+			width: 100%
+			float: none
+		padding-top: 30px
+
+	.gallery-item
+		position: relative
+		&.album-item
+			border: 1px solid #D6D6D6
+			padding: 10px 10px 20px
+			@media screen and (max-width: 480px)
+				max-width: 309px
+				margin: 0 auto
+			.item-anchor
+				position: absolute
+				z-index: 5
+				width: 100%
+				height: 100%
+				left: 0
+				top: 0
+			.item-cover
+				img
+					max-width: 100%
+					display: block
+					margin: 0 auto
+			.item-title
+				color: #263752
+				font-family: $sourcesans
+				font-weight: 600
+				margin-top: 20px
+				line-height: 120%
+				height: 40px
+				overflow: hidden
+				text-overflow: ellipsis
+				font-size: 0.89em
+				@media screen and (max-width: 768px)
+					font-size: 0.84em
+					height: 38px
+				@media screen and (max-width: 600px)
+					font-size: 0.8em
+					height: 35px
+			.item-count
+				margin-top: 15px
+				color: #666666
+				font-family: $sourcesans
+				font-size: 0.89em
+				text-decoration: underline
+				@media screen and (max-width: 768px)
+					font-size: 0.8em
+				@media screen and (max-width: 600px)
+					font-size: 0.75em
+
+		
+		&.photo-item
+			padding: 0 0 0px
+			@media screen and (max-width: 480px)
+				max-width: 309px
+				margin: 0 auto
+			.item-anchor
+				position: absolute
+				z-index: 5
+				width: 100%
+				height: 100%
+				left: 0
+				top: 0
+			.item-cover
+				position: relative
+				.icon
+					position: absolute
+					top: 50%
+					left: 50%
+					margin-top: -27px
+					margin-left: -27px
+					z-index: 2
+				.bg-overlay
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					background-color: #000
+					opacity: 0.7
+					z-index: 1
+				.bg-overlay, .icon
+					opacity: 0
+					visibility: hidden
+					-webkit-transition: all 0.3s
+					-moz-transition: all 0.3s
+					-ms-transition: all 0.3s
+					-o-transition: all 0.3s
+					transition: all 0.3s
+				img
+					max-width: 100%
+					display: block
+					margin: 0 auto
+					@media screen and (min-width: 769px)
+						width: 100%
+			&:hover, .item-anchor:focus
+				.item-cover , & + .item-cover
+					.bg-overlay, .icon
+						visibility: visible
+						opacity: 1
+					.bg-overlay
+						opacity: 0.7
+
+
+		&.video-item
+			padding: 0px 0px 20px
+			@media screen and (max-width: 480px)
+				max-width: 309px
+				margin: 0 auto
+			.item-anchor
+				position: absolute
+				z-index: 5
+				width: 100%
+				height: 100%
+				left: 0
+				top: 0
+			.item-cover
+				position: relative
+				.icon
+					position: absolute
+					top: 50%
+					left: 50%
+					margin-top: -30px
+					margin-left: -30px
+				img
+					max-width: 100%
+					display: block
+					margin: 0 auto
+			.item-title
+				color: #263752
+				font-family: $sourcesans
+				font-weight: 400
+				margin-top: 20px
+				line-height: 118%
+				height: 40px
+				overflow: hidden
+				text-decoration: underline
+				text-overflow: ellipsis
+				font-size: 1em
+				@media screen and (max-width: 768px)
+					font-size: 0.89em
+					height: 38px
+				@media screen and (max-width: 600px)
+					font-size: 0.8em
+					height: 35px
+
+.trouble-link
+	margin-top: 60px
+	a
+		margin-top: 30px
+		margin-bottom: 10px
+		display: inline-block
+
+
+
+
+.videos-section
+	background-color: #eeeeee
+
+
+
+.gallery-lightbox
+	position: fixed
+	position: fixed
+	top: 0
+	bottom: 0
+	left: 0
+	width: 100%
+	z-index: 9999999
+	visibility: hidden
+	opacity: 0
+	&.open
+		opacity: 1
+		visibility: visible
+	.overlay, .loading-overlay
+		position: fixed
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		background-color: #000
+		z-index: 1
+		opacity: 0.94
+	.loading-overlay
+		background: #000 url(../img/loader.gif) center center no-repeat
+	.content
+		position: absolute
+		z-index: 2
+		width: 100%
+		height: 100%
+		@media screen and (max-width: 768px)
+			overflow: auto
+		.wrapper
+			display: block
+			max-width: 980px
+			margin: 10px auto
+			color: #fff
+			position: relative
+			z-index: 2
+			-webkit-transition: margin 0.3s
+			-moz-transition: margin 0.3s
+			-ms-transition: margin 0.3s
+			-o-transition: margin 0.3s
+			transition: margin 0.3s
+			@media screen and (max-width: 768px)
+				margin: 10px !important
+			.image-wrapper
+				position: relative
+				height: 100%
+				background: #000000
+				@media screen and (max-width: 768px)
+					height: auto !important
+				img
+					position: relative
+					// max-height: 100%
+					// max-width: 100%
+					display: block
+					margin: 0 auto
+					// top: 0
+					// left: 50%
+					// height: 100%
+					// min-width: 100%
+					max-height: 100%
+					max-width: 100%
+					// @media screen and (max-width: 768px)
+					// 	position: relative
+					// 	left: 0
+					// 	margin-left: 0 !important
+					// 	height: auto
+					// 	max-height: auto
+
+			.info-wrapper
+				text-align: center
+				p
+					font-size: 0.89em
+					&.img-text
+						padding-top: 20px
+					&.state
+						font-size: 0.8em
+			.share-wrapper
+				padding-top: 20px
+				ul
+					text-align: center
+					list-style: none
+					margin: 0
+					padding: 0
+					li
+						display: inline-block
+						a, span
+							display: block
+							margin-right: 10px
+							height: 40px
+							line-height: 40px
+							&.share-button
+								font-family: $sourcesans
+								font-size: 0.8em
+								font-weight: 500
+							.icon
+								vertical-align: middle
+
+	.arrow-wrapper
+		position: relative
+		z-index: 90
+		.left-arrow, .right-arrow
+			position: absolute
+			top: 50%
+			margin-top: -18px
+			left: 40px
+		.right-arrow
+			left: auto
+			right: 40px
+
+
+	.hidden-data
+		visibility: hidden
+		overflow: hidden
+		opacity: 0
+		position: absolute
+		width: 1px
+
+	.error-img
+		display: none !important
+
+	&.has-error
+		.error-img
+			display: block !important
+		.good-img
+			display: none !important
+		.content-wrapper
+			display: none
+
+
+.video-view
+	padding-bottom: 0
+	.video-story
+		display: none
+	&.active-video
+		background-color: #263752
+		color: #fff
+		padding-bottom: 80px
+		.container
+			max-width: 862px
+			h1,h2,h3,h4,h5,h6
+				text-align: center
+
+			.video-story
+				display: block
+				text-align: left
+				h1,h2,h3,h4,h5,h6
+					text-align: left
+
+	.share-wrapper
+		padding-top: 0px
+		ul
+			text-align: left
+			list-style: none
+			margin: 0
+			padding: 0
+			li
+				display: inline-block
+				a, span
+					display: block
+					margin-right: 10px
+					height: 40px
+					line-height: 40px
+					&.share-button
+						font-family: $sourcesans
+						font-size: 0.8em
+						font-weight: 500
+					.icon
+						vertical-align: middle
+
+	.video-story
+		margin-top: 25px
+		.videoWrapper
+			margin-bottom: 35px
+
+		p
+			@extend .bodytext1
+			font-weight: 300 !important
+
+	.videoWrapper
+		position: relative
+		padding-bottom: 56.25%
+		padding-top: 25px
+		height: 0
+		iframe, object, embed
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+
+.videos-list
+	padding-top: 0
+	&.active-video
+		padding-top: 25px
+
+
+body.lightbox_open
+	overflow: hidden

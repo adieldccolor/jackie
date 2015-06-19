@@ -1,0 +1,399 @@
+.icon
+	display: inline-block
+	background: url(../img/sprite.png) 0 0 no-repeat
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5)
+		background-image: url(../img/sprite@2x.png)
+		-webkit-background-size: 533px 800px
+		background-size: 533px 800px
+		image-rendering: optimizeQuality
+
+	&.arrowLeft, &.arrowRight
+		width: 18px
+		height: 32px
+		background-position: 0 0
+		&.arrowRight
+			// background-position: -50px 0
+			// background-position-x: -50px
+			background-position: -33px 0
+		&.inverted
+			// background-position-y: -59px
+			// background-position: 0px -59px
+			background-position: 0 -38px
+			&.arrowRight
+				// background-position: -50px -59px
+				background-position: -33px -38px
+
+	&.arrowDown
+		width: 32px
+		height: 20px
+		background-position: -133px -18px
+		&.small
+			background-position: -170px -19px
+		&.inverted
+			background-position: -133px -46px
+			&.small
+				background-position: -170px -46px
+
+	&.twitterIcon
+		width: 40px
+		height: 40px
+		background-position: -227px 0px
+
+	&.pdfIcon
+		width: 24px
+		height: 24px
+		background-position: -233px -42px
+
+	&.shareIcon
+		width: 11px
+		height: 11px
+		// background-position: -503px 0
+		// background-position-x: -503px
+		background-position: -336px 0
+		&.bigShareIcon
+			// background-position: -531px 0
+			// background-position-x: -531px
+			background-position: -336px 0
+		&.blueShareIcon
+			// background-position: -503px -26px
+			// background-position-y: -26px
+			background-position: -336px -17px
+			&.bigShareIcon
+				// background-position: -531px -26px
+				background-position: -336px -17px
+		&.grayShareIcon
+			background-position: -336px -35px
+			// background-position-y: -53px
+			&.bigShareIcon
+				// background-position: -531px -53px
+				background-position: -336px -35px
+		&.whiteShareIcon
+			// background-position: -503px -80px
+			// background-position-y: -80px
+			background-position: -336px -52px
+			&.bigShareIcon
+				// background-position: -531px -80px
+				background-position: -336px -52px
+
+	&.collapseIcon
+		width: 35px
+		height: 35px
+		background-position: -602px 0
+		background-position-x: -602px
+		&.collapsedIcon
+			background-position: -602px -45px
+			background-position-y: -45px
+
+	&.quoteIcon
+		width: 31px
+		height: 30px
+		background-position: -700px 0
+		background-position-x: -700px
+		&.inverted
+			background-position: -700px -40px
+			background-position-y: -40px
+
+	&.socialIcon
+		width: 80px
+		height: 80px
+		// background-position: 0 -161px
+		// background-position-y: -161px
+		background-position: 0 -107px
+		&.filledIcon, &:hover
+			// background-position: 0 -288px
+			// background-position-y: -288px
+			background-position: 0 -192px
+		&.twitterSocialIcon
+			// background-position: -202px -161px
+			// background-position-x: -202px
+			background-position: -133px -107px
+			&.filledIcon, &:hover
+				// background-position: -202px -288px
+				background-position: -133px -192px
+		&.pinterestSocialIcon
+			// background-position: -403px -161px
+			// background-position-x: -403px
+			background-position: -268px -107px
+			&.filledIcon, &:hover
+				// background-position: -403px -288px
+				background-position: -268px -192px
+		&.linkedinSocialIcon
+			// background-position: -601px -161px
+			// background-position-x: -601px
+			background-position: -400px -108px
+			&.filledIcon, &:hover
+				// background-position: -601px -288px
+				background-position: -400px -193px
+
+
+	&.smallSocialIcon
+		width: 41px
+		height: 41px
+		// background-position: 0 -481px
+		// background-position-y: -481px
+		background-position: 0 -320px
+		&.inverted
+			// background-position: -400px -481px
+			// background-position-x: -400px
+			background-position: -266px -320px
+			&:hover
+				background-position: -266px -366px
+		&.filledIcon
+			// background-position: 0 -550px
+			// background-position-y: -550px
+			background-position: 0 -366px
+		&.twitterSmallSocialIcon
+			// background-position: -100px -481px
+			// background-position-x: -100px -481px
+			background-position: -66px -320px
+			&.inverted
+				// background-position: -500px -481px
+				// background-position-x: -500px
+				background-position: -333px -320px
+				&:hover
+					background-position: -333px -366px
+			&.filledIcon
+				background-position: -66px -366px
+				// background-position: -100px -550px
+		&.pinterestSmallSocialIcon
+			// background-position: -199px -481px
+			// background-position-x: -199px
+			background-position: -133px -320px
+			&.inverted
+				// background-position: -599px -481px
+				// background-position-x: -599px
+				background-position: -399px -320px
+				&:hover
+					background-position: -399px -366px
+			&.filledIcon
+				background-position: -133px -366px
+				// background-position: -199px -550px
+		&.linkedinSmallSocialIcon
+			// background-position: -299px -481px
+			// background-position-x: -299px
+			background-position: -199px -320px
+			&.inverted
+				// background-position: -700px -481px
+				// background-position-x: -700px
+				background-position: -466px -320px
+				&:hover
+					background-position: -466px -366px
+			&.filledIcon
+				// background-position: -299px -550px
+				background-position: -199px -366px
+
+
+	&.tinySocialIcon
+		width: 24px
+		height: 24px
+		// background-position: 0 -640px
+		// background-position-y: -640px
+		background-position: 0 -427px
+
+		&.twitterTinySocialIcon
+			// background-position: -50px -640px
+			// background-position-x: -50px
+			background-position: -33px -427px
+
+		&.youtubeTinySocialIcon
+			// background-position: -100px -640px
+			// background-position-x: -100px
+			background-position: -66px -427px
+
+		&.linkedinTinySocialIcon
+			// background-position: -150px -640px
+			// background-position-x: -150px
+			background-position: -100px -427px
+
+		&.instagramTinySocialIcon
+			// background-position: -200px -640px
+			// background-position-x: -200px
+			background-position: -133px -427px
+
+
+	&.mapMarker
+		width: 16px
+		height: 21px
+		// background-position: -250px -640px
+		background-position: -166px -426px
+
+	&.pdfDocIcon
+		width: 15px
+		height: 21px
+		// background-position: -300px -640px
+		background-position: -200px -427px
+		&.inverted
+			// background-position: -300px -680px
+			// background-position-y: -680px
+			background-position: -200px -453px
+
+	&.romboIcon
+		width: 13px
+		height: 14px
+		background-position: -350px -640px
+
+
+
+
+	&.mediumSocialIcon
+		width: 54px
+		height: 54px
+		// background-position: -450px -640px
+		background-position: -300px -427px
+
+		&.inverted
+			// background-position: -450px -730px
+			// background-position-y: -730px
+			background-position: -300px -487px
+
+		&.twitterMediumSocialIcon
+			// background-position: -550px -640px
+			// background-position-x: -550px
+			background-position: -367px -426px
+			&.inverted
+				// background-position: -550px -730px
+				background-position: -367px -486px
+
+		&.pinterestMediumSocialIcon
+			// background-position: -650px -640px
+			// background-position-x: -650px
+			background-position: -433px -426px
+			&.inverted
+				// background-position: -650px -730px
+				background-position: -433px -486px
+
+
+	&.searchIcon
+		width: 27px
+		height: 26px
+		background-position: 0 -533px
+
+		&.inverted
+			// background-position: 0 -848px
+			// background-position-y: -848px
+			background-position: 0 -566px
+
+	&.menuIcon
+		width: 35px
+		height: 23px
+		// background-position: -100px -800px
+		background-position: -66px -533px
+		&.inverted
+			// background-position: -100px -844px
+			// background-position-y: -844px
+			background-position: -66px -562px
+
+	&.smallCollapseIcon
+		width: 24px
+		height: 24px
+		// background-position: -200px -800px
+		// background-position: -133px -532px
+		background-position: -400px 0
+
+		&.collapsedIcon
+			// background-position: -200px -830px
+			// background-position-y: -830px
+			background-position: -400px -30px
+
+	&.playIcon
+		width: 61px
+		height: 60px
+		background-position: 0 -641px
+
+	&.zoomIcon
+		width: 54px
+		height: 54px
+		background-position: 0 -720px
+
+
+
+	&.timesIcon, &.lb-close
+		width: 34px
+		height: 32px
+		background-position: -134px -641px
+
+	&.arrowUp
+		width: 50px
+		height: 50px
+		background-position: -233px -640px
+
+		&.inverted
+			background-position: -233px -696px
+			// background-position-y: -1045px
+	&.little-left-arrow
+		width: 10px
+		height: 18px
+		// background-position-y: -59px
+		background-position: 0px -79px
+	&.little-right-arrow
+		width: 10px
+		height: 18px
+		// background-position-y: -59px
+		background-position: -33px -79px
+
+	&.quote-left
+		width: 24px
+		height: 20px
+		background-position: -466px 0
+		vertical-align: middle
+	&.quote-right
+		width: 24px
+		height: 20px
+		background-position: -466px -26px
+		margin-left: 10px
+
+.quote
+	display: inline-block
+	background: url(../img/inverted-quote-icon.png) 0 0 no-repeat
+	height: 20px
+	width: 20px
+	margin-left: 10px
+
+
+a
+	&:hover, &:focus
+		.icon
+			&.socialIcon
+				@extend .icon.socialIcon.filledIcon
+				&.twitterSocialIcon
+					@extend .icon.twitterSocialIcon.filledIcon
+				&.pinterestSocialIcon
+					@extend .icon.pinterestSocialIcon.filledIcon
+				&.linkedinSocialIcon
+					@extend .icon.linkedinSocialIcon.filledIcon
+
+			&.smallSocialIcon
+				@extend .icon.smallSocialIcon.filledIcon
+				&.twitterSmallSocialIcon
+					@extend .icon.twitterSmallSocialIcon.filledIcon
+				&.pinterestSmallSocialIcon
+					@extend .icon.pinterestSmallSocialIcon.filledIcon
+				&.linkedinSmallSocialIcon
+					@extend .icon.linkedinSmallSocialIcon.filledIcon
+
+.arrow-button .go-bottom
+	background-position: -334px -229px !important
+	&:hover, &:focus
+		background-position: -334px -229px !important
+
+.video-view, #lightbox
+	a
+		&:hover, &:focus
+			.icon
+				&.socialIcon
+					@extend .icon.socialIcon
+					&.twitterSocialIcon
+						@extend .icon.twitterSocialIcon
+					&.pinterestSocialIcon
+						@extend .icon.pinterestSocialIcon
+					&.linkedinSocialIcon
+						@extend .icon.linkedinSocialIcon
+
+				&.smallSocialIcon
+					@extend .icon.smallSocialIcon
+					&.twitterSmallSocialIcon
+						@extend .icon.twitterSmallSocialIcon
+					&.pinterestSmallSocialIcon
+						@extend .icon.pinterestSmallSocialIcon
+					&.linkedinSmallSocialIcon
+						@extend .icon.linkedinSmallSocialIcon

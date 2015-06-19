@@ -1,0 +1,126 @@
+.main-awards-info {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 0; }
+  @media screen and (max-width: 480px) {
+    .main-awards-info {
+      padding-bottom: 0; } }
+  @media screen and (max-width: 480px) {
+    .main-awards-info {
+      padding-bottom: 0; }
+      .main-awards-info .col-xxs {
+        width: 100%;
+        float: none;
+        display: block; } }
+  .main-awards-info .right_column {
+    position: relative; }
+    .main-awards-info .right_column .wrapper {
+      position: relative;
+      z-index: 1; }
+  .main-awards-info .main-award-dinner {
+    position: relative;
+    z-index: 2; }
+    @media screen and (max-width: 768px) {
+      .main-awards-info .main-award-dinner .right_column {
+        background-color: #EEEEEE; } }
+    @media screen and (max-width: 480px) {
+      .main-awards-info .main-award-dinner .right_column {
+        background-color: #EEEEEE; } }
+
+.section-background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0; }
+  .section-background .back-awards-side {
+    position: absolute;
+    height: 100%;
+    width: 6000px;
+    top: 0;
+    left: 0;
+    background-color: #EEEEEE; }
+  .section-background .container, .section-background .row, .section-background [class*="col-"] {
+    position: relative;
+    height: 100%; }
+
+.special-padding-column-1-1 {
+  padding: 2px 50px 0 0 !important; }
+
+.special-padding-column-2-1 {
+  padding: 2px 0 0 38px !important; }
+
+.special-line-height {
+  line-height: 140%; }
+
+.special-padding-column-2-2 {
+  padding: 0 0 50px 38px !important; }
+
+.margin-btn-register {
+  margin: 30px 0 20px 0 !important; }
+
+.special-txt-honorees-h3 {
+  margin: 40px 0 50px 0 !important;
+  padding: 0 !important; }
+
+.special-txt-honorees-1 {
+  fint-family: "Source Sans Pro", sans-serif;
+  font-size: 1em !important;
+  font-weight: 600 !important;
+  text-align: left;
+  line-height: 140%;
+  margin: 12px 0 0 0 !important; }
+
+.special-txt-honorees-2 {
+  fint-family: "Source Sans Pro", sans-serif;
+  font-size: 0.88em !important;
+  font-weight: 400 !important;
+  text-align: left;
+  line-height: 140%; }
+
+.no-margin-sides-row-accordion {
+  margin-left: 0 !important;
+  margin-right: 0 !important; }
+
+.special-txt-accordion-h3 {
+  margin: 40px 0 4px 0 !important;
+  padding: 0 !important; }
+
+.special-size-accordion-awards {
+  max-width: 981px;
+  margin-bottom: 40px; }
+
+.background-grey {
+  background-color: #EEEEEE; }
+
+.special-txt-sponsors-h3 {
+  margin: 40px 0 50px 0 !important;
+  padding: 0 !important; }
+
+.margin-bottom-img-sponsors {
+  margin-bottom: 60px; }
+
+.hr-awards-sponsors {
+  border-width: 2px;
+  border-color: #D6D6D6;
+  margin: 4px 0; }
+
+.special-txt-waldorf-h3 {
+  margin: 55px 0 20px 0 !important;
+  padding: 0 !important; }
+
+ul.special-tabs-awards {
+  width: 350px !important;
+  margin: 0 auto !important; }
+
+.no-padding-photos .col-lg-4 {
+  padding: 0 !important; }
+
+.margin-award-photo {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 14px; }
+
+.margin-btn-award {
+  margin-top: 40px !important;
+  margin-bottom: 60px !important; }

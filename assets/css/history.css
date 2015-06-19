@@ -1,0 +1,272 @@
+#programs {
+    background-color: #EEE;
+    min-height: 38.833em;
+    display: block;
+    width: 100%;
+}
+#programs h1 {
+    display: block;
+    position: relative;
+    font-size: 2.5em;
+    font-family: "Roboto Slab", serif;
+    font-weight: 600;
+    color: #263752;
+    text-align: center;
+    margin: 1.5em 0 0.5em 0;
+}
+#programs p {
+    font-size: 1.4em;
+    font-family: "Source Sans Pro", sans-serif;
+    color: #263752;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+#programs ul {
+    list-style-image: url(../img/icon-diamond.png);
+}
+#programs ul li {
+    font-size: 1.4em;
+    font-family: "Source Sans Pro", sans-serif;
+    color: #263752;
+    margin: 1em;
+}
+
+.history {
+    margin: 0;
+    background-color: #222;
+    overflow: hidden;
+    height: 58em;
+    position: relative;
+    display: block;
+    clear: both;
+}
+.history .history-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    font-family: "Roboto Slab", serif;
+}
+.history .history-content .history-menu ul {
+    list-style: none;
+    margin: 0 0 0.833em;
+    padding: 0;
+}
+.history .history-content .history-menu ul li {
+    position: relative;
+    display: inline-block;
+    width: 11.666em;
+    vertical-align: top;
+    margin-right: 1.666em;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+@media screen and (max-width: 680px) {
+    .history .history-content .history-menu ul li {
+        width: 8.5em;
+        margin-right: 0.666em;
+    }
+}
+@media screen and (max-width: 480px) {
+    .history .history-content .history-menu ul li {
+        width: 30%;
+        margin-right: 0.2em;
+    }
+}
+.history .history-content .history-menu ul li .background-bar {
+    height: 1.25em;
+    display: block;
+    position: absolute;
+    width: 100%;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.history .history-content .history-menu ul li a {
+    position: relative;
+    display: block;
+    line-height: 120%;
+    margin-top: 0;
+    color: #fff;
+    font-size: 1.5em;
+    padding: 5em 0.833em 0.833em;
+    font-family: "Roboto Slab", serif;
+    text-decoration: none;
+    opacity: 0.5;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+@media screen and (max-width: 680px) {
+    .history .history-content .history-menu ul li a {
+        margin-top: 2em;
+        font-size: 1.2em;
+        padding: 0 0.5em;
+        padding-bottom: 1.2em;
+    }
+}
+@media screen and (max-width: 480px) {
+    .history .history-content .history-menu ul li a {
+        margin-top: 2em;
+        font-size: 0.9em;
+        padding-bottom: 1.5em;
+    }
+}
+.history .history-content .history-menu ul li.jackie-foundation .background-bar {
+    background: #263752;
+}
+.history .history-content .history-menu ul li.jackie .background-bar {
+    background: #71ADAF;
+}
+.history .history-content .history-menu ul li.rachel .background-bar {
+    background: #ADCF54;
+}
+.history .history-content .history-menu ul li.active .background-bar, .history .history-content .history-menu ul li.active a, .history .history-content .history-menu ul li.hover .background-bar, .history .history-content .history-menu ul li.hover a {
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.history .history-content .history-menu ul li.active .background-bar, .history .history-content .history-menu ul li.hover .background-bar {
+    height: 100%;
+}
+.history .history-content .history-menu ul li.active a, .history .history-content .history-menu ul li.hover a {
+    opacity: 1;
+}
+.history .history-content .history-hero {
+    display: block;
+    margin-top: 4em;
+    margin-bottom: 10.333em;
+}
+.history .history-content .history-hero h1, .history .history-content .history-hero h2 {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    line-height: 100%;
+    display: block;
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
+}
+.history .history-content .history-hero h2 {
+    font-size: 5.333em;
+}
+@media screen and (max-width: 767px) {
+    .history .history-content .history-hero h2 {
+        font-size: 4em;
+    }
+}
+@media screen and (max-width: 480px) {
+    .history .history-content .history-hero h2 {
+        font-size: 3em;
+    }
+}
+.history .history-content .history-hero h1 {
+    font-size: 9.5em;
+    margin-bottom: 0.18125em;
+}
+@media screen and (max-width: 767px) {
+    .history .history-content .history-hero h1 {
+        font-size: 6em;
+    }
+}
+@media screen and (max-width: 480px) {
+    .history .history-content .history-hero h1 {
+        font-size: 5em;
+    }
+}
+@media screen and (max-width: 320px) {
+    .history .history-content .history-hero h1 {
+        font-size: 3em;
+    }
+}
+.history .history-content .history-hero p {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.5em;
+    display: block;
+    width: 45%;
+}
+@media screen and (max-width: 767px) {
+    .history .history-content .history-hero p {
+        width: 100%;
+    }
+}
+.history .history-content .history-hero p .btn-timeline {
+    margin: 1.5em 0;
+}
+@media screen and (max-width: 767px) {
+    .history .history-content .history-hero p .btn-timeline {
+        font-size: 0.9em;
+    }
+}
+@media screen and (max-width: 480px) {
+    .history .history-content .history-hero p .btn-timeline {
+        font-size: 0.7em;
+    }
+}
+.history .history-background {
+    position: absolute;
+    z-index: 0;
+    font-size: 0;
+    width: 100%;
+    height: 100%;
+}
+.history .history-background .grid-item {
+    display: inline-block;
+    position: relative;
+    width: 33.33%;
+    float: left;
+    background: #222 url(../img/spinner.gif) center center no-repeat;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+    overflow: hidden;
+}
+.history .history-background .grid-item img.history-grid-item {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    visibility: hidden;
+    opacity: 0;
+}
+.history .history-background .owl-controls {
+    display: none !important;
+}
+.history .history-background #carousel-history {
+    position: relative;
+    height: 100%;
+}
+.history .history-background #carousel-history #owl-history, .history .history-background #carousel-history .owl-history, .history .history-background #carousel-history .owl-wrapper-outer, .history .history-background #carousel-history .owl-wrapper, .history .history-background #carousel-history .owl-wrapper, .history .history-background #carousel-history .owl-item, .history .history-background #carousel-history .item {
+    position: relative;
+    height: 100%;
+}
+.history .history-background #carousel-history #owl-history .owl-wrapper-outer .owl-wrapper .owl-item .item {
+    position: absolute;
+    width: 100%;
+}
+.history .history-background #carousel-history #owl-history .owl-wrapper-outer .owl-wrapper .owl-item .item img {
+    min-width: 100%;
+    position: relative;
+    min-height: 100%;
+}
+
+.btn-timeline, a.btn-timeline, button.btn-timeline {
+    border: 2px solid #fff;
+    background-color: transparent;
+    display: inline-block;
+    padding: 0.75em 2em;
+    color: #fff;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    font-size: 1.25em;
+    text-decoration: none;
+}

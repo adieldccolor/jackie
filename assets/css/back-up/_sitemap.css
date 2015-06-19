@@ -1,0 +1,16 @@
+.sitemap .container .zero-left {
+  padding: 0px; }
+.sitemap .container .row .link1 {
+  line-height: 37px; }
+.sitemap .container p {
+  font-family: "Source Sans Pro";
+  font-weight: 600;
+  font-size: 0.89em;
+  line-height: 140%;
+  color: #2AA5D1;
+  margin-top: 30px;
+  margin-bottom: 10px; }
+
+@media screen and (max-width: 768px) {
+  .sitemap {
+    padding-left: 20px; } }

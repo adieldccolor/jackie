@@ -1,0 +1,260 @@
+
+.history
+	margin: 0
+	background-color: #222
+	overflow: hidden
+	height: 100%
+	position: relative
+	display: block
+	clear: both
+	.container
+		max-width: 980px
+		color: #fff
+		font-family: $robotoslab
+		@media screen and (max-width: 940px)
+			max-width: 800px
+			margin: 0 90px
+		@media screen and (max-width: 800px)
+			max-width: 572px
+			margin: 0 auto
+	> .history-content
+		@media screen and (max-width: 480px)
+			display: none
+	.history-content
+		width: 100%
+		z-index: 2
+		@media screen and (min-width: 481px)
+			position: absolute
+		.history-menu
+			@media screen and (max-width: 480px)
+				display: none
+			ul
+				list-style: none
+				margin: 0 0 10px
+				padding: 0
+				li
+					position: relative
+					display: inline-block
+					width: 138px
+					vertical-align: top
+					margin-right: 20px
+					-webkit-transition: all .3s
+					-moz-transition: all .3s
+					-ms-transition: all .3s
+					-o-transition: all .3s
+					transition: all .3s
+					cursor: pointer
+					@media screen and (max-width: 800px)
+						width: 124px
+					@media screen and (max-width: 680px)
+						width: 120px
+						margin-right: 15px
+					@media screen and (max-width: 480px)
+						width: 30%
+						margin-right: 10px
+					.background-bar
+						height: 15px
+						display: block
+						position: absolute
+						width: 100%
+						-webkit-transition: all .4s
+						-moz-transition: all .4s
+						-ms-transition: all .4s
+						-o-transition: all .4s
+						transition: all .4s
+					a
+						position: relative
+						display: block
+						line-height: 120%
+						margin-top: 60px
+						color: #fff
+						font-size: 1em
+						padding: 0 10px 10px
+						font-family: $robotoslab
+						text-decoration: none
+						opacity: 0.5
+						-webkit-transition: all .4s
+						-moz-transition: all .4s
+						-ms-transition: all .4s
+						-o-transition: all .4s
+						transition: all .4s
+						@media screen and (max-width: 680px)
+							margin-top: 24px
+							font-size: 0.94em
+							padding: 0 7px
+							padding-bottom: 18px
+						@media screen and (max-width: 480px)
+							margin-top: 24px
+							font-size: 0.9em
+							padding-bottom: 14px
+
+					&.jackie-foundation
+						.background-bar
+							background: #263752
+					&.jackie
+						.background-bar
+							background: #71ADAF
+					&.rachel
+						.background-bar
+							background: #94B933
+
+					&.active, &.hover
+						.background-bar, a
+							-webkit-transition: all .4s
+							-moz-transition: all .4s
+							-ms-transition: all .4s
+							-o-transition: all .4s
+							transition: all .4s
+						.background-bar
+							height: 100%
+						a
+							opacity: 1
+					&:hover
+						a
+							opacity: 1
+		.history-hero
+			display: block
+			margin-top: 50px
+			margin-bottom: 140px
+			@media screen and (max-width: 480px)
+				text-align: center
+				margin-bottom: 0
+				h1, h2
+					text-align: left
+			h1, h2
+				padding: 0
+				margin: 0
+				color: #fff
+				line-height: 100%
+				display: block
+				font-weight: bold
+			h2
+				font-size: 3.56em
+				@media screen and (max-width: 768px)
+					font-size: 2.5em
+				@media screen and (max-width: 480px)
+					font-size: 1.94em
+			h1
+				font-size: 6.3em
+				margin-bottom: 5px
+				@media screen and (max-width: 768px)
+					font-size: 4em
+				@media screen and (max-width: 480px)
+					font-size: 3.5em
+				@media screen and (max-width: 320px)
+					font-size: 2.5em
+			p
+				font-family: $sourcesans
+				font-size: 1em
+				display: block
+				width: 90%
+				font-weight: 300
+				@media screen and (max-width: 768px)
+					width: 100%
+
+				.btn-timeline
+					margin: 1.5em 0
+					min-width: 205px
+					@media screen and (max-width: 768px)
+						font-size: 0.9em
+					@media screen and (max-width: 480px)
+						display: inline-block
+
+
+
+
+	.history-background
+		position: relative
+		z-index: 0
+		font-size: 18px
+		width: 100%
+		height: 100%
+		.history-content
+			@media screen and (min-width: 481px)
+				display: none
+		.grid-item
+			display: inline-block
+			position: relative
+			width: 33.33%
+			float: left
+			background: #222 url(../img/spinner.gif) center center no-repeat
+			-webkit-transform: scale(0.5)
+			-moz-transform: scale(0.5)
+			-ms-transform: scale(0.5)
+			-o-transform: scale(0.5)
+			transform: scale(0.5)
+			overflow: hidden
+			img.history-grid-item
+				display: block
+				min-width: 100%
+				min-height: 100%
+				max-width: 100%
+				visibility: hidden
+				opacity: 0
+
+		.owl-controls
+			padding-bottom: 50px
+			@media screen and (min-width: 481px)
+				display: none !important
+
+
+		#owl-history, .owl-history, .owl-wrapper-outer, .owl-wrapper, .owl-wrapper, .owl-item, .item
+			position: relative
+			// height: 100%
+		#owl-history
+			.owl-wrapper-outer
+				.owl-wrapper
+					.owl-item
+						.item
+							position: relative
+							width: 100%
+							color: #fff
+							overflow: hidden
+							img
+								min-width: 100%
+								// min-height: 100%
+								position: relative
+								@media screen and (max-width: 980px)
+									max-height: 700px
+								@media screen and (max-width: 768px)
+									max-height: 600px
+								@media screen and (max-width: 600px)
+									max-height: 500px
+								@media screen and (max-width: 480px)
+									width: 100%
+
+
+
+.history .owl-theme .owl-controls .owl-page span
+	width: 15px
+	height: 15px
+.history .owl-theme .owl-controls .owl-page.active span
+	background: #fff
+
+.btn-timeline, a.btn-timeline, button.btn-timeline
+	border: 3px solid #fff
+	background-color: transparent
+	display: inline-block
+	height: 50px
+	line-height: 44px
+	min-width: 200px
+	text-align: center
+	color: #fff
+	font-family: $sourcesans
+	font-weight: 500
+	font-size: 1.11em
+	// letter-spacing: 0.11em
+	text-decoration: none
+	padding: 0 15px
+	&.forceHoverState
+		&:hover
+			color: #2AA5D1
+			border-color: #2AA5D1
+			
+@media screen and (max-width: 480px)
+	.special-text-history-320-h1
+		font-size: 3.5em !important
+		padding-left: 4px !important
+		
+	.special-text-history-320-h2
+		padding-left: 5px !important

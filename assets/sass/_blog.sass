@@ -1,0 +1,105 @@
+.blog
+	.right_column
+		.wrapper
+			padding: 0 0 0 10px
+
+	.page
+		padding: 0px
+	.mbgwhite
+		.pagination
+			float: right
+			margin: 0px
+			padding: 0px
+			a
+				font-family: 'Source Sans Pro', sans-serif
+		.pagination-post
+			float: right
+			margin: 0px
+			padding: 0px
+			width: 100%
+			margin-bottom: 20px
+			.prev
+				float: left
+				i
+					margin-right: 10px
+					vertical-align: middle
+			.next
+				float: right
+				i
+					margin-left: 10px
+					vertical-align: middle
+
+
+		.blog-post
+			img
+				margin: 30px 0px
+		hr
+			margin-top: 0px
+			&.afterpost
+				margin: 30px 0px 27px 0px
+		ul
+			list-style: none
+			padding: 0px
+			li
+				display: inline-block
+				margin-right: 20px
+				&.last
+					margin-right: 0px
+				a
+					vertical-align: text-bottom
+					color: #666666
+					&.active
+						color: #337ab7
+					&.vertical-align
+						vertical-align: baseline
+
+
+	.blog-search-input
+		position: relative
+		margin-bottom: 20px
+		width: 245px
+		input[type="text"]
+			font-family: 'Source Sans Pro', sans-serif
+			font-size: 0.89em
+			line-height: 140%
+			font-weight: 400
+			padding: 5px 35px 5px 10px
+			width: 100%
+		.lup
+			position: absolute
+			right: 6px
+			top: 50%
+			margin-top: -13px
+			button[type="submit"], button, input[type="submit"], input[type="reset"]
+				border: none
+				background-color: transparent
+				display: block
+				padding: 0
+				width: 27px
+				height: 26px
+
+	.mbggray
+		ul
+			list-style: none
+			margin: 0px
+			padding: 0px
+			li
+				margin-bottom: 10px
+	.social_media
+		float: left
+		margin-top: 10px
+		margin-right: 10px
+		color: #263752
+		font-weight: 600 !important
+	.socialicon
+		a
+			margin-right: 10px
+
+
+	@media screen and (max-width: 769px)
+		.blog-search-input
+			width: 90%
+
+		.right_column
+			.wrapper
+				padding: 20px 0 0 10px

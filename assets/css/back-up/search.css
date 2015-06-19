@@ -1,0 +1,94 @@
+.search-form {
+    display: block;
+    position: relative;
+    z-index: 1;
+    padding: 0em 0em;
+    border-top: 0 solid #d6d6d6;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+}
+.search-form.search-open {
+    visibility: visible;
+    opacity: 1;
+    max-height: 10em;
+    padding: 1em 0em;
+    border-top-width: 0.166em;
+    text-shadow: none;
+}
+@media screen and (max-width: 767px) {
+    .search-form.search-open {
+        border-top-width: 0;
+        padding-top: 0;
+    }
+}
+.search-form .container {
+    position: relative;
+    max-width: 75em;
+}
+.search-form .search-input {
+    display: block;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.5em;
+    color: #999;
+    box-shadow: none;
+    border: none;
+}
+@media screen and (max-width: 767px) {
+    .search-form .search-input {
+        font-size: 12px;
+        border: 1px solid #eeeeee;
+        border-radius: 0px;
+        width: 80%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .search-form .search-input {
+        width: 60%;
+    }
+}
+.search-form .search-submit {
+    display: block;
+    height: 100%;
+    position: absolute;
+    right: 1em;
+    height: 100%;
+    width: 2.083em;
+    background: url(../img/search-icon.png) 0 5px no-repeat;
+    z-index: 2;
+    color: transparent;
+    overflow: hidden;
+    border: none;
+}
+@media screen and (max-width: 767px) {
+    .search-form .search-submit {
+        background: #2aa5cf;
+        width: 16%;
+        color: #fff;
+        padding: 0em 1em;
+        line-height: 100%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .search-form .search-submit {
+        width: 35%;
+    }
+}
+
+
+
+.search-button {
+    display: inline-block;
+}
+.search-button.search-open {
+    color: transparent !important;
+    text-indent: -9999;
+    background: #fff url(../img/search-close.png) center center no-repeat;
+    text-shadow: none !important;
+}

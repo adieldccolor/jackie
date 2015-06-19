@@ -1,0 +1,329 @@
+.donate-side, .useGreySidebar
+	position: relative
+	overflow: hidden
+	&.useGreySidebar
+		@media screen and (max-width: 768px)
+			padding-bottom: 0
+	&.donate-side
+		padding-bottom: 0
+		@media screen and (max-width: 480px)
+			padding-bottom: 0
+		
+		.col-xxs
+			width: 100%
+			float: none
+			display: block
+	
+	.right_column
+		position: relative
+		
+		.wrapper
+			position: relative
+			z-index: 1
+			
+	.main-donate-info, .main-info
+		position: relative
+		z-index: 2
+
+		.button-xxs-center
+			margin-left: auto
+			margin-right: auto
+			display: block
+		
+		.right_column
+			@media screen and (max-width: 768px)
+				background-color: #EEEEEE
+				
+			@media screen and (max-width: 480px)
+				background-color: #EEEEEE
+
+@media screen and (max-width: 480px)
+	.align-left-320
+		text-align: left !important
+
+@media screen and (max-width: 768px)
+.special-text-align
+	text-align: left !important
+	@media screen and (max-width: 468px)
+		text-align: center !important
+	
+.hr-donate
+	border-width: 2px
+	border-color: #EEEEEE
+	
+h3.padding-special-quote
+	padding: 0 0 0 28px
+	marging: 0
+	
+	h3.padding-special-quote
+		padding: 0 0 0 32px
+		marging: 0
+
+@media screen and (max-width: 468px)
+	h3
+		padding-bottom: 12px
+	h3.padding-special-quote
+		padding: 0 24px 20px 28px
+		
+span.quote-normal:after
+	position: relative
+	float: right
+	top: -32px
+	right: 148px
+	content: url(../img/inverted-quote-icon.png)
+	
+span.quote-normal:before
+	position: relative
+	float: left
+	top: 8px
+	content: url(../img/quote-icon.png)
+	
+@media screen and (max-width: 768px)
+	span.quote-normal:after
+		right: 314px
+
+@media screen and (max-width: 480px)
+	span.quote-normal:after
+		top: -52px
+		right: 14px
+	
+@media screen and (max-width: 768px)
+	span.quote-normal:before
+		left: 0px
+	
+.padding-special-legend
+	padding-left: 28px
+					
+.main-donate-info
+	ul
+		padding: 0
+		list-style: none
+		li
+			font-size: 1em
+			line-height: 140%
+			letter-spacing: 0.03em
+			margin: 0 0 26px 0
+			padding-left: 31px
+			padding-right: 31px
+			position: relative
+			font-family: $sourcesans
+			&:before
+				display: block
+				position: absolute
+				left: 0
+				top: 7px
+				// background: url(../img/sprite.png) 0 0 no-repeat
+				width: 13px
+				height: 14px
+				// background-position: -350px -640px
+				@extend .icon
+				background-position: -233px -427px
+				content: ""
+				
+		@media screen and (max-width: 768px)
+			li
+				font-family: 'Source Sans Pro', sans-serif
+				padding-left: 26px
+				padding-right: 0px
+		@media screen and (max-width: 480px)
+			li
+				font-family: 'Source Sans Pro', sans-serif
+				padding-left: 26px
+				padding-right: 0px
+
+
+		.bodytext2
+			padding-right: 18px
+			@media screen and (max-width: 480px)
+				padding-right: 0
+
+
+.page .bullet-list
+	@exted .main-donate-info ul
+
+
+	
+.text-size-special
+	font-size: 1.22em !important
+	
+.bold-text
+	color: #000000
+	font-weight: 600
+	
+.underline-phone
+	color: #263752
+	text-decoration: underline
+	display: inline-block !important
+	
+.padding-top-amazon-smile
+	padding-top: 12px
+	@media screen and (max-width: 768px)
+		padding-top: 0px
+	@media screen and (max-width: 480px)
+		padding-top: 12px
+				
+.padding-top-left-info
+	padding-top: 14px
+				
+.padding-left-info
+	padding-left: 40px
+	@media screen and (max-width: 768px)
+		padding-left: 50px
+		
+	@media screen and (max-width: 480px)
+		padding-left: 20px
+
+.padding-bottom-info
+	padding-bottom: 20px
+	
+.padding-right-info
+	padding-right: 50px !important
+	@media screen and (max-width: 480px)
+		padding-right: 18px !important
+		
+.padding-top-info
+	padding-top: 7px
+	@media screen and (max-width: 768px)
+		padding-top: 40px
+		padding-bottom: 34px
+				
+.text-blue
+	color: #263752
+	
+.padding-top-18
+	padding-top: 18px 
+			
+.padding-right-phone
+	padding-right: 52px !important
+
+@media screen and (max-width: 768px)
+	.padding-right-phone
+		padding-right: 122px !important
+		
+	.padding-right-special
+		padding-right: 52px !important
+	
+	@media screen and (max-width: 468px)
+		.padding-right-phone
+			padding-right: 0 !important
+			
+.section-background
+	position: absolute
+	height: 100%
+	width: 100%
+	top: 0
+	left: 0
+	
+	.back-donate-side
+		position: absolute
+		height: 100%
+		width: 6000px
+		top: 0
+		left: 0
+		background-color: #EEEEEE
+		
+	.container, .row, [class*="col-"]
+		position: relative
+		height: 100%
+		
+.back-gray-special
+	background-color: #EEEEEE
+	
+.color-secondary
+	background-color: #263752
+	padding-bottom: 30px
+	
+	h3
+		padding-top: 40px
+		padding-bottom: 12px
+		text-align: center !important
+		
+		@media screen and (max-width: 768px)
+			margin-top: 0
+			padding-top: 20px
+		
+		@media screen and (max-width: 480px)
+			margin-top: 0
+			padding-top: 20px
+			
+	p
+		font-family: 'Source Sans Pro', sans-serif
+	
+	h3, p
+		color: #FFFFFF
+	
+	.button-primary
+		color: #FFFFFF
+		border-color: #FFFFFF
+		
+@media screen and (max-width: 768px)
+	.center-white
+		text-align: center !important
+		@media screen and (max-width: 480px)
+			text-align: center
+
+@media screen and (max-width: 768px)
+	.donate-padding-column-1
+		padding-right: 0
+		@media screen and (max-width: 480px)
+			padding-right: 19px
+
+@media screen and (max-width: 768px)
+	.donate-padding-column-2
+		padding-right: 62px
+		@media screen and (max-width: 480px)
+			padding-right: 18px
+
+@media screen and (max-width: 480px)
+	.btn-center
+		margin-left: auto !important
+		margin-right: auto !important
+
+.float-donate
+	background-color: #2AA5D1
+	margin: 0 0
+	padding: 15px 0
+	
+.special-space-donate
+	padding-left: 64px
+	padding-bottom: 0
+	padding-top: 4px
+	@media screen and (max-width: 992px)
+		padding-left: 100px
+	@media screen and (max-width: 480px)
+		padding-left: 26px
+	
+.donate-float-white-txt
+	color: #FFFFFF
+	margin-bottom: 4px
+	@media screen and (max-width: 480px)
+		font-weight: 600 !important
+		margin-bottom: 5px
+		margin-top: -3px !important
+		font-size: 1em !important
+	
+.special-txt-small-donate
+	color: #FFFFFF
+	font-family: 'Source Sans Pro', sans-serif !important
+	font-weight: 400 !important
+	font-size: 0.72em !important
+	margin-bottom: 0 !important
+	@media screen and (max-width: 480px)
+		font-size: 0.7em !important
+		padding-right: 27px !important
+
+@media screen and (max-width: 480px)	
+	.special-320-padding-left
+		padding-Left: 0 !important
+		
+	.special-margin-share-img
+		margin-top: 24px !important
+		
+	.hidden-xxs
+		display: none !important
+		
+	.special-center-title-320
+		text-align: center !important
+				
+.special-row-sticky-donate
+	padding-left: 45px

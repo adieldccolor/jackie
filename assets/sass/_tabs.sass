@@ -1,0 +1,131 @@
+.tabs-menu
+	padding-top: 10px
+	padding-bottom: 10px
+	ul
+		list-style: none
+		padding: 0
+		margin: 0
+		@media screen and (max-width: 680px)
+			overflow: hidden
+			-webkit-transition: all 0.3s
+			-moz-transition: all 0.3s
+			-ms-transition: all 0.3s
+			-o-transition: all 0.3s
+			transition: all 0.3s
+			max-height: 50px
+		li
+			display: inline-block
+			width: 175px
+			position: relative
+			background-color: #eeeeee
+			float: left
+			@media screen and (min-width: 681px)
+				border-right: 1px solid #fff
+			@media screen and (max-width: 992px)
+				width: 130px
+			@media screen and (max-width: 736px)
+				width: 120px
+			@media screen and (max-width: 680px)
+				width: 100%
+				display: block
+				float: none
+			&:hover, &:focus
+				background-color: #e1e1e1
+
+			a
+				display: block
+				height: 50px
+				font-family: $sourcesans
+				font-weight: 500
+				color: #7f7f7f
+				font-size: 1em
+				line-height: 50px
+				padding: 0 10px
+				text-align: center
+				overflow: hidden
+				text-overflow: ellipsis
+				white-space: nowrap
+				@media screen and (max-width: 992px)
+					font-size: 1em
+				@media screen and (max-width: 680px)
+					text-align: left
+					padding: 0 20px
+					border: 1px solid #d6d6d6
+					border-top: none
+				&:hover, &:active, &:focus
+					text-decoration: none
+
+				.icon
+					vertical-align: middle
+					&.arrowDown
+						position: absolute
+						top: 50%
+						right: 20px
+						margin-top: -7px
+
+			&.drop
+				@media screen and (min-width: 681px)
+					display: none
+				background-color: #2AA5D1
+				a
+					color: #ffffff
+					border: none
+				&.expanded
+					a
+						.icon
+							&.arrowDown
+								background-position: -170px -46px
+
+			&.active
+				@media screen and (min-width: 681px)
+					background-color: #2AA5D1
+					border-right-color: #2AA5D1
+					a
+						color: #ffffff
+					&:after
+						content: ""
+						width: 0
+						height: 0
+						position: absolute
+						border-width: 12px
+						border-style: solid
+						border-color: transparent
+						border-top-color: #2AA5D1
+						bottom: -24px
+						left: 50%
+						margin-left: -12px
+			&:last-child
+				@media screen and (min-width: 681px)
+					border-right: none
+
+		&.normal-size
+			li
+				width: 175px
+				@media screen and (max-width: 992px)
+					width: 175px
+				@media screen and (max-width: 710px)
+					width: 175px
+				@media screen and (max-width: 680px)
+					width: 100%
+		&.centered
+			@media screen and (min-width: 681px)
+				width: 350px
+				margin: 0 auto
+	
+	&.expanded
+		ul
+			max-height: 1000px
+
+.tabs-box
+	margin-top: 30px
+	.tab
+		display: none
+		opacity: 0
+		&.active
+			display: block
+			opacity: 1
+			-webkit-transition: display 0s, opacity 0.3s
+			-moz-transition: display 0s, opacity 0.3s
+			-ms-transition: display 0s, opacity 0.3s
+			-o-transition: display 0s, opacity 0.3s
+			transition: display 0s, opacity 0.3s

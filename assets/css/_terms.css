@@ -1,0 +1,19 @@
+.terms .container {
+  max-width: 1010px; }
+  .terms .container ul {
+    padding: 0px 20px;
+    margin-top: 10px;
+    margin-left: 20px; }
+    .terms .container ul li {
+      list-style-image: url(../img/bullet.png);
+      padding-left: 12px;
+      margin-bottom: 26px;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 1em;
+      line-height: 140%;
+      letter-spacing: 0.03em;
+      font-weight: 400; }
+  .terms .container strong {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 1px; }

@@ -1,0 +1,27 @@
+.about-regional
+	padding-bottom: 96px
+	.container
+		max-width: 1010px
+		.row
+			[class*="col-"]
+				img
+					display: block
+					margin: 0 auto
+					max-width: 100%
+					@media screen and (max-width: 768px)
+						margin-bottom: 20px
+
+		h1, h2, h3
+			margin-top: 90px
+			margin-bottom: 42px
+
+		p
+			@extend .bodytext1
+			font-weight: 400
+			text-align: left
+			margin-bottom: 19px
+			&:last-child
+				margin-bottom: 25px
+			a.button-primary
+				@media screen and (min-width: 769px)
+					margin: 0

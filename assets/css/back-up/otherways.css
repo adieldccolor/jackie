@@ -1,0 +1,78 @@
+.ways-side {
+  position: relative;
+  overflow: hidden; }
+  @media screen and (max-width: 480px) {
+    .ways-side {
+      padding-bottom: 0; } }
+  @media screen and (max-width: 480px) {
+    .ways-side {
+      padding-bottom: 0; }
+      .ways-side .col-xxs {
+        width: 100%;
+        float: none;
+        display: block; } }
+  .ways-side .right_column {
+    position: relative; }
+    .ways-side .right_column .wrapper {
+      position: relative;
+      z-index: 1; }
+  .ways-side .main-ways-info {
+    position: relative;
+    z-index: 2; }
+    @media screen and (max-width: 768px) {
+      .ways-side .main-ways-info .right_column {
+        background-color: #EEEEEE; } }
+    @media screen and (max-width: 480px) {
+      .ways-side .main-ways-info .right_column {
+        background-color: #EEEEEE; } }
+
+.special-font-tabs-ways {
+  font-size: 1em !important; }
+
+.special-right-accordion-ways {
+  margin: 0 22px 0 0; }
+  @media screen and (max-width: 480px) {
+    .special-right-accordion-ways {
+      margin: 0 0 0 0; } }
+
+.special-margin-ul-ways {
+  margin: 0 0 26px 0; }
+
+ul.other-ways-list {
+  padding: 0px 0px;
+  list-style: none; }
+  ul.other-ways-list li {
+    font-size: 1em;
+    font-family: "Source Sans Pro", sans-serif;
+    margin: 10px 7px;
+    padding-left: 33px;
+    position: relative; }
+    ul.other-ways-list li:before {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 7px;
+      background: url(../img/sprite.png) 0 0 no-repeat;
+      width: 13px;
+      height: 14px;
+      background-position: -350px -640px;
+      content: ""; }
+
+.p-no-margin-bottom {
+  margin-bottom: 0 !important; }
+
+.h3-add-margin-bottom-ways {
+  margin-bottom: 22px; }
+
+.h4-add-margin-bottom-ways {
+  margin-bottom: 10px; }
+
+.special-text-align {
+  text-align: left !important; }
+  @media screen and (max-width: 480px) {
+    .special-text-align {
+      text-align: center !important; } }
+
+@media screen and (max-width: 681px) {
+  .special-acordion-text-320 {
+    padding: 0 12px 0 15px !important; } }

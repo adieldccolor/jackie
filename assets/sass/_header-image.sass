@@ -1,0 +1,50 @@
+.header-image
+	background-color: #000
+	@media screen and (max-width: 700px)
+		background-color: #263752
+		min-height: 150px
+	position: relative
+	overflow: hidden
+
+	img
+		display: block
+		margin: 0 auto
+		position: relative
+		left: 50%
+		margin-left: -700px
+		@media screen and (max-width: 700px)
+			display: none
+	
+	.container
+		position: absolute
+		height: 100%
+		width: 100%
+		text-align: center
+		z-index: 2
+		@media screen and (max-width: 700px)
+			position: relative
+		h1,h2
+			color: #fff
+			text-transform: capitalize
+			padding-bottom: 20px
+			@media screen and (max-width: 700px)
+				// min-height: 150px
+				// line-height: 150px
+				display: block
+				margin-top: 45px
+				margin-bottom: 25px
+			@media screen and (min-width: 701px)
+				line-height: 210px
+
+	&.fallback-loaded
+		.img-header
+			display: none
+		.container
+			position: relative
+
+	&.multi-line
+		.container
+			h1,h2
+				@media screen and (min-width: 701px)
+					line-height: 70px
+					padding-top: 25px

@@ -1,0 +1,95 @@
+.faqs
+	.container
+		max-width: 1010px
+		.social_media
+			float: left
+			margin-top: 10px
+			margin-right: 10px
+			color: #263752
+
+	.page
+		.container
+			h3
+				&:first-child
+					margin-top: 7px
+
+
+	.acordion
+		.accordion-item
+			h4
+				background-color: #eeeeee
+				line-height: 31px
+				padding: 14.5px 45px 14.5px 30px
+				margin-bottom: 20px
+				position: relative
+				cursor: pointer
+				@media screen and (max-width: 480px)
+					padding: 12px 50px 12px 14px
+				.icon
+					position: absolute
+					right: 30px
+					top: 50%
+					margin-top: -12px
+					cursor: pointer
+					@media screen and (max-width: 768px)
+						right: 20px
+				
+
+			.acordion-text
+				padding: 0 30px
+				visibility: hidden
+				opacity: 0
+				overflow: hidden
+				max-height: 0
+				-webkit-transition: height 1s, opacity 0.3s, visibility 0.3s
+				-moz-transition: height 1s, opacity 0.3s, visibility 0.3s
+				-ms-transition: height 1s, opacity 0.3s, visibility 0.3s
+				-o-transition: height 1s, opacity 0.3s, visibility 0.3s
+				transition: height 1s, opacity 0.3s, visibility 0.3s
+				p
+					span
+						display: block
+						margin-top: 20px
+						i
+							margin-right: 20px
+				ul
+					padding: 0px 0px
+					list-style: none
+					li
+						font-size: 1em
+						font-family: $sourcesans
+						// color: $color-primary
+						margin: 10px 7px
+						padding-left: 33px
+						position: relative
+						&:before
+							display: block
+							position: absolute
+							left: 0
+							top: 7px
+							// background: url(../img/sprite.png) 0 0 no-repeat
+							width: 13px
+							height: 14px
+							@extend .icon
+							background-position: -233px -427px
+							content: ""
+
+			&.expanded
+				.acordion-text
+					padding: 5px 30px 20px 30px
+					opacity: 1
+					visibility: visible
+					max-height: 100000px
+
+	.left
+		text-aling: left
+	a
+		margin-top: 19px
+		margin-bottom: 9px
+
+	.last
+		margin-bottom: -30px
+
+	// @media screen and (max-width: 768px)
+		// .accordion-item h4 .icon
+			// right: 8px !important

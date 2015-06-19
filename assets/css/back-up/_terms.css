@@ -1,0 +1,26 @@
+.terms .container {
+  max-width: 1010px; }
+  .terms .container ul {
+    padding: 0px 20px;
+    margin-top: 10px;
+    list-style: none; }
+    .terms .container ul li {
+      font-size: 1em;
+      font-family: "Source Sans Pro", sans-serif;
+      margin: 10px 7px;
+      padding-left: 43px;
+      position: relative; }
+      .terms .container ul li:before {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 7px;
+        background: url(../img/sprite.png) 0 0 no-repeat;
+        width: 13px;
+        height: 14px;
+        background-position: -350px -640px;
+        content: ""; }
+  .terms .container strong {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 1px; }

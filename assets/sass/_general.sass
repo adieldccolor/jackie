@@ -1,0 +1,1136 @@
+body
+	font-size: $em !important
+	background-color: $color-primary
+	overflow-x: hidden
+
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6
+	font-family: $robotoslab
+	font-weight: 700
+	// line-height: 140%
+	&.zero-top
+		margin-top: 0
+
+	.icon
+		vertical-align: middle
+
+	.pull-left, .pull-right
+		font-size: 18px
+		font-weight: 400
+		line-height: 2em
+		@media screen and (max-width: 768px)
+			display: block
+			float: none !important
+			margin-bottom: 10px
+
+	& + .address
+		margin-top: 30px
+		margin-bottom: 10px !important
+
+h1, .h1
+	font-size: 2.3em
+	@media screen and (max-width: 768px)
+		font-size: 2.1em
+	@media screen and (max-width: 480px)
+		font-size: 1.94em
+h2, .h2
+	font-size: 3.56em
+	@media screen and (max-width: 768px)
+		font-size: 2.5em
+	@media screen and (max-width: 480px)
+		font-size: 1.94em
+
+h3, .h3
+	font-size: 1.7em
+
+h4, .h4
+	font-size: 1.22em
+
+h5, .h5
+	font-size: 1em
+
+h6, .h6
+	font-size: 0.89em
+
+.subheader
+	font-family: $sourcesans
+	font-size: 1.4em
+	font-weight: 600
+	&.zero-top
+		margin-top: 0
+
+.bodytext1
+	font-family: $sourcesans
+	font-size: 1em
+	line-height: 140%
+	letter-spacing: 0.03em
+	font-weight: 400
+
+.bodytext2
+	font-family: $sourcesans
+	font-size: 0.89em
+	line-height: 140%
+	font-weight: 400
+
+.bodytext1, .bodytext2
+	&.semibold, .semibold
+		font-weight: 600
+	&.bold, &.strong, b, strong, .bold, .strong
+		font-weight: 700
+	&.zero-bottom
+		margin-bottom: 0
+	.display-block
+		display: block
+	&.less-bottom, .less-bottom
+		margin-bottom: 10px
+
+	
+.img-block
+	@media screen and (max-width: 480px)
+		display: block
+		margin: 0 auto
+
+a
+	&:hover, &:focus
+		color: #2AA5D1
+
+.link1, .link2, .link3, .link4, .link5
+	font-family: $sourcesans
+	text-decoration: underline
+	line-height: 140%
+	color: #263752
+	&.inverted
+		color: #fff
+	&.gray
+		color: #666666
+
+.link1
+	font-size: 1em
+	text-decoration: underline
+	&:hover, &:focus
+		// color: #2AA5D1
+		text-decoration: underline
+		color: #263752
+	&.useIcon
+		&:hover
+			color: #2AA5D1
+.right_column
+	.link1
+		&:hover, &:focus
+			color: #2AA5D1
+
+.link2
+	font-size: 0.89em
+	&:hover
+		color: #2AA5D1
+.link3
+	font-size: 0.72em
+	letter-spacing: 0.11em
+	font-weight: 600
+	&:hover
+		color: #2AA5D1
+	&.inverted:hover
+		color: #fff
+	&.gray:hover
+		color: #666666
+.link4
+	font-size: 0.89em
+.link5
+	font-size: 0.89em
+	color: #2AA5D1
+	font-weight: 600
+
+
+.link1, .link2, .link3, .link4, .link5
+	&.useIcon
+		text-decoration: none
+		span
+			text-decoration: underline
+			max-width: 80%
+			max-width: calc(90% - 20px)
+		&:hover
+			color: #2AA5D1
+	&.forceHoverState
+		&:hover
+			color: #2AA5D1
+
+
+.normal-list
+	&.withSpace
+		margin-bottom: 40px
+
+
+.btn-donate, .menuTop #navbar ul.navbar-nav.navbar-right li a.btn-donate, .menuHidden #navbar ul.navbar-nav.navbar-right li a.btn-donate
+	width: 99px
+	height: 33px
+	line-height: 33px
+	background-color: #2AA5D1
+	text-align: center
+	color: #FFF
+	padding-top: 0px
+	padding-bottom: 0px
+	letter-spacing: 0.11em
+	font-size: 0.9em
+	margin-top: 3px
+	font-family: $sourcesans
+	font-weight: 600
+	text-decoration: none
+	&:hover, &:focus
+		color: #fff
+		background-color: lighten( #2AA5D1, 10)
+		text-decoration: none
+
+	@media screen and (max-width: 980px)
+		margin-top: 0
+	@media screen and (max-width: 768px)
+		margin-bottom: 20px
+
+.sticky .btn-donate, .btn-donate, .menuTop.sticky #navbar ul.navbar-nav.navbar-right li a.btn-donate, .menuHidden.sticky #navbar ul.navbar-nav.navbar-right li a.btn-donate
+	padding-top: 0
+	padding-bottom: 0
+	height: 24px
+	line-height: 24px
+	@media screen and (min-width: 769px)
+		margin-top: 8px
+	@media screen and (max-width: 1270px)
+		margin-top: 1px
+
+
+.ellipsis
+	text-overflow: ellipsis
+	overflow: hidden
+	white-space: nowrap
+
+.button-primary
+	border: 3px solid $color-primary
+	padding: 0px 7px
+	text-align: center
+	color: $color-primary
+	font-size: 1.11em
+	background-color: transparent
+	font-family: $sourcesans
+	display: block
+	width: 200px
+	margin: 34px auto
+	height: 50px
+	line-height: 42px
+	font-weight: 600
+	@extend .ellipsis
+	&:hover		
+		text-decoration: none
+
+.button-grey
+	height: 50px
+	line-height: 50px
+	font-family: $sourcesans
+	font-weight: 600
+	font-size: 1em
+	color: #666666
+	background-color: #eeeeee
+	display: inline-block
+	padding: 0 15px
+	margin: 0px 0 0
+	text-align: center
+	&.button-block
+		clear: both
+		display: block
+		margin-top: 50px
+
+.button-second, a.button-second, button.button-second
+	border: 0.22em solid white
+	padding: 0.5em
+	text-align: center
+	color: white
+	font-size: 1.5em
+	background-color: transparent
+	font-family: $robotoslab
+	display: inline-block
+	min-width: 10em
+	max-width: 100%
+	margin: 2.4em auto
+	&:hover		
+		text-decoration: none
+
+.button-primary, .button-secondary, .button-second, .btn-timeline
+	&:hover
+		border-color: #2AA5DE
+		color: #2AA5DE
+	&.margin-top
+		margin-top: 30px
+	&.forceHoverState
+		&:hover
+			border-color: #2AA5DE
+			color: #2AA5DE
+
+
+.button-secondary
+	@extend .button-second
+
+.button-primary, .button-second, .button-secondary
+	max-width: 100%
+	&.zero-center
+		margin-left: 0
+		margin-right: 0
+	&.zero-margin
+		margin-bottom: 0
+		margin-top: 0
+	&.btn-block.zero-margin, &.btn-block, &.btn-block.zero-center
+		@media screen and (max-width: 768px)
+			margin-left: auto
+			margin-right: auto
+
+
+
+
+
+.go-bottom
+	width: 24px
+	display: block
+	height: 15px
+	position: relative
+	// top: -2.5em
+	text-align: center
+	color: #fff !important
+	margin: 5px auto -3px
+	display: block
+	// background-image: url(../img/arrow-bottom.png)
+	// background-position: center center
+	// background-repeat: no-repeat
+	opacity: 0
+	background: url(../img/sprite-timeline.png) -334px -229px no-repeat
+	@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)
+		background-image: url(../img/sprite-timeline@2x.png)
+		-webkit-background-size: 400px 450px
+		background-size: 400px 450px
+	&.second-arrow, &.third-arrow
+		margin-top: 0
+	&.second-arrow
+		-webkit-animation-delay: 0.2s
+		-moz-animation-delay: 0.2s
+		-o-animation-delay: 0.2s
+		animation-delay: 0.2s
+	&.third-arrow
+		-webkit-animation-delay: 0.4s
+		-moz-animation-delay: 0.4s
+		-o-animation-delay: 0.4s
+		animation-delay: 0.4s
+	
+
+
+
+.icon-share, a.icon-share
+	// width: 5.25em
+	// height: 2.15em
+	display: inline-block
+	text-align: center
+	// color: #fff !important
+	margin: 0 auto	
+	// background-image: url(../img/icon-share.png)
+	// background-position: 1px 0
+	background-repeat: no-repeat	
+	// margin-top: 22px
+	position: relative
+	min-width: 60px
+	height: 25px
+	font-family: $sourcesans
+	font-size: 0.8em
+	line-height: 20px
+	font-weight: 500
+	color: #666666
+	border: 2px solid #666666
+	text-decoration: none
+	text-align: center
+	padding: 0 5px
+	i, i.icon, i.icon.shareIcon
+		vertical-align: middle
+		@extend .icon.shareIcon.grayShareIcon
+	&:hover, &.active
+		@media screen and (min-width: 481px)
+			color: #fff
+			background-color: #666666
+			i
+				background-position: -336px -53px !important
+				// background-position-y: -80px !important
+
+	@media screen and (max-width: 480px)
+		background-position: 50% -55px
+		background-color: #eeeeee
+		display: block
+		width: auto
+		height: 50px
+		line-height: 50px
+		margin-top: 28px
+		margin-left: -15px
+		margin-right: -15px
+		clear: both
+		border-color: #eeeeee
+		color: #666666
+		&.internal-share
+			margin-left: -30px
+			margin-right: -35px
+
+		i
+			// background-position: -336px -35px !important
+		&:before
+			display: block
+			content: ""
+			width: 0
+			height: 0
+			position: absolute
+			top: -28px
+			left: 50%
+			margin-left: -14px
+			border: 14px solid transparent
+			border-bottom-color: #eeeeee
+.icon-college
+	width: 2.25em
+	height: 1.9em
+	display: inline-block
+	text-align: center
+	color: #fff !important
+	margin: 0 auto	
+	background-image: url(../img/college.png)
+	background-position: center center
+	background-repeat: no-repeat
+	background-size: auto 100%
+	@media screen and (max-width: 980px)
+		width: 1.2em
+		height: 1em
+.icon-students
+	max-width: 100%
+	display: block
+	text-align: center
+	color: #fff !important
+	margin: 0 auto	
+	img
+		display: block
+		margin: 0 auto
+		width: 100%
+.icon-graduation
+	max-width: 100%
+	display: block
+	text-align: center
+	color: #fff !important
+	margin: 0 auto	
+	img
+		display: block
+		margin: 0 auto
+		width: 100%
+.icon-book
+	max-width: 100%
+	display: block
+	text-align: center
+	color: #fff !important
+	margin: 0 auto	
+	img
+		display: block
+		margin: 0 auto
+		width: 100%
+.text-students
+	margin-top: 1em
+	padding-bottom: 1.5em
+.text-graduation
+	margin-top: 3.2em
+	padding-bottom: 2.5em
+.text-book
+	margin-top: 0em
+.icon-tw
+	width: 3em
+	height: 3em
+	display: inline-block
+	text-align: center
+	background-image: url(../img/icon-tw.png)
+	background-position: center center
+	background-repeat: no-repeat
+	position: relative
+	top: .2em
+.icon-fb
+	width: 5em
+	height: 5em
+	display: inline-block
+	text-align: center
+	background-image: url(../img/icon-fb.png)
+	background-position: center center
+	background-repeat: no-repeat
+	position: relative
+	top: .3em
+.icon-tw2
+	width: 5em
+	height: 5em
+	display: inline-block
+	text-align: center
+	background-image: url(../img/icon-tw2.png)
+	background-position: center center
+	background-repeat: no-repeat
+	position: relative
+	top: .3em
+	margin-left: .5em
+.icon-pin
+	width: 5em
+	height: 5em
+	display: inline-block
+	text-align: center
+	background-image: url(../img/icon-pin.png)
+	background-position: center center
+	background-repeat: no-repeat
+	position: relative
+	top: .3em
+	margin-left: .5em
+.icon-fb-f
+	width: 3em
+	height: 3em
+	display: inline-block
+	text-align: center
+	background-image: url(../img/icon-fb-f.png)
+	background-position: center center
+	background-repeat: no-repeat
+	position: relative
+	top: .3em
+	margin-left: .5em
+.icon-yt-f
+	width: 3em
+	height: 3em
+	display: inline-block
+	text-align: center
+	background-image: url(../img/icon-yt-f.png)
+	background-position: center center
+	background-repeat: no-repeat
+	position: relative
+	top: .3em
+	margin-left: .5em
+.icon-tw-f
+	width: 3em
+	height: 3em
+	display: inline-block
+	text-align: center
+	background-image: url(../img/icon-tw-f.png)
+	background-position: center center
+	background-repeat: no-repeat
+	position: relative
+	top: .3em
+	margin-left: .5em
+.icon-in-f
+	width: 3em
+	height: 3em
+	display: inline-block
+	text-align: center
+	background-image: url(../img/icon-in-f.png)
+	background-position: center center
+	background-repeat: no-repeat
+	position: relative
+	top: .3em
+	margin-left: .5em
+.line
+	width: 100%
+	height: 2px
+	display: block
+	background-color: #eee
+	clear: both
+	@media screen and (max-width: 480px)
+		display: none
+.line-h
+	font-size: 12px
+	width: 2px
+	height: 100%
+	max-height: 100%
+	display: block
+	background-color: #eee
+	position: absolute
+	right: 0
+	top: 0
+	&.line-left
+		right: auto
+		left: 0
+	@media screen and (max-width: 480px)
+		display: none
+.line-white-v
+	width: 2px
+	height: 200px
+	display: block
+	background-color: #fff
+	position: absolute
+	left: 50%
+	top: 2em
+	@media screen and (max-width: 768px)
+		display: none
+ 
+
+.search-trigger-btn
+	// display: inline-block
+	// font-size: 12px
+	// height: 1.833em
+	// width: 1.916em
+	// vertical-align: middle
+	// background: url(../img/search-icon.png) 0 -3.166em no-repeat
+	margin-right: 16px
+	padding-top: 8px
+	vertical-align: top
+	display: inline-block
+	&.search-open
+		i.searchIcon
+			// background-position-y: -849px
+			background-position: 0px -566px
+
+
+.clearfix
+	display: block
+	clear: both
+
+.text-center
+	text-align: center !important
+.text-left
+	text-align: left !important
+
+.icon-share
+	margin-bottom: 4em
+
+
+.button-wrapper
+	padding-top: 10px
+.sidebar-button
+	background-color: #2AA5D1
+	font-family: $sourcesans
+	font-weight: 600
+	font-size: 1.33em
+	color: #fff
+	display: inline-block
+	height: 50px
+	line-height: 50px
+	padding: 0 20px
+	min-width: 215px
+	max-width: 265px
+	text-align: center
+	margin-top: 10px
+	text-decoration: none
+	max-width: 100%
+	@media screen and (max-width: 1200px) and (min-width: 769px)
+		font-size: 1em
+	@media screen and (max-width: 992px)
+		overflow: hidden
+		text-overflow: ellipsis
+		white-space: nowrap
+	@media screen and (max-width: 768px)
+		font-size: 1.33em
+	&:hover, &:focus
+		color: #fff
+		background-color: lighten(#2AA5D1, 10)
+		text-decoration: none
+
+.goal-progress
+	height: 30px
+	line-height: 30px
+	font-size: 0.89em
+	text-align: center
+	padding: 0 5px
+	position: relative
+	font-family: $sourcesans
+	color: #fff
+	background-color: #D6D6D6
+	margin-bottom: 10px
+	.progress-bg
+		display: block
+		position: absolute
+		top: 0
+		left: 0
+		width: 0
+		background-color: #2AA5D1
+		height: 100%
+	span
+		position: relative
+		z-index: 1
+
+.collapse-icon
+	display: inline-block
+	vertical-align: middle
+	font-size: 12px
+	width: 1.333em
+	height: 1.333em
+	// background: url(../img/collapse.png) 7px 7px no-repeat
+	@extend .icon
+	background-position: -126px -527px !important
+	position: absolute
+	top: 50%
+	right: 1em
+	margin-top: -14px
+	padding: 14px
+	@media screen and (min-width: 769px)
+		display: none !important
+.expanded .collapse-icon
+	background-position: -126px -548px !important
+
+.icon-close
+	display: inline-block
+	font-size: 12px
+	width: 54px
+	height: 15px
+	// background: url(../img/search-close.png) 0 0 no-repeat
+	@extend .icon
+	background-position: -86px -721px !important
+
+
+
+
+.float-donate
+	.container
+		.btn-timeline
+			&:hover
+				border-color: #fff
+				color: #fff
+		.pull-left
+			margin-right: 20px
+			@media screen and (max-width: 768px)
+				margin-right: 10px
+		.right-pull
+			float: left
+			width: 70%
+			@media screen and (max-width: 750px)
+				width: 50%
+		.bar-title
+			margin-bottom: 0
+		.right-content, p.right-content
+			padding-bottom: 0
+			color: #fff
+			margin-bottom: 0
+			line-height: 100%
+			.useIcon
+				@media screen and (max-width: 680px)
+					line-height: 18px
+					padding: 0px 0px 3px
+					display: block
+			.separated-text
+				padding-left: 10px
+				margin-left: 10px
+				border-left: 1px solid #fff
+				display: inline-block
+				height: 1em
+				line-height: 1em
+				vertical-align: middle
+				// @media screen and (max-width: 768px)
+				@media screen and (max-width: 680px)
+					display: block
+					margin-left: 0
+					padding-left: 0
+					border-left: none
+					display: block
+					padding-top: 5px
+					padding-bottom: 10px
+					height: auto
+					font-size: 0.72em
+					font-weight: 300
+					padding: 0
+				@media screen and (max-width: 480px)
+					font-size: 0.59em
+					margin-right: -30px
+			.small-text
+				font-size: 0.72em
+				@media screen and (max-width: 680px)
+					font-size: 1em
+				@media screen and (max-width: 480px)
+					display: inline
+			span
+				display: inline-block
+				vertical-align: bottom
+				@media screen and (max-width: 480px)
+					display: inline
+			.semibold
+				line-height: 10px
+				height: 15px
+				margin-left: 5px
+				@media screen and (max-width: 680px)
+					font-weight: 400
+					height: auto
+					line-height: inherit
+				@media screen and (max-width: 480px)
+					display: inline
+
+			.link1, .link2, .link3, .link4, .link5
+				&.useIcon
+					&:hover
+						color: #fff
+
+	&.apply-now
+		.container
+			h4
+				line-height: 20px
+				@media screen and (max-width: 680px)
+					font-size: 1em !important
+					margin-top: -3px !important
+				@media screen and (max-width: 480px)
+					font-size: 0.89em !important
+			.link3
+				@media screen and (max-width: 480px)
+					font-weight: 400
+			.hidden-480
+				@media screen and (min-width: 681px)
+					// display: none !important
+				@media screen and (max-width: 680px)
+					display: none !important
+			.visible-480
+				@media screen and (min-width: 681px)
+					// display: none !important
+				@media screen and (max-width: 680px)
+					display: block !important
+
+
+
+.divider
+	margin: 30px 0
+	display: block
+	clear: both
+.divider-margin
+	display: block
+	clear: both
+	margin-bottom: 60px
+	position: relative
+	top: 30px
+
+
+
+.hasAction
+	position: relative
+	overflow: hidden
+	@media screen and (max-width: 480px)
+		overflow: inherit
+		padding-bottom: 0
+	img
+		@media screen and (max-width: 480px)
+			margin: 0 auto
+	.hasAction-content
+		position: relative
+		overflow: hidden
+	.hasAction-overlay
+		position: absolute
+		z-index: 2
+		width: 100%
+		height: 100%
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		background-color: #e9e9e9
+		background-color: rgba(#e9e9e9, 0.9)
+		visibility: hidden
+		opacity: 0
+		-webkit-transform: scale(0.9)
+		-moz-transform: scale(0.9)
+		-ms-transform: scale(0.9)
+		-o-transform: scale(0.9)
+		transform: scale(0.9)
+		-webkit-transition: all 0.4s
+		-moz-transition: all 0.4s
+		-ms-transition: all 0.4s
+		-o-transition: all 0.4s
+		transition: all 0.4s
+
+		.overlay-content
+			padding: 131px 3em
+			text-align: center
+			@media screen and (max-width: 992px)
+				padding: 235px 3em
+			@media screen and (max-width: 768px)
+				padding: 235px 2em
+			@media screen and (max-width: 767px)
+				padding-top: 35%
+			@media screen and (max-width: 700px)
+				padding-top: 30%
+			@media screen and (max-width: 580px)
+				padding-top: 28%
+				padding-left: 1em
+				padding-right: 1em
+			@media screen and (max-width: 580px) and (min-width: 481px)
+				a
+					// margin-right: 15px !important
+			@media screen and (max-width: 480px)
+				padding-top: 69%
+				padding-left: 2em
+				padding-right: 2em
+				a
+					margin-right: 23px
+			@media screen and (max-width: 425px)
+				padding-top: 63%
+			@media screen and (max-width: 360px)
+				padding-top: 58%
+				padding-left: 1em
+				padding-right: 1em
+
+			a
+				display: inline-block
+				margin-right: 23px
+				@media screen and (max-width: 768px)
+					margin-right: 15px
+				@media screen and (max-width: 600px)
+					margin-right: 0 !important
+				@media screen and (max-width: 480px)
+					margin-right: 13px !important
+				@media screen and (max-width: 320px)
+					margin-right: 3px
+				&:last-child
+					margin-right: 0
+
+
+			h3,h2,h1,h4
+				padding-top: 0
+				margin-top: 0
+	&.isOpen
+		.hasAction-overlay
+			opacity: 1
+			visibility: visible
+			-webkit-transform: scale(1)
+			-moz-transform: scale(1)
+			-ms-transform: scale(1)
+			-o-transform: scale(1)
+			transform: scale(1)
+	&.hasAction-small
+		@media screen and (max-width: 480px)
+			display: block
+			clear: both
+			width: 100%
+			margin: 0
+		.hasAction-content
+			padding: 15px 0px 0px
+		.hasAction-overlay
+			.overlay-content
+				overflow: hidden
+				padding: 83px 20px
+
+				a
+					margin-right: 7px
+					&:last-child
+						margin-right: 0
+				h1, h2, h3
+					font-size: 1.7em
+					font-weight: 700
+					color: #333333
+				@media screen and (max-width: 980px)
+					// padding: 2em 1em
+					.btn
+						font-size: 1em
+						white-space: nowrap
+						text-overflow: ellipsis
+				@media screen and (max-width: 600px)
+					padding-top: 63px
+					padding-left: 10px
+					padding-right: 10px
+					a
+						margin-right: 0px
+				@media screen and (max-width: 480px)
+					padding-top: 44%
+					h1, h2, h3
+						margin: 0 0 0.5em
+				@media screen and (max-width: 320px)
+					padding-top: 35%
+					overflow: hidden
+				
+				&.medium-size, &.donate-size
+					@media screen and (max-width: 992px) and (min-width: 700px)
+						padding-top: 58px
+					@media screen and (max-width: 700px) and (min-width: 651px)
+						padding-top: 8%
+					@media screen and (max-width: 650px) and (min-width: 481px)
+						padding-top: 5%
+
+				&.donate-size
+					@media screen and (min-width: 992px)
+						padding-top: 62px
+
+
+
+#impact .jrf .overlay-content h2, #impact .jrf .overlay-content h3
+	padding-top: 0
+	margin-top: 0
+	padding-bottom: 34px
+	margin-bottom: 0
+
+.new_page_column
+	background-color: #eeeeee
+	[class*="col-"]
+		padding-bottom: 40px
+
+// .right_column
+// 	.wrapper
+// 	// @extend .ellipsis
+
+
+
+
+.back-to-top
+	position: fixed
+	bottom: 20px
+	right: 60px
+	opacity: 0
+	visibility: hidden
+	margin-bottom: -20px
+	z-index: 99
+	-webkit-transition: all 0.3s
+	-moz-transition: all 0.3s
+	-ms-transition: all 0.3s
+	-o-transition: all 0.3s
+	transition: all 0.3s
+	@media screen and (max-width: 768px)
+		right: 20px
+	&.visible
+		opacity: 0.7
+		visibility: visible
+		margin-bottom: 0
+		&:hover, &:focus
+			i.arrowUp
+				background-position: -233px -696px
+
+
+
+.twitter-feed-box
+	max-width: 500px
+	margin: 30px auto 0
+
+	iframe
+		margin-bottom: 30px !important
+
+
+
+
+
+@-moz-keyframes bounce
+	0%, 20%, 50%, 80%, 100%
+		-moz-transform: translateY(0)
+		transform: translateY(0)
+	40%
+		-moz-transform: translateY(-20px)
+		transform: translateY(-20px)
+	60%
+		-moz-transform: translateY(-15px)
+		transform: translateY(-15px)
+
+
+@-webkit-keyframes bounce
+	0%, 20%, 50%, 80%, 100%
+		-webkit-transform: translateY(0)
+		transform: translateY(0)
+	40%
+		-webkit-transform: translateY(-20px)
+		transform: translateY(-20px)
+	60%
+		-webkit-transform: translateY(-15px)
+		transform: translateY(-15px)
+
+
+@keyframes bounce
+	0%, 20%, 50%, 80%, 100%
+		-moz-transform: translateY(0)
+		-ms-transform: translateY(0)
+		-webkit-transform: translateY(0)
+		transform: translateY(0)
+	40%
+		-moz-transform: translateY(-20px)
+		-ms-transform: translateY(-20px)
+		-webkit-transform: translateY(-20px)
+		transform: translateY(-20px)
+	60%
+		-moz-transform: translateY(-15px)
+		-ms-transform: translateY(-15px)
+		-webkit-transform: translateY(-15px)
+		transform: translateY(-15px)
+
+
+.bounce
+	-moz-animation: bounce 2s infinite
+	-webkit-animation: bounce 2s infinite
+	animation: bounce 2s infinite
+
+@-moz-keyframes arrowFade
+	0%, 20%, 50%, 80%, 100%
+		opacity: 0
+	40%
+		opacity: 1
+	60%
+		opacity: 0.8
+
+
+@-webkit-keyframes arrowFade
+	0%, 20%, 50%, 80%, 100%
+		opacity: 0
+	40%
+		opacity: 1
+	60%
+		opacity: 0.8
+
+
+@keyframes arrowFade
+	0%, 20%, 50%, 80%, 100%
+		opacity: 0
+	40%
+		opacity: 1
+	60%
+		opacity: 0.8
+
+
+.arrowFade
+	-moz-animation: arrowFade 4s infinite
+	-webkit-animation: arrowFade 4s infinite
+	animation: arrowFade 4s infinite
+.network_map_all
+	.active
+		color: #2AA5D1
+	.inline-menu
+		a
+			&:hover
+				color: #2AA5D1
+	#network_map
+		background-image: url(../img/map.png)
+	#network_map_320
+		background-image: url(../img/map-320.png)
+			
+	#m_network_map
+		area
+			outline: none
+	#m_network_map_320
+		area
+			outline: none
+	.map_contents	
+		background: rgba(38,55,82,0.95)
+		position: relative
+		color: #fff
+		display: none
+		padding-top: 40px
+		padding-bottom: 40px
+		@media screen and (max-width: 768px)
+			padding-top: 0px
+			padding-bottom: 0px
+
+		p
+			line-height: 35px !important
+			span
+				color: #2AA5D1
+		@media screen and (max-width: 992px)
+			background: none
+			color: #333333
+
+	.mmap
+		text-align: center
+
+	.back_map
+		margin-top: 30px
+		display: none
+		@media screen and (max-width: 992px)
+			margin-top: -20px
+		@media screen and (max-width: 768px)
+			margin-top: 0px
+
+	.visible-555
+		display: none
+	.hidden-555
+		display: block
+
+
+	@media screen and (max-width: 555px)
+		.visible-555
+			display: block
+		.hidden-555
+			display: none
+		.zero-padding
+			padding: 0px !important
+
+	@media screen and (max-width: 768px)
+		.text-center-xs
+			text-align: center 
+
+	

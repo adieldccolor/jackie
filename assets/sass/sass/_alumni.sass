@@ -1,0 +1,94 @@
+.alumni
+
+	.left_column
+		.wrapper
+			padding: 0 30px 0 0
+			@media screen and (max-width: 768px)
+				padding: 0
+
+			h4
+				margin-bottom: 20px
+				line-height: 140%
+	.right_column
+		.wrapper
+			padding: 0 0 0 30px
+			@media screen and (max-width: 768px)
+				padding: 20px 0
+
+	.alumni-section
+		.container
+			.row
+				.left_column
+					@media screen and (min-width: 992px)
+						.col-xs-4
+							width: 37%
+						.col-xs-8
+							width: 63%
+
+					.button-xxs-center
+						margin-left: 0
+						margin-right: 0
+						@media screen and (max-width: 480px)
+							margin-left: auto
+							margin-right: auto
+							display: block
+				
+				.col-xxs
+					@media screen and (max-width: 480px)
+						width: 100%
+						float: none
+						display: block
+	&.mlc-conference
+		.right_column
+			.wrapper
+				@media screen and (min-width: 769px)
+					padding-left: 10px
+
+
+.alumni-section
+	.container
+		padding-left: 10px
+		padding-right: 10px
+		// @media screen and (max-width: 768px)
+		// 	padding-left: 30px
+		// 	padding-right: 30px
+
+		.row
+			margin-left: -10px
+			margin-right: -10px
+			.row
+				margin-left: -10px
+				margin-right: -10px
+			@media screen and (max-width: 768px)
+				// margin-left: -30px
+				// margin-right: -30px
+			[class*="col-"]
+				padding-left: 10px
+				padding-right: 10px
+				@media screen and (max-width: 768px)
+					// padding-left: 30px
+					// padding-right: 30px
+				&.left_column, &.right_column
+					padding-left: 30px
+					padding-right: 30px
+		> .row
+			@media screen and (max-width: 768px)
+				padding-left: 0
+				padding-right: 0
+				// padding-left: 30px
+				// padding-right: 30px
+				> [class*="col-"]
+					// padding-left: 0
+					// padding-right: 0
+
+
+.scholarsPage
+	.container
+		@media screen and (max-width: 768px)
+			padding-left: 30px
+			padding-right: 30px
+			> .row, .scholars-tabs > .row, .officer-grid > .row
+				margin-left: -30px
+				margin-right: -30px
+				padding-left: 30px
+				padding-right: 30px

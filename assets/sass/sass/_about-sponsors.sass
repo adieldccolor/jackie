@@ -1,0 +1,61 @@
+.about-sponsors
+	background-color: #eeeeee
+	padding-bottom: 50px
+	overflow: hidden
+	.container
+		max-width: 1010px
+
+		.button-primary
+			margin-top: 50px
+
+		h1, h2, h3
+			margin-top: 45px
+			margin-bottom: 45px
+			font-weight: 600
+
+		.small-sponsor-carousel
+			position: relative
+			margin: 0 45px
+			max-height: 90px
+			.next-sponsor, .prev-sponsor
+				position: absolute
+				top: 50%
+				margin-top: -18px
+				left: -45px
+				&.next-sponsor
+					left: auto
+					right: -45px
+			.item
+				@media screen and (max-width: 768px)
+					display: block
+					height: 80px
+					line-height: 80px
+					text-align: center
+					vertical-align: middle
+				img
+					max-width: 100%
+					display: block
+					margin: 0 auto
+					@media screen and (max-width: 768px)
+						width: auto
+						max-height: 80px
+						display: inline-block
+						vertical-align: middle
+
+			.owl-controls
+				display: none !important
+
+		.sponsor-slider
+			overflow: hidden
+			position: relative
+			// height: 80px
+			ul
+				margin: 0
+				padding: 0
+				list-style: none
+				width: 100%
+				// height: 80px
+				li
+					// float: left
+					// margin: 0 21px 0 0
+					list-style: none

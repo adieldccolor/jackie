@@ -1,0 +1,67 @@
+//menuTop
+#programs
+	background-color: #EEE
+	display: block
+	width: 100%
+	padding-bottom: 20px
+	@media screen and (max-width: 768px) and (min-width: 481px)
+		.container
+			max-width: 100%
+			margin: 0 40px
+	h1
+		display: block
+		position: relative
+		color: $color-primary
+		text-align: center
+		margin: 50px 0 30px 0 
+	p
+		font-size: 1em
+		height: 140%
+		font-family: $sourcesans
+		color: $color-primary
+		text-align: center
+		margin: 0 0 25px 0 
+		@media screen and (max-width: 768px) and (min-width: 481px)
+			margin: 0 25px 25px
+
+	ul
+		list-style: none
+		padding: 0
+		margin: 0
+		li
+			font-size: 1em
+			font-family: $sourcesans
+			color: $color-primary
+			margin: 10px 7px
+			padding-left: 33px
+			position: relative
+			&:before
+				display: block
+				position: absolute
+				left: 0
+				top: 7px
+				// background: url(../img/sprite.png) 0 0 no-repeat
+				width: 13px
+				height: 14px
+				@extend .icon
+				background-position: -233px -427px
+				content: ""
+
+
+.jrf-programs-row
+	margin-left: -10px
+	margin-right: -10px
+	[class*="col-"]
+		padding-left: 10px
+		padding-right: 10px
+	.left-column-small
+		@media screen and (min-width: 992px)
+			width: 190px
+	.right-column-small
+		@media screen and (min-width: 1200px)
+			width: 810px
+		@media screen and (min-width: 992px) and (max-width: 1200px)
+			width: 770px
+	.line
+		margin-bottom: 30px
+		margin-top: 20px

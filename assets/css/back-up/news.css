@@ -1,0 +1,13 @@
+.news .container span {
+  display: block;
+  margin-bottom: 25px; }
+  .news .container span span {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 0px; }
+.news .container h3 {
+  margin-top: 18px !important; }
+.news .container .last_span {
+  margin-bottom: -21px; }
+
+/*# sourceMappingURL=news.css.map */

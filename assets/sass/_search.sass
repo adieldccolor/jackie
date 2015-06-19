@@ -1,0 +1,169 @@
+.search-form
+	display: block
+	position: relative
+	z-index: 50
+	background-color: #FFF
+	padding: 0
+	border-top: 0 solid #d6d6d6
+	-webkit-transition: all 0.4s
+	-moz-transition: all 0.4s
+	-ms-transition: all 0.4s
+	-o-transition: all 0.4s
+	transition: all 0.4s
+	opacity: 0
+	visibility: hidden
+	max-height: 0
+	overflow: hidden
+	&.search-open
+		visibility: visible
+		opacity: 1
+		max-height: 140px
+		padding: 14px 0
+		border-top-width: 1px
+		text-shadow: none
+		margin-top: 25px
+		@media screen and (max-width: 1270px)
+			margin-top: 9px
+		@media screen and (max-width: 768px)
+			border-top-width: 0
+			padding-top: 0
+			margin-top: 0px
+	.container
+		position: relative
+		max-width: 1050px
+		-webkit-transition: all 0.4s
+		-moz-transition: all 0.4s
+		-ms-transition: all 0.4s
+		-o-transition: all 0.4s
+		transition: all 0.4s
+		@media screen and (min-width: 1271px)
+			margin: 0 258px
+		form
+			margin: 0
+	.search-input
+		display: block
+		font-family: $sourcesans
+		font-size: 1em
+		color: #999
+		box-shadow: none
+		border: none
+		height: 44px
+		&::-ms-clear
+			display: none
+		@media screen and (min-width: 769px)
+			text-indent: 15px
+		@media screen and (max-width: 768px)
+			border: 1px solid #eeeeee
+			border-radius: 0px
+			padding: 8px 15px
+			font-size: 0.8em
+			width: 80%
+			height: 100%
+		@media screen and (max-width: 480px)
+			width: 60%
+	.search-submit
+		display: block
+		height: 44px
+		position: absolute
+		right: 14px
+		width: 45px
+		background-color: transparent
+		padding: 0
+		z-index: 2
+		color: transparent
+		overflow: hidden
+		border: none
+		@media screen and (min-width: 769px)
+			right: auto
+			left: 0
+		span
+			display: none
+		i
+			vertical-align: middle
+		@media screen and (max-width: 768px)
+			background: #2AA5CF
+			width: 16%
+			color: #FFF
+			padding: 8px 10px
+			height: auto
+			font-size: 0.8em
+			border: 1px solid #2AA5CF
+			text-transform: uppercase
+			i
+				display: none
+			span
+				display: block
+		@media screen and (max-width: 480px)
+			width: 35%
+
+.sticky
+	.search-form
+		&.search-open
+			margin-top: 14px
+			@media screen and (max-width: 1270px)
+				margin-top: 0px
+		.container
+			@media screen and (min-width: 1271px)
+				margin: 0 180px
+
+.search-button
+	display: inline-block
+	&.search-open
+		color: transparent !important
+		// background: #fff url(../img/search-close.png) center center no-repeat
+		@extend .icon
+		background-position: -75px -704px !important
+		text-shadow: none !important
+		@media screen and (max-width: 980px)
+			background-position: -83px -709px !important
+
+.search-open
+	.menuTop #navbar ul.navbar-nav li.active > a:before
+		bottom: -45px
+		opacity: 0
+	.menuTop #navbar ul.navbar-nav li.active > ul
+		@media screen and (min-width: 769px)
+			opacity: 0
+
+.search
+	.pagination
+		float: right
+		margin: 0px
+		padding: 0px
+		a
+			font-family: 'Source Sans Pro', sans-serif
+		ul
+			list-style: none
+			padding: 0px
+			li
+				display: inline-block
+				margin-right: 20px
+				&.last
+					margin-right: 0px
+				a
+					vertical-align: text-bottom
+					color: #666666
+					&.active
+						color: #337ab7
+					&.vertical-align
+						vertical-align: baseline
+	input[type="text"]
+		padding: 10px 45px 10px 15px
+		width: 97%
+		font-family: 'Source Sans Pro', sans-serif
+		border: 1px solid #d6d6d6
+		margin-bottom: 26px
+		margin-top: 20px 
+	input[type="submit"], input[type="button"], input[type="reset"], button, button[type="button"], button[type="submit"], button[type="reset"]
+		border: none
+	.lup
+		vertical-align: baseline
+		vertical-align: -webkit-baseline-middle
+		margin-left: -45px
+
+	.contents
+		h4
+			margin-top: 40px 
+	.bottom
+		margin-bottom: 15px !important
+	

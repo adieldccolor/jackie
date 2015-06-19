@@ -1,0 +1,96 @@
+body.isPage
+	background-color: #FFF
+
+.page-wrapper
+	visibility: hidden
+	opacity: 0
+	-webkit-transition: opacity 0.4s ease, visibility 0.4s ease
+	-moz-transition: opacity 0.4s ease, visibility 0.4s ease
+	-ms-transition: opacity 0.4s ease, visibility 0.4s ease
+	-o-transition: opacity 0.4s ease, visibility 0.4s ease
+	transition: opacity 0.4s ease, visibility 0.4s ease
+	&.visible
+		opacity: 1
+		visibility: visible
+
+.page
+	position: relative
+	min-height: 100%
+	padding: 35px 0 30px
+	.container
+		max-width: 1010px
+
+		.container-wrapper
+			@media screen and (min-width: 768px)
+				margin: 0 40px
+			padding-bottom: 40px
+
+			.divider
+				@media screen and (max-width: 767px)
+					display: none
+
+		.inline-menu
+			margin-top: 40px
+
+		.divider
+			display: block
+			clear: both
+			margin: 10px 0
+
+		h1, h2, h3, h4
+			&:first-child
+				margin-top: 0
+
+		h1 + .row, h2 + .row, h3 + .row, h4 + .row
+			margin-top: 30px
+			&.gallery-row
+				margin-top: 0
+
+		p
+			@extend .bodytext1
+			font-weight: 400
+			margin-bottom: 25px
+			&.clutted
+				margin-bottom: 10px
+
+		a, span, p
+			&.zero-bottom
+				margin-bottom: 0
+			&.apply-dates-heading
+				margin-bottom: 5px
+				margin-top: 20px
+
+		.img-wrapper
+			@media screen and (min-width: 768px)
+				margin: 0 20px
+
+
+		.bodytext1
+			@extend .bodytext1
+		.bodytext2
+			@extend .bodytext2
+
+		.useIcon
+			.icon
+				vertical-align: middle
+			span
+				display: inline-block
+				vertical-align: middle
+				margin-left: 5px
+
+		img.img-signature
+			max-width: 250px
+			display: block
+			margin-top: 10px
+			margin-bottom: 10px
+
+	&.internal-page
+		padding-bottom: 60px
+
+@media screen and (max-width: 767px)
+	img.img-block
+		display: block
+		margin: 0 auto
+		margin-bottom: 20px
+		&.img-signature
+			margin: 0 0 0px
