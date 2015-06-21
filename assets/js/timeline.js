@@ -70,6 +70,18 @@ function arrowAnimate(){
 }
 
 
+function showMoreInfoButton($more){
+	//if screen is smaller than 1225px
+	if( vw(100) < 1226 )
+	{
+		TweenMax.to($more, 0.5, {y: -120, right: -31});
+	}
+	else{
+		TweenMax.to($more, 0.5, {y: 0, right: 0});
+	}
+}
+
+
 timeline = {
 	jqueryInit: function()
 	{
@@ -1050,9 +1062,12 @@ timeline = {
 
                     var $more = $('.more-info');
                     if ($wrapp.first().find('script[data-additional]').length > 0) {
-                        TweenMax.to($more, 0, {y: 60, right: '-62px'});
+
+						TweenMax.to($more, 0, {y: 60, right: '-62px'});
+
                         toggleElements( $more, 'show', 0.3, 0 );
-                        TweenMax.to($more, 0.5, {y: 0});
+
+						showMoreInfoButton($more);
                     }
                     else {
                         //TweenMax.to($more, 0, {y: 60, right: '-31px'});
@@ -1311,7 +1326,8 @@ timeline = {
                     if ($wrapp.first().find('script[data-additional]').length > 0) {
                         TweenMax.to($more, 0, {y: 60, right: '-62px'});
                         toggleElements( $more, 'show', 0.3, 0 );
-                        TweenMax.to($more, 0.5, {y: 0});
+
+						showMoreInfoButton($more);
                     }
                     else {
                         //TweenMax.to($more, 0, {y: 60, right: '-31px'});
@@ -1464,10 +1480,12 @@ timeline = {
                     || ($wrapp.length == 1 && $wrapp.find('script[data-additional]').length > 0)) {
                     toggleElements($more, 'show', (animated ? 0.5 : 0), mdelay);
 
-                    if (!animated) {
-                        TweenMax.to($more, (animated ? 0.5 : 0), {y: 0, delay: (animated ? mdelay : 0)});
+                    if (vw(100) > 1225) {
+                        TweenMax.to($more, (animated ? 0.5 : 0), {y: 0, delay: (animated ? mdelay : 0), right: 0});
+                        //TweenMax.to($more, (animated ? 0.5 : 0), {top: 0, delay: (animated ? mdelay : 0)});
                     } else {
-                        TweenMax.to($more, (animated ? 0.5 : 0), {y: -120, delay: (animated ? mdelay : 0)});
+                        TweenMax.to($more, (animated ? 0.5 : 0), {y: -120, delay: (animated ? mdelay : 0), right: -31});
+                        //TweenMax.to($more, (animated ? 0.5 : 0), {top: -120, delay: (animated ? mdelay : 0)});
                     }
                 }
                 else {
@@ -2151,7 +2169,8 @@ timeline = {
                         if ($nextEvent.find('script[data-additional]').length > 0) {
                             TweenMax.to($more, 0, {y: 60, right: '-62px'});
                             toggleElements( $more, 'show', 0.3, 0 );
-                            TweenMax.to($more, 0.5, {y: 0});
+                            //TweenMax.to($more, 0.5, {y: 0});
+							showMoreInfoButton($more);
                         }else{
                             TweenMax.to($more, 0.5, {y: 60, opacity: 0});
                         }
@@ -2247,7 +2266,8 @@ timeline = {
                         if ($prevEvent.find('script[data-additional]').length > 0) {
                             TweenMax.to($more, 0, {y: 60, right: '-62px'});
                             toggleElements( $more, 'show', 0.3, 0 );
-                            TweenMax.to($more, 0.5, {y: 0});
+                            //TweenMax.to($more, 0.5, {y: 0});
+							showMoreInfoButton($more);
                         }else{
                             TweenMax.to($more, 0.5, {y: 60, opacity: 0});
                         }
