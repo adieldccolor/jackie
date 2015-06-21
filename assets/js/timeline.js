@@ -544,6 +544,95 @@ timeline = {
 
 
 		},
+
+
+
+        resizeLightbox: function(){
+
+
+            var $lightbox = $('.timeline-lightbox'),
+                $wrapper = $lightbox.find('.wrapper'),
+                $inner = $wrapper.find('.inner'),
+                info = $inner.html();
+
+            if( $lightbox.hasClass('open') )
+            {
+
+
+                //$inner.html( info ).css({ opacity: 0 });
+
+
+                $wrapper.css({ top: 0, paddingBottom: 0, width: '100%', maxWidth: '900px', opacity: 0 });
+                //TweenMax.to($wrapper, 0.2, {top: 0, paddingBottom: 0, width: '100%', maxWidth: '900px'});
+                TweenMax.to($wrapper, 0, {opacity: 0});
+
+                if( $inner.find('img').length > 0 )
+                {
+                    $elems['preloader'].css({ opacity: 1, zIndex: 9000 });
+                    $lightbox.addClass('open');
+                    TweenMax.to($lightbox, 0, { opacity: 1 });
+
+
+                    //images are loaded so resize
+                    var imgLoad = imagesLoaded($inner);
+                    imgLoad.on( 'always', function() {
+                        $inner.find('img').css({ maxHeight: vh(80) });
+
+                        if( isMobile )
+                        {
+                            $inner.find('img').css({ maxHeight: vh(80) - 85 });
+                        }
+
+                        var innerHeight = $inner.outerHeight(),
+                            innerWidth = $inner.outerWidth(),
+                            top = vh(100) < innerHeight ? 20 : ( vh(100) - innerHeight ) / 2;
+
+                        top = isMobile ? top + 40 : top;
+                        //top = isMobile ? 85 : top;
+
+                        $wrapper.css({ top: top, paddingBottom: 50, width: innerWidth  });
+                        $elems['preloader'].css({ opacity: 0, zIndex: 0 });
+                        TweenMax.to($inner, 0, { opacity: 1 });
+
+						TweenMax.to($wrapper, 0, {opacity: 1});
+
+                    });
+
+
+
+                }
+                else
+                {
+                    var innerHeight = $inner.outerHeight(),
+                        innerWidth = $inner.outerWidth(),
+                        top = vh(100) < innerHeight ? 20 : ( vh(100) - innerHeight ) / 2;
+
+                    //top = isMobile ? 85 : top;
+
+                    $wrapper.css({ top: top, paddingBottom: 50, width: innerWidth  });
+
+                    $lightbox.addClass('open');
+                    TweenMax.to($lightbox, 0, { opacity: 1 });
+                    TweenMax.to($inner, 0, { opacity: 1 });
+                }
+
+                $('body,html').css({ overflow: 'hidden' });
+
+                if( isMobile )
+                {
+                    $('.menuTop').addClass('sticky');
+                    $('.timeline-wrapper-mobile').css({ marginTop: 65 });
+                }
+
+                toggleElements( $('.close-button'), 'show', 0.05, 0 );
+
+
+            }
+
+
+        },
+
+
 		fitToExpand: function($el,animated)
 		{
 			var $wrapp = $el.find('.stage-wrapper');
@@ -2341,7 +2430,7 @@ timeline = {
 
 
 		//when click on more button, full expand to see overview of time entry
-		.on('click', '.internal-stage.viewport-visible .overview-trigger, .internal-stage.viewport-visible.hover', function(e){
+		.on('click touchstart', '.internal-stage.viewport-visible .overview-trigger, .internal-stage.viewport-visible.hover', function(e){
 			e.preventDefault(); e.stopPropagation();
 
 			if( $(this).hasClass("internal-stage") && $(this).hasClass("overviewing") ){
@@ -2711,7 +2800,14 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 
 				killTimer('reload');
 				timer['reload'] = setTimeout(function(){
-					timeline.recalculateScreenSize();
+                    timeline.recalculateScreenSize();
+
+                    if( $('.timeline-lightbox').hasClass('open') )
+                    {
+                        timeline.times.resizeLightbox();
+                    }
+
+
 
 					killTimer("resize-home");
 					timer["resize-home"] = setTimeout(function(){

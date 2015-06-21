@@ -574,7 +574,7 @@ a:hover, a:focus {
 .button-wrapper {
   padding-top: 0px; }
 @media screen and (max-width: 992px){
-  .button-wrapper{
+  .static .button-wrapper{
     max-width: 180px;
     margin-left: auto;
     margin-right: auto;
