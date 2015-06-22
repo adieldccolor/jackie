@@ -6137,7 +6137,7 @@ body.timeline {
     margin-top: -25px; }
     @media screen and (max-width: 760px) {
       body.timeline .navigation-arrows {
-        margin-top: 0; } }
+        /*margin-top: 0;*/ } }
     @media screen and (max-width: 650px) {
       body.timeline .navigation-arrows {
         visibility: hidden; } }
@@ -6411,7 +6411,9 @@ body.timeline {
                 -o-transition: all 0.3s;
                 transition: all 0.3s; }
                 body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .internal-stage .bg-overlay-intense.textured {
-                  background: transparent url(../img/timeline/texture.png) center center; }
+                  background: transparent url(../img/timeline/texture.png) center center repeat; filter: progid:DXImageTransform.Microsoft.gradient(
+                        startColorstr=#00FFFFFF, endColorstr=#00FFFFFF
+                ); }
               body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .internal-stage .internal-wrapper {
                 position: relative;
                 padding: 0 20px;

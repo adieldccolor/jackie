@@ -77,10 +77,20 @@ function showMoreInfoButton($more){
 		TweenMax.to($more, 0.5, {y: -120, right: -31});
 	}
 	else{
-		TweenMax.to($more, 0.5, {y: 0, right: 0});
+		TweenMax.to($more, 0.5, {y: 0, right: -62});
 	}
 }
 
+
+
+function resizeBody(){
+	TweenMax.to( $('.body'), 0, { height: vh(100) } );
+	if( vw(100) > 767 ){
+		TweenMax.to( $('.body'), 0, { overflow: 'hidden' } );
+	}else{
+		TweenMax.to( $('.body'), 0, { overflow: '' } );
+	}
+}
 
 timeline = {
 	jqueryInit: function()
@@ -104,6 +114,7 @@ timeline = {
         preloader();
 
 
+
         $.stellar({
             horizontalScrolling: false,
             verticalOffset: 0,
@@ -123,6 +134,8 @@ timeline = {
 		_self.recalculateScreenSize();
 
         arrowAnimate();
+
+		resizeBody();
 
 
 		_self.enableRoutes(from);
@@ -679,12 +692,16 @@ timeline = {
 				$toolbarHeight = $('.page-toolbar').outerHeight(),
 				newTop = (vh(100) - $toolbarHeight) - 100,
 				newTop = (newTop - wrappHeight) > 0 ? (newTop - wrappHeight) / 2 : 0,
-				newTop = $el.find('.time-title').length > 0 
-						? $('.overlay-year').position().top + $('.overlay-year').outerHeight() + 20 : newTop + 100;
+				newTop = $el.find('.time-title').length > 0
+					? $('.overlay-year').position().top
+				+ $('.overlay-year').outerHeight() + 20
+					: newTop + 100;
+
 
 			var newHeight = (vh(100) - ($toolbarHeight + 140)),
 				newHeight = $el.find('.time-title').length > 0 
-						? newHeight - ($('.overlay-year').outerHeight()) : newHeight;
+						? newHeight - ($('.overlay-year').outerHeight())
+					: newHeight;
 
 				newHeight = newHeight - extraSpace;
 
@@ -825,7 +842,7 @@ timeline = {
                     $(this).find('.internal-wrapper').each(function(){
                         TweenMax.to($(this), 0, {position: 'relative',
                             top: '50%',
-                            marginTop: '-52px', delay: durationCond(1)});
+                            marginTop: -52, delay: durationCond(1)});
 
                         TweenMax.to($(this).find('.time-title'), 0, { width: (vw(100) / maxItems) - 40 });
 
@@ -1080,18 +1097,20 @@ timeline = {
 				var $room = $('.second-room');
 
 				// TweenMax.to($next, 0.5, { x: 0 });
-				TweenMax.to($next, 0.5, { x: 0, width: vw(100), zIndex: 50 });
+				TweenMax.to($next, 0.05, { x: 0, width: vw(100), zIndex: 50, onComplete: function(){
+                    timeline.times.fitToExpand($next);
+                } });
 				
 				//hide current
 				TweenMax.to($el.find('.internal-room'), 0.5, {opacity: 0, x: 0});
 
 				//show next
 				$next.addClass('hover expanded').css({ opacity: 1 });
-				TweenMax.to($next.find('.internal-wrapper'), 0.5, {opacity: 0});
+				TweenMax.to($next.find('.internal-wrapper'), 0, {opacity: 0});
 
 				TweenMax.to($next.find('.internal-wrapper'), 0, { width: vw(100) / $viewportVisible.length, 
 					onComplete: function(){
-						toggleElements($next.find('.internal-room'), 'show', 1, 0);
+						toggleElements($next.find('.internal-room'), 'show', 0.5, 0.5);
 
 						$next.addClass('overviewing');
 						$el.removeClass('overviewing hover expanded').css({ opacity: 1 });
@@ -1114,6 +1133,7 @@ timeline = {
 						// TweenMax.to($room, 0.5, { marginLeft: - $prev.data('position') });
 						TweenMax.to($next, 0.5, { x: 0 });
 						TweenMax.to($room, 0.5, { marginLeft: - newLeft });
+
 
 						// TweenMax.to($room, 0.5, { marginLeft: - $next.data('position') });
 
@@ -1339,20 +1359,21 @@ timeline = {
 
 				var $room = $('.second-room');
 
-				TweenMax.to($prev, 0.5, { x: 0 });
-				TweenMax.to($prev, 0.5, { x: 0, width: vw(100), zIndex: 50, delay: 0 });
+				TweenMax.to($prev, 0.5, { x: 0, width: vw(100), zIndex: 50, delay: 0, onComplete: function(){
+                    timeline.times.fitToExpand($prev);
+                } });
 
 
 				//hide current
-				TweenMax.to($el.find('.internal-room'), 0.5, {opacity: 0, x: 0, delay: 0});
+				TweenMax.to($el.find('.internal-room'), 0.5, {opacity: 0, x: 0, delay: 0.5});
 
 				//show prev
 				$prev.addClass('hover expanded').css({ opacity: 1 });
-				TweenMax.to($prev.find('.internal-wrapper'), 0.5, {opacity: 0});
+				TweenMax.to($prev.find('.internal-wrapper'), 0, {opacity: 0});
 
-				TweenMax.to($prev.find('.internal-wrapper'), 0, { width: vw(100) / $viewportVisible.length, 
+				TweenMax.to($prev.find('.internal-wrapper'), 0, { width: vw(100) / $viewportVisible.length,
 					onComplete: function(){
-						toggleElements($prev.find('.internal-room'), 'show', 1, 0);
+						toggleElements($prev.find('.internal-room'), 'show', 0.5, 0.5);
 
 						$prev.addClass('overviewing');
 						$el.removeClass('overviewing hover expanded').css({ opacity: 1 });
@@ -1454,14 +1475,14 @@ timeline = {
 			//force mobile menu
 			if( vw(100) < 901 )
 			{
-				$('.nav-container, .menuTop').addClass('forced');
+				//$('.nav-container, .menuTop').addClass('forced');
 			}
 
 			var $wrapp = $el.find('.stage-wrapper');
-			$wrapp.css({ height: '100%' });
-			$wrapp.find('.container').css({ height: '100%' });
+			//$wrapp.css({ height: '100%' });
+			//$wrapp.find('.container').css({ height: '100%' });
 
-			$wrapp.removeClass('visible');
+			//$wrapp.removeClass('visible');
 
 			$el.find('.sub-stage').css({ marginTop: 0 });
 			TweenMax.to( $wrapp, 0, { y: 0, opacity: 1 } );
@@ -1480,7 +1501,7 @@ timeline = {
                     toggleElements($more, 'show', (animated ? 0.5 : 0), mdelay);
 
                     if (vw(100) > 1225) {
-                        TweenMax.to($more, (animated ? 0.5 : 0), {y: 0, delay: (animated ? mdelay : 0), right: 0});
+                        TweenMax.to($more, (animated ? 0.5 : 0), {y: 0, delay: (animated ? mdelay : 0), right: -62});
                     } else {
                         TweenMax.to($more, (animated ? 0.5 : 0), {y: -120, delay: (animated ? mdelay : 0), right: -31});
                     }
@@ -1520,7 +1541,7 @@ timeline = {
                     toggleMoreInfoButtonMobile();
 				}
 
-				
+
 			}
 			else
 			{
@@ -1588,7 +1609,9 @@ timeline = {
 
 
 			// TweenMax.to($el, 0.5, { marginLeft: left, marginRight: right, width: vw(100), zIndex: 50 });
-			TweenMax.to($el, (animated?0.5:0), { x: 0, width: vw(100), zIndex: 50, delay: (animated?0.5:0) });
+			TweenMax.to($el, (animated?0.5:0), { x: 0, width: vw(100), zIndex: 50, delay: (animated?0.5:0) , onComplete: function(){
+                timeline.times.fitToExpand($el, animated);
+            }});
 			TweenMax.to($room, (animated?0.5:0), { marginLeft: "-" + $el.position().left, delay: (animated?0.5:0) });
 			TweenMax.to($el.find('.internal-wrapper'), (animated?0.5:0), {opacity: 0});
 			TweenMax.to($el.find('.internal-wrapper'), 0, { width: vw(100) / $viewportVisible.length, 
@@ -1596,6 +1619,7 @@ timeline = {
 					toggleElements($el.find('.internal-room'), 'show', (animated?1:0), (animated?0.5:0));
 
 					$el.addClass('overviewing');
+
 
 			}, delay: (animated?0.5:0) });
 		},
@@ -2008,6 +2032,13 @@ timeline = {
 		TweenMax.to($('.page-toolbar'), animationCond(1), { y: 90 } );
 
 		$elems['stagesWrapper'].css({ width: screenSize.width * 4 });
+
+		//hide share button if is bio item or screen is small
+		if( vw(100) < 767 ){
+			toggleElements('.toolbars .share-button', 'hide', 0.5);
+		}else{
+			toggleElements('.toolbars .share-button', 'show', 0.5);
+		}
 
 
 		TweenMax.to(".stage", 0, {opacity:0, x: (screenSize.width - screenSize.width / 5), width: vw(100/3)});
@@ -2826,6 +2857,8 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
                     {
                         timeline.times.resizeLightbox();
                     }
+
+					resizeBody();
 
 
 
