@@ -6249,7 +6249,8 @@ body.timeline {
         body.timeline .timeline-lightbox .content .wrapper .inner {
           position: relative;
           text-align: center;
-          display: inline-block; }
+          display: inline-block;
+          width: 100%; }
           body.timeline .timeline-lightbox .content .wrapper .inner h6 {
             margin: 0 30px 20px;
             padding: 0 5px; }
