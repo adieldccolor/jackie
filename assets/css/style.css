@@ -5564,7 +5564,7 @@ body.timeline {
     body.timeline .menuTop .logo {
       width: auto;
       height: auto;
-      margin-top: 10px; }
+      margin-top: 15px; }
       body.timeline .menuTop .logo.timeline-logo {
         margin-left: 25px; }
         @media screen and (max-width: 1124px) {
@@ -5933,7 +5933,7 @@ body.timeline {
             text-decoration: none; }
       body.timeline .toolbars .home-toolbar .share-button {
         display: none; }
-        @media screen and (max-width: 650px) {
+        @media screen and (max-width: 767px) {
           body.timeline .toolbars .home-toolbar .share-button {
             display: block;
             height: 50px;
@@ -5982,7 +5982,7 @@ body.timeline {
         height: 100px;
         line-height: 100px;
         z-index: 2; }
-        @media screen and (max-width: 650px) {
+        @media screen and (max-width: 767px) {
           body.timeline .toolbars .home-toolbar .container {
             height: auto; } }
         body.timeline .toolbars .home-toolbar .container span, body.timeline .toolbars .home-toolbar .container .button-primary, body.timeline .toolbars .home-toolbar .container #social .blog p a.button-primary, #social .blog p body.timeline .toolbars .home-toolbar .container a.button-primary, body.timeline .toolbars .home-toolbar .container #social .left_column p a.button-primary, #social .left_column p body.timeline .toolbars .home-toolbar .container a.button-primary, body.timeline .toolbars .home-toolbar .container #social .twitter p a.button-primary, #social .twitter p body.timeline .toolbars .home-toolbar .container a.button-primary, body.timeline .toolbars .home-toolbar .container #social .right_column p a.button-primary, #social .right_column p body.timeline .toolbars .home-toolbar .container a.button-primary {

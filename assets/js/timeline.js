@@ -669,8 +669,7 @@ timeline = {
 
 				$arrow.find('.date').text( $nextEvent );
 				toggleElements( $arrow, 'show', durationCond(0.5), durationCond(0.5) );
-
-				extraSpace = isMobile ? 30 : 80;
+				extraSpace = 80;
 			}else{
 				toggleElements( $('.arrow-down,.arrow-up'), 'hide', durationCond(0.5), 0 );
 			}
@@ -979,7 +978,7 @@ timeline = {
 
 
 				//hide share button if is bio item or screen is small
-				if( $next.hasClass('static') || smallScreen ){
+				if( $next.hasClass('static') || vw(100) < 767 ){
 					TweenMax.to( $('.share-button'), 0.5, { opacity: 0 } );
 				}else{
 					TweenMax.to( $('.share-button'), 0.5, { opacity: 1 } );
@@ -1007,7 +1006,7 @@ timeline = {
 
 					$arrow.find('.date').text( $nextEvent );
 					toggleElements( $arrow, 'show', 0.5, 0.5 );
-					extraSpace = isMobile ? 30 : 80;
+					extraSpace = vw(100) < 650 ? 30 : 80;
 				}else{
 					TweenMax.to($('.arrow-down,.arrow-up'), 0.5, {opacity: 0, delay: 0.5});
 				}
@@ -1240,7 +1239,7 @@ timeline = {
 
 
 				//hide share button if is bio item or screen is small
-				if( $prev.hasClass('static') || smallScreen ){
+				if( $prev.hasClass('static') || vw(100) < 767 ){
 					TweenMax.to( $('.share-button'), 0.5, { opacity: 0 } );
 				}else{
 					TweenMax.to( $('.share-button'), 0.5, { opacity: 1 } );
@@ -1270,7 +1269,7 @@ timeline = {
 
 					$arrow.find('.date').text( $nextEvent );
 					toggleElements( $arrow, 'show', 0.5, 0 );
-					extraSpace = isMobile ? 30 : 80;
+					extraSpace = vw(100) < 650 ? 30 : 80;
 			}else{
 				TweenMax.to($('.arrow-down,.arrow-up'), 0.5, {opacity: 0, delay: 0});
 			}
@@ -1482,10 +1481,8 @@ timeline = {
 
                     if (vw(100) > 1225) {
                         TweenMax.to($more, (animated ? 0.5 : 0), {y: 0, delay: (animated ? mdelay : 0), right: 0});
-                        //TweenMax.to($more, (animated ? 0.5 : 0), {top: 0, delay: (animated ? mdelay : 0)});
                     } else {
                         TweenMax.to($more, (animated ? 0.5 : 0), {y: -120, delay: (animated ? mdelay : 0), right: -31});
-                        //TweenMax.to($more, (animated ? 0.5 : 0), {top: -120, delay: (animated ? mdelay : 0)});
                     }
                 }
                 else {
@@ -1538,8 +1535,10 @@ timeline = {
 			}
 
 			//hide share button if is bio item or screen is small
-			if( $el.hasClass('static') || smallScreen ){
+			if( $el.hasClass('static') || vw(100) < 767 ){
 				TweenMax.to( $('.share-button'), (animated?0.5:0), { opacity: 0 } );
+			}else{
+				TweenMax.to( $('.share-button'), (animated?0.5:0), { opacity: 1 } );
 			}
 
 
@@ -1585,6 +1584,7 @@ timeline = {
 				TweenMax.to($room, (animated?0.5:0), { marginLeft: "+=" + (vw(40) - vw(25)), 
 					delay: (animated?0.5:0) });
 			}
+
 
 
 			// TweenMax.to($el, 0.5, { marginLeft: left, marginRight: right, width: vw(100), zIndex: 50 });
@@ -1800,7 +1800,7 @@ timeline = {
 		var _self = this,
 			$title = $('.overlay-title'),
 			titleHeight = $title.outerHeight(),
-			titleTop = $title.position().top,
+			titleTop = $title.offset().top,
 			$toolbar = $('.toolbars .home-toolbar'),
 			toolbarHeight = $toolbar.outerHeight(),
 			$stage = $('.stage'),
@@ -2844,9 +2844,11 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 					}
 
 
-					if( view == home && smallScreen )
+					if( view == home && vw(100) < 767 )
 					{
 						toggleElements($('.share-button'), 'hide', 0.2, 0);
+					}else{
+						toggleElements($('.share-button'), 'show', 0.2, 0);
 					}
 
 					if( view == entries )
