@@ -979,9 +979,9 @@ timeline = {
 
 				//hide share button if is bio item or screen is small
 				if( $next.hasClass('static') || vw(100) < 767 ){
-					TweenMax.to( $('.share-button'), 0.5, { opacity: 0 } );
+					TweenMax.to( $('.toolbars .share-button'), 0.5, { opacity: 0 } );
 				}else{
-					TweenMax.to( $('.share-button'), 0.5, { opacity: 1 } );
+					TweenMax.to( $('.toolbars .share-button'), 0.5, { opacity: 1 } );
 				}
 
 				var $wrapp = $next.find('.stage-wrapper');
@@ -1240,9 +1240,9 @@ timeline = {
 
 				//hide share button if is bio item or screen is small
 				if( $prev.hasClass('static') || vw(100) < 767 ){
-					TweenMax.to( $('.share-button'), 0.5, { opacity: 0 } );
+					TweenMax.to( $('.toolbars .share-button'), 0.5, { opacity: 0 } );
 				}else{
-					TweenMax.to( $('.share-button'), 0.5, { opacity: 1 } );
+					TweenMax.to( $('.toolbars .share-button'), 0.5, { opacity: 1 } );
 				}
 
 
@@ -1536,9 +1536,9 @@ timeline = {
 
 			//hide share button if is bio item or screen is small
 			if( $el.hasClass('static') || vw(100) < 767 ){
-				TweenMax.to( $('.share-button'), (animated?0.5:0), { opacity: 0 } );
+				TweenMax.to( $('.toolbars .share-button'), (animated?0.5:0), { opacity: 0 } );
 			}else{
-				TweenMax.to( $('.share-button'), (animated?0.5:0), { opacity: 1 } );
+				TweenMax.to( $('.toolbars .share-button'), (animated?0.5:0), { opacity: 1 } );
 			}
 
 
@@ -1708,7 +1708,7 @@ timeline = {
 
 
 				//show button
-				TweenMax.to( $('.share-button'), durationCond(0.5), { opacity: 1 } );
+				TweenMax.to( $('.toolbars .share-button'), durationCond(0.5), { opacity: 1 } );
 
 
 				var $room = $('.second-room');
@@ -2846,9 +2846,9 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 
 					if( view == home && vw(100) < 767 )
 					{
-						toggleElements($('.share-button'), 'hide', 0.2, 0);
+						toggleElements($('.toolbars .share-button'), 'hide', 0.2, 0);
 					}else{
-						toggleElements($('.share-button'), 'show', 0.2, 0);
+						toggleElements($('.toolbars .share-button'), 'show', 0.2, 0);
 					}
 
 					if( view == entries )
