@@ -5545,7 +5545,7 @@ body.timeline {
     min-height: 75px;
     font-size: 18px;
     z-index: 150; }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 900px) {
       body.timeline .menuTop {
         min-height: 65px;
         background-color: #000;
@@ -5567,7 +5567,7 @@ body.timeline {
       margin-top: 15px; }
       body.timeline .menuTop .logo.timeline-logo {
         margin-left: 25px; }
-          @media screen and (max-width: 767px) {
+          @media screen and (max-width: 900px) {
             body.timeline .menuTop .logo.timeline-logo {
               margin-top: 10px; }
           }
@@ -5589,7 +5589,7 @@ body.timeline {
       right: 0;
       top: 0;
       display: none; }
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 900px) {
         body.timeline .menuTop .nav-container {
           display: block; } }
       body.timeline .menuTop .nav-container.forced {
@@ -5905,7 +5905,7 @@ body.timeline {
         text-decoration: none; }
         body.timeline .toolbars .share-button:hover .icon, body.timeline .toolbars .share-button:hover .collapse-icon, body.timeline .toolbars .share-button:hover .icon-close, body.timeline .toolbars .share-button:hover .search-button.search-open, body.timeline .toolbars .share-button:hover #programs ul li:before, #programs ul body.timeline .toolbars .share-button:hover li:before, body.timeline .toolbars .share-button:hover .main-donate-info ul li:before, .main-donate-info ul body.timeline .toolbars .share-button:hover li:before, body.timeline .toolbars .share-button:hover .faqs .acordion .accordion-item .acordion-text ul li:before, .faqs .acordion .accordion-item .acordion-text ul body.timeline .toolbars .share-button:hover li:before, body.timeline .toolbars .share-button:hover .terms .container ul li:before, .terms .container ul body.timeline .toolbars .share-button:hover li:before, body.timeline .toolbars .share-button:focus .icon, body.timeline .toolbars .share-button:focus .collapse-icon, body.timeline .toolbars .share-button:focus .icon-close, body.timeline .toolbars .share-button:focus .search-button.search-open, body.timeline .toolbars .share-button:focus #programs ul li:before, #programs ul body.timeline .toolbars .share-button:focus li:before, body.timeline .toolbars .share-button:focus .main-donate-info ul li:before, .main-donate-info ul body.timeline .toolbars .share-button:focus li:before, body.timeline .toolbars .share-button:focus .faqs .acordion .accordion-item .acordion-text ul li:before, .faqs .acordion .accordion-item .acordion-text ul body.timeline .toolbars .share-button:focus li:before, body.timeline .toolbars .share-button:focus .terms .container ul li:before, .terms .container ul body.timeline .toolbars .share-button:focus li:before {
           background-position: 0px -232px; }
-      @media screen and (max-width: 900px) {
+      @media screen and (max-width: 760px) {
         body.timeline .toolbars .share-button {
           visibility: hidden;
           opacity: 0; } }
