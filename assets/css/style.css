@@ -5567,6 +5567,10 @@ body.timeline {
       margin-top: 15px; }
       body.timeline .menuTop .logo.timeline-logo {
         margin-left: 25px; }
+          @media screen and (max-width: 767px) {
+            body.timeline .menuTop .logo.timeline-logo {
+              margin-top: 10px; }
+          }
         @media screen and (max-width: 1124px) {
           body.timeline .menuTop .logo.timeline-logo {
             margin-bottom: 10px;
@@ -6567,6 +6571,9 @@ body.timeline {
               body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a {
                 text-decoration: underline;
                 color: #333333; }
+              body.timeline .timeline-wrapper-mobile .acordion .accordion-item.colored .acordion-text .text-wrapper .links-list li a{
+                color: #fff;
+              }
                 body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a .icon, body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a .collapse-icon, body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a .icon-close, body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a .search-button.search-open, body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a #programs ul li:before, #programs ul body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a li:before, body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a .main-donate-info ul li:before, .main-donate-info ul body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a li:before, body.timeline .timeline-wrapper-mobile .faqs .acordion .accordion-item .acordion-text .text-wrapper .links-list li a ul li:before, .faqs body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a ul li:before, body.timeline .timeline-wrapper-mobile .faqs .acordion .accordion-item .acordion-text ul .text-wrapper .links-list li a li:before, .faqs body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text ul .text-wrapper .links-list li a li:before, body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a .terms .container ul li:before, .terms .container ul body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .text-wrapper .links-list li a li:before {
                   vertical-align: middle; }
         body.timeline .timeline-wrapper-mobile .acordion .accordion-item .acordion-text .feature-image {

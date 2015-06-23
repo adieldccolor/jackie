@@ -84,7 +84,7 @@ function showMoreInfoButton($more){
 
 
 function resizeBody(){
-	TweenMax.to( $('.body'), 0, { height: vh(100) } );
+	TweenMax.to( $('.body'), 0, { minHeight: vh(100) } );
 	if( vw(100) > 767 ){
 		TweenMax.to( $('.body'), 0, { overflow: 'hidden' } );
 	}else{
@@ -698,7 +698,7 @@ timeline = {
 					: newTop + 100;
 
 
-			var newHeight = (vh(100) - ($toolbarHeight + 140)),
+			var newHeight = (vh(100) - (60 + (wrappHeight/2) + 85 )),
 				newHeight = $el.find('.time-title').length > 0 
 						? newHeight - ($('.overlay-year').outerHeight())
 					: newHeight;
