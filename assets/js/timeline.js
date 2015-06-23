@@ -709,23 +709,36 @@ timeline = {
 				$toolbarHeight = $('.page-toolbar').outerHeight(),
 				newTop = (vh(100) - $toolbarHeight) - 100,
 				newTop = (newTop - wrappHeight) > 0 ? (newTop - wrappHeight) / 2 : 0,
-				newTop = $el.find('.time-title').length > 0
-					? $('.overlay-year').position().top
-				+ $('.overlay-year').outerHeight() + 20
-					: newTop + 100;
+				newTop = $el.find('.time-title').length > 0 ? $('.overlay-year').position().top + $('.overlay-year').outerHeight() + 20 : newTop + 100;
+
 
 
 			var newHeight = 0,
-				newHeight = $el.find('.time-title').length > 0 
-						? ( (vh(100) - (60 + (wrappHeight/2) + 85 )) ) - ($('.overlay-year').outerHeight())
+				newHeight = $el.find('.time-title').length > 0
+						? ( (vh(100) - ((wrappHeight) )) ) - ($('.overlay-year').outerHeight())
 					: ( (vh(100) - (60)) );
+
+                if( wrappHeight > newHeight ){
+                    newHeight = ( vh(100) - $('.overlay-year').position().top + $('.overlay-year').outerHeight() + 100 );
+                }
 
 				newHeight = newHeight - extraSpace;
 
-				if( wrappHeight < newHeight && !$el.hasClass('static') )
+
+				//if( wrappHeight < newHeight && !$el.hasClass('static') )
+				if( !$el.hasClass('static') )
 				{
-					newTop = newTop + (newHeight - wrappHeight) / 2;
+					//newTop = newTop + (newHeight - wrappHeight) / 2;
+                    newTop = (vh(100) - wrappHeight) / 2;
+
+                    if( newTop < ( $('.overlay-year').position().top + $('.overlay-year').outerHeight() ) ){
+                        newTop = $('.overlay-year').position().top + $('.overlay-year').outerHeight();
+                    }
 				}
+
+                if( newHeight > ( vh(100) - newTop - ( vw(100) < 901 ? 120 : 60) - extraSpace ) ){
+                    newHeight = ( vh(100) - newTop - ( vw(100) < 901 ? 120 : 60) - extraSpace );
+                }
 
 				$(this).find('.container').css({ top: newTop, height: newHeight, 
 					'overflow-y': 'auto', 'overflow-x': 'hidden', position: 'relative' });
