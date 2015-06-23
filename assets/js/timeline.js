@@ -82,10 +82,14 @@ function showMoreInfoButton($more){
 }
 
 
+function horizontalOrientation(){
+	return ( (screen.height < screen.width ) && ( vw(100) < 768 ) );
+}
+
 
 function resizeBody(){
 	TweenMax.to( $('.body'), 0, { minHeight: vh(100) } );
-	if( vw(100) > 767 ){
+	if( vw(100) > 767 || !horizontalOrientation() ){
 		TweenMax.to( $('.body'), 0, { overflow: 'hidden' } );
 	}else{
 		TweenMax.to( $('.body'), 0, { overflow: '' } );
@@ -288,7 +292,7 @@ timeline = {
         refactor();
 
         // if is phone redirect to phone view
-		if( isPhone )
+		if( isPhone || horizontalOrientation() )
 		{
 			if( view != mobileEntries )
 			{
@@ -302,7 +306,7 @@ timeline = {
 		else
 		{
 
-			if( vw(100) < 761 || $('.menuTop').hasClass('forced') )
+			if( vw(100) < 768 || $('.menuTop').hasClass('forced') )
 			{
 				$('.collapse-nav').trigger('click');
 			}
@@ -1790,7 +1794,7 @@ timeline = {
 		};
 
 		smallScreen = vw(100) < 1126;
-		isMobile = vw(100) < 761;
+		isMobile = vw(100) < 768;
 		isPhone = vw(100) < 601;
 
 		maxItems = isPhone ? 1
@@ -2887,7 +2891,7 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 					if( view == entries )
 					{
 
-						if( vw(100) < 601 )
+						if( vw(100) < 601 || horizontalOrientation() )
 						{
 							$('.timeline-wrapper').hide();
 							timeline.openMobileTimeline({from: view});
@@ -2911,7 +2915,7 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 
 					if( view == mobileEntries )
 					{
-						if( vw(100) > 600 )
+						if( vw(100) > 600 && !horizontalOrientation() )
 						{
 							timeline.destroy({from: view});
 							//timeline.openTimeline();

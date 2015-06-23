@@ -5545,7 +5545,7 @@ body.timeline {
     min-height: 75px;
     font-size: 18px;
     z-index: 150; }
-    @media screen and (max-width: 760px) {
+    @media screen and (max-width: 767px) {
       body.timeline .menuTop {
         min-height: 65px;
         background-color: #000;
@@ -5589,7 +5589,7 @@ body.timeline {
       right: 0;
       top: 0;
       display: none; }
-      @media screen and (max-width: 760px) {
+      @media screen and (max-width: 767px) {
         body.timeline .menuTop .nav-container {
           display: block; } }
       body.timeline .menuTop .nav-container.forced {
@@ -6246,6 +6246,9 @@ body.timeline {
         body.timeline .timeline-lightbox .content {
           top: 0px;
           bottom: 0; } }
+@media screen and (max-width: 767px) {
+    body.timeline .timeline-lightbox .content {
+        overflow: hidden; } }
       body.timeline .timeline-lightbox .content .wrapper {
         position: relative;
         margin: 0 auto;
@@ -6304,7 +6307,8 @@ body.timeline {
     margin: 0;
     z-index: 2;
     overflow: hidden; }
-    @media screen and (max-width: 760px) {
+    @media screen and (max-width: 600px) {
+        body.timeline .navigation-arrows{display: none;}
       body.timeline .timeline-wrapper {
         position: relative;
         height: 488px; }
