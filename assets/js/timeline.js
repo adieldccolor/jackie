@@ -736,8 +736,8 @@ timeline = {
                     }
 				}
 
-                if( newHeight > ( vh(100) - newTop - ( vw(100) < 901 ? 120 : 60) - extraSpace ) ){
-                    newHeight = ( vh(100) - newTop - ( vw(100) < 901 ? 120 : 60) - extraSpace );
+                if( newHeight > ( vh(100) - newTop - ( vw(100) < 901 ? 120 : 100) - extraSpace ) ){
+                    newHeight = ( vh(100) - newTop - ( vw(100) < 901 ? 120 : 100) - extraSpace );
                 }
 
 				$(this).find('.container').css({ top: newTop, height: newHeight, 

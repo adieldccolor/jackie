@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a564ffb7-07e4-4f58-b380-af3b4bde9fd6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/style.css" afterPath="$PROJECT_DIR$/assets/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/timeline.js" afterPath="$PROJECT_DIR$/assets/js/timeline.js" />
     </list>
     <ignored path="jackie.iws" />
@@ -146,22 +145,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.625">
+            <state vertical-scroll-proportion="1574.8036">
               <caret line="5557" column="13" selection-start-line="5557" selection-start-column="13" selection-end-line="5557" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="timeline.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="timeline.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/timeline.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.896552">
-              <caret line="739" column="79" selection-start-line="739" selection-start-column="79" selection-end-line="739" selection-end-column="79" />
+            <state vertical-scroll-proportion="0.64324325">
               <caret line="738" column="79" selection-start-line="738" selection-start-column="79" selection-end-line="738" selection-end-column="79" />
+              <caret line="739" column="79" selection-start-line="739" selection-start-column="79" selection-end-line="739" selection-end-column="79" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -184,8 +183,8 @@
         <option value="$PROJECT_DIR$/assets/js/app.js" />
         <option value="$PROJECT_DIR$/picasa-albums.js" />
         <option value="$PROJECT_DIR$/timeline.html" />
-        <option value="$PROJECT_DIR$/assets/js/timeline.js" />
         <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/assets/js/timeline.js" />
       </list>
     </option>
   </component>
@@ -868,22 +867,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/timeline.js">
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.896552">
-          <caret line="739" column="79" selection-start-line="739" selection-start-column="79" selection-end-line="739" selection-end-column="79" />
-          <caret line="738" column="79" selection-start-line="738" selection-start-column="79" selection-end-line="738" selection-end-column="79" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="1574.8036">
+          <caret line="5557" column="13" selection-start-line="5557" selection-start-column="13" selection-end-line="5557" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+    <entry file="file://$PROJECT_DIR$/assets/js/timeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.625">
-          <caret line="5557" column="13" selection-start-line="5557" selection-start-column="13" selection-end-line="5557" selection-end-column="13" />
-          <folding />
+        <state vertical-scroll-proportion="0.64324325">
+          <caret line="738" column="79" selection-start-line="738" selection-start-column="79" selection-end-line="738" selection-end-column="79" />
+          <caret line="739" column="79" selection-start-line="739" selection-start-column="79" selection-end-line="739" selection-end-column="79" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
