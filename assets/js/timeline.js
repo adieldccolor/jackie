@@ -668,6 +668,8 @@ timeline = {
 
                 toggleElements( $('.close-button'), 'show', 0.05, 0 );
 
+				TweenMax.to($wrapper, 0, {opacity: 1});
+
 
             }
 
