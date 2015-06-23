@@ -1851,6 +1851,10 @@ timeline = {
             $('.overlay-title h1, .overlay-title h3').removeClass('min');
         }
 
+		if( view == home ){
+			$('.stage').css({ width: vw(100) / 3 });
+		}
+
 
 		$('.stage .roomsWrapper .room .wrapper').css({height: "auto"});
 
@@ -1859,30 +1863,31 @@ timeline = {
 		var _self = this,
 			$title = $('.overlay-title'),
 			titleHeight = $title.outerHeight(),
-			titleTop = $title.offset().top,
+			titleTop = $title.position().top,
+			titleTop = titleTop < 60 ? 85 : titleTop,
 			$toolbar = $('.toolbars .home-toolbar'),
-			toolbarHeight = $toolbar.outerHeight(),
+			//toolbarHeight = $toolbar.outerHeight(),
+			toolbarHeight = 100,
 			$stage = $('.stage'),
 			$roomsWrapper = $stage.find('.roomsWrapper'),
 			$rooms = $roomsWrapper.find('.room'),
 			$wrapper = $('.stage .roomsWrapper .room .wrapper'),
-			wrapperHeight = $wrapper.first().outerHeight(),
-			offsetWrapper = 80,
-			wrapperTop = (titleTop + titleHeight + offsetWrapper) - (titleTop + titleHeight);
+			wrapperHeight = $wrapper.find('.content-wrapper').first().outerHeight(),
+			offsetWrapper = 60,
+			wrapperTop = (titleTop + titleHeight + offsetWrapper);
 
 			for( i = 0; i < $wrapper.length; i++ )
 			{
-				if( $wrapper.eq(i).outerHeight() > wrapperHeight )
+				if( $wrapper.eq(i).find('.content-wrapper').outerHeight() > wrapperHeight )
 				{
-					wrapperHeight = $wrapper.eq(i).outerHeight();
+					wrapperHeight = $wrapper.eq(i).find('.content-wrapper').outerHeight();
 				}
 			}
 
 			var setTitleTop = titleTop,
-				neededHeight = ( (titleHeight + wrapperHeight + titleTop + wrapperTop) + toolbarHeight ),
-				testIfScreenIsSmaller = ( screenSize.height < neededHeight );
+				neededHeight = ( (titleHeight + wrapperHeight + offsetWrapper + 60) + toolbarHeight ),
+				testIfScreenIsSmaller = ( neededHeight > vh(100) );
 
-			 console.log(screenSize.height, neededHeight);
 
 			// test if screen is smaller than content area in landing page
 			if ( testIfScreenIsSmaller && screenSize.width > 1125 )
@@ -1895,28 +1900,33 @@ timeline = {
 			}
 			else
 			{
-				setTitleTop = (screenSize.height - neededHeight) / 2;
+				setTitleTop = (vh(100) - neededHeight) / 2;
 			}
 
 
-			if( isMobile )
+			if( vw(100) < 768 )
 			{
 				setTitleTop = ( ( $('.roomsWrapper').first().outerHeight() - $title.outerHeight() ) / 2 );
 				setTitleTop = setTitleTop < 0 ? 20 : setTitleTop + 65;
+			}else{
+				if( setTitleTop < 60 ){
+					setTitleTop = 60;
+				}
 			}
+
+
 
 			$title.css({ top: setTitleTop });
 			titleHeight = $title.outerHeight();
 			titleTop = $title.offset().top;
+			//titleTop = setTitleTop;
 
 
-			if( view == home ){
-				$('.stage').css({ width: vw(100) / 3 });
-			}
+
 
 			$wrapper.each(function(){
 				var $el = $(this);
-				var wrapperHeight = $el.outerHeight();
+				var wrapperHeight = $el.find('.content-wrapper').outerHeight();
 				$el.css({ marginTop: 0, top: (titleTop + titleHeight + (offsetWrapper/2)), paddingTop: 0,
 					height: vh(100) - (titleTop + titleHeight + offsetWrapper + toolbarHeight + 20),
 					overflowY: 'auto', overflowX: 'hidden'

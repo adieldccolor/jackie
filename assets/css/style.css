@@ -5908,7 +5908,9 @@ body.timeline {
       @media screen and (max-width: 767px) {
         body.timeline .toolbars .share-button {
           visibility: hidden;
-          opacity: 0; } }
+          opacity: 0;
+          display: none; } }
+    body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .wrapper .button-wrapper .button-primary{ margin-top: 0px; margin-bottom: 0px; }
     body.timeline .toolbars .home-toolbar {
       position: relative; }
       body.timeline .toolbars .home-toolbar .timeline-triggers {
