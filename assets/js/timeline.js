@@ -83,13 +83,13 @@ function showMoreInfoButton($more){
 
 
 function horizontalOrientation(){
-	return ( (screen.height < screen.width ) && ( vw(100) < 761 ) );
+	return ( (screen.height < screen.width ) && ( vw(100) < 768 ) );
 }
 
 
 function resizeBody(){
 	TweenMax.to( $('.body'), 0, { minHeight: vh(100) } );
-	if( vw(100) > 760 || !horizontalOrientation() ){
+	if( vw(100) > 767 || !horizontalOrientation() ){
 		TweenMax.to( $('.body'), 0, { overflow: 'hidden' } );
 	}else{
 		TweenMax.to( $('.body'), 0, { overflow: '' } );
@@ -319,7 +319,7 @@ timeline = {
 		else
 		{
 
-			if( vw(100) < 761 || $('.menuTop').hasClass('forced') )
+			if( vw(100) < 768 || $('.menuTop').hasClass('forced') )
 			{
 				$('.collapse-nav').trigger('click');
 			}
@@ -1027,7 +1027,7 @@ timeline = {
 
 
 				//hide share button if is bio item or screen is small
-				if( $next.hasClass('static') || vw(100) < 760 ){
+				if( $next.hasClass('static') || vw(100) < 767 ){
 					TweenMax.to( $('.toolbars .share-button'), 0.5, { opacity: 0 } );
 				}else{
 					TweenMax.to( $('.toolbars .share-button'), 0.5, { opacity: 1 } );
@@ -1291,7 +1291,7 @@ timeline = {
 
 
 				//hide share button if is bio item or screen is small
-				if( $prev.hasClass('static') || vw(100) < 760 ){
+				if( $prev.hasClass('static') || vw(100) < 767 ){
 					TweenMax.to( $('.toolbars .share-button'), 0.5, { opacity: 0 } );
 				}else{
 					TweenMax.to( $('.toolbars .share-button'), 0.5, { opacity: 1 } );
@@ -1589,7 +1589,7 @@ timeline = {
 			}
 
 			//hide share button if is bio item or screen is small
-			if( $el.hasClass('static') || vw(100) < 760 ){
+			if( $el.hasClass('static') || vw(100) < 767 ){
 				TweenMax.to( $('.toolbars .share-button'), (animated?0.5:0), { opacity: 0 } );
 			}else{
 				TweenMax.to( $('.toolbars .share-button'), (animated?0.5:0), { opacity: 1 } );
@@ -1825,7 +1825,7 @@ timeline = {
 		};
 
 		smallScreen = vw(100) < 1126;
-		isMobile = vw(100) < 761;
+		isMobile = vw(100) < 768;
 		isPhone = vw(100) < 601;
 
 		maxItems = isPhone ? 1
@@ -2069,7 +2069,7 @@ timeline = {
 		$elems['stagesWrapper'].css({ width: screenSize.width * 4 });
 
 		//hide share button if is bio item or screen is small
-		if( vw(100) < 760 ){
+		if( vw(100) < 767 ){
 			toggleElements('.toolbars .share-button', 'hide', 0.5);
 		}else{
 			toggleElements('.toolbars .share-button', 'show', 0.5);
@@ -2905,7 +2905,7 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 					forceMobileMenu();
 
 
-					if( view == home && vw(100) < 760 )
+					if( view == home && vw(100) < 767 )
 					{
 						toggleElements($('.toolbars .share-button'), 'hide', 0.2, 0);
 					}else{

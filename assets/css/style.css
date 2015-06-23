@@ -5855,7 +5855,7 @@ body.timeline {
     left: 0;
     width: 100%;
     opacity: 0; }
-    @media screen and (max-width: 760px) {
+    @media screen and (max-width: 767px) {
       body.timeline .overlay-title {
         position: absolute; } }
     body.timeline .overlay-title h1, body.timeline .overlay-title h2, body.timeline .overlay-title h3, body.timeline .overlay-title h4, body.timeline .overlay-title h5, body.timeline .overlay-title h6 {
@@ -5879,7 +5879,7 @@ body.timeline {
     width: 100%;
     z-index: 50;
     opacity: 0; }
-    @media screen and (max-width: 760px) {
+    @media screen and (max-width: 767px) {
       body.timeline .toolbars {
         position: relative; } }
     body.timeline .toolbars .share-button {
@@ -5905,7 +5905,7 @@ body.timeline {
         text-decoration: none; }
         body.timeline .toolbars .share-button:hover .icon, body.timeline .toolbars .share-button:hover .collapse-icon, body.timeline .toolbars .share-button:hover .icon-close, body.timeline .toolbars .share-button:hover .search-button.search-open, body.timeline .toolbars .share-button:hover #programs ul li:before, #programs ul body.timeline .toolbars .share-button:hover li:before, body.timeline .toolbars .share-button:hover .main-donate-info ul li:before, .main-donate-info ul body.timeline .toolbars .share-button:hover li:before, body.timeline .toolbars .share-button:hover .faqs .acordion .accordion-item .acordion-text ul li:before, .faqs .acordion .accordion-item .acordion-text ul body.timeline .toolbars .share-button:hover li:before, body.timeline .toolbars .share-button:hover .terms .container ul li:before, .terms .container ul body.timeline .toolbars .share-button:hover li:before, body.timeline .toolbars .share-button:focus .icon, body.timeline .toolbars .share-button:focus .collapse-icon, body.timeline .toolbars .share-button:focus .icon-close, body.timeline .toolbars .share-button:focus .search-button.search-open, body.timeline .toolbars .share-button:focus #programs ul li:before, #programs ul body.timeline .toolbars .share-button:focus li:before, body.timeline .toolbars .share-button:focus .main-donate-info ul li:before, .main-donate-info ul body.timeline .toolbars .share-button:focus li:before, body.timeline .toolbars .share-button:focus .faqs .acordion .accordion-item .acordion-text ul li:before, .faqs .acordion .accordion-item .acordion-text ul body.timeline .toolbars .share-button:focus li:before, body.timeline .toolbars .share-button:focus .terms .container ul li:before, .terms .container ul body.timeline .toolbars .share-button:focus li:before {
           background-position: 0px -232px; }
-      @media screen and (max-width: 760px) {
+      @media screen and (max-width: 767px) {
         body.timeline .toolbars .share-button {
           visibility: hidden;
           opacity: 0; } }
@@ -5916,7 +5916,7 @@ body.timeline {
         background-color: #263752;
         position: relative;
         z-index: 2; }
-        @media screen and (max-width: 760px) {
+        @media screen and (max-width: 767px) {
           body.timeline .toolbars .home-toolbar .timeline-triggers {
             display: block; } }
         body.timeline .toolbars .home-toolbar .timeline-triggers .colorbox {
@@ -6307,7 +6307,7 @@ body.timeline {
     margin: 0;
     z-index: 2;
     overflow: hidden; }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 767px) {
         body.timeline .navigation-arrows{display: none;}
       body.timeline .timeline-wrapper {
         position: relative;
@@ -6352,7 +6352,7 @@ body.timeline {
             padding: 0;
             margin: 0;
             overflow: hidden; }
-          @media screen and (max-width: 760px){
+          @media screen and (max-width: 767px){
             body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room{ height: 100%; }
           }
             body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .bg-overlay, body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .bg-overlay-intense {
@@ -6368,7 +6368,7 @@ body.timeline {
               position: relative;
               background-color: #263752;
               z-index: 2; }
-              @media screen and (max-width: 760px) {
+              @media screen and (max-width: 767px) {
                 body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .colored-bar {
                   display: none; } }
             body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .wrapper {
@@ -6379,7 +6379,7 @@ body.timeline {
               opacity: 0;
               z-index: 2;
               margin-top: -20px; }
-              @media screen and (max-width: 760px) {
+              @media screen and (max-width: 767px) {
                 body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .wrapper {
                   opacity: 0;
                   visibility: hidden; } }
