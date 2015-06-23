@@ -715,10 +715,10 @@ timeline = {
 					: newTop + 100;
 
 
-			var newHeight = (vh(100) - (60 + (wrappHeight/2) + 85 )),
+			var newHeight = 0,
 				newHeight = $el.find('.time-title').length > 0 
-						? newHeight - ($('.overlay-year').outerHeight())
-					: newHeight;
+						? ( (vh(100) - (60 + (wrappHeight/2) + 85 )) ) - ($('.overlay-year').outerHeight())
+					: ( (vh(100) - (60)) );
 
 				newHeight = newHeight - extraSpace;
 
