@@ -173,10 +173,17 @@ timeline = {
 		'/home': function(){
 			// _self.destroy();
 
+			$('body').removeClass('is-page-timeline').addClass('is-home-timeline');
+
 			$('.timeline-wrapper,.toolbars').show();
 
 			_self.showBody();
-			_self.landingSpacer();
+
+			killTimer("resize-home");
+			timer["resize-home"] = setTimeout(function(){
+				timeline.landingSpacer();
+			}, 50);
+
 			view = home;
 
             function refactor() {
@@ -191,6 +198,8 @@ timeline = {
             refactor();
         },
 		'/timeline/:timeline': function(timeline){
+
+			$('body').addClass('is-page-timeline').removeClass('is-home-timeline');
 
 	
 				view = entries;

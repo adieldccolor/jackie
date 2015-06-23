@@ -5858,6 +5858,10 @@ body.timeline {
     @media screen and (max-width: 767px) {
       body.timeline .overlay-title {
         position: absolute; } }
+    body.timeline.is-page-timeline .overlay-title{display:none !important;}
+    body.timeline.is-home-timeline .overlay-year,
+    body.timeline.is-home-timeline .navigation-arrows{display: none !important;}
+
     body.timeline .overlay-title h1, body.timeline .overlay-title h2, body.timeline .overlay-title h3, body.timeline .overlay-title h4, body.timeline .overlay-title h5, body.timeline .overlay-title h6 {
       margin: 0;
       padding: 0; }
