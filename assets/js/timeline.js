@@ -1538,8 +1538,8 @@ timeline = {
 			$('.arrow-down,.arrow-up').css({opacity: 0});
 
             function toggleMoreInfoButtonMobile() {
-                if (($wrapp.length > 1 && $wrapp.find('script[data-additional]').length > 0)
-                    || ($wrapp.length == 1 && $wrapp.find('script[data-additional]').length > 0)) {
+                if (($wrapp.length > 1 && $wrapp.first().find('script[data-additional]').length > 0)
+                    || ($wrapp.length == 1 && $wrapp.first().find('script[data-additional]').length > 0)) {
                     toggleElements($more, 'show', (animated ? 0.5 : 0), (animated ? mdelay : 0));
 
 
@@ -1556,8 +1556,8 @@ timeline = {
             }
 
             function toggleMoreInfoButton() {
-                if (($wrapp.length > 1 && $wrapp.find('script[data-additional]').length > 0)
-                    || ($wrapp.length == 1 && $wrapp.find('script[data-additional]').length > 0)) {
+                if (($wrapp.length > 1 && $wrapp.first().find('script[data-additional]').length > 0)
+                    || ($wrapp.length == 1 && $wrapp.first().find('script[data-additional]').length > 0)) {
                     toggleElements( $more, 'show', (animated?0.5:0), mdelay );
                     TweenMax.to($more, 0, {y: 60, right: '-62px'});
                     TweenMax.to($more, (animated?0.5:0), {y: 0, delay: (animated?mdelay:0)});
