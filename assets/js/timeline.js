@@ -109,6 +109,12 @@ function forceMobileMenu(){
 }
 
 
+var cachedX = 0, cachedY = 0, currX = 0, currY = 0, touchStarted = false;
+var getPointerEvent = function(event) {
+	return event.originalEvent.targetTouches ? event.originalEvent.targetTouches[0] : event;
+};
+
+
 timeline = {
 	jqueryInit: function()
 	{
@@ -2156,7 +2162,7 @@ timeline = {
 			{
 				$('.close-button').trigger('click');
 			}
-			
+
 			$nav.closest('.nav-container').addClass('open');
 			TweenMax.to($nav, 0.5, { right: 0 });
 		})
@@ -2166,7 +2172,7 @@ timeline = {
 			e.preventDefault(); e.stopPropagation();
 
 			var $el = $(this), $nav = $('.menu-navigation');
-			
+
 			$nav.closest('.nav-container').removeClass('open');
 			TweenMax.to($nav, 0.5, { right: -241 });
 		})
@@ -2188,7 +2194,7 @@ timeline = {
 			var $arrow = $(this),
 				$arrowPrev = $('.arrow-up');
 
-			if( $('.overviewing').length > 0 
+			if( $('.overviewing').length > 0
 					&& (!$(this).hasClass('moving') || !TweenMax.isTweening( $('.overviewing .sub-stage') ) ) )
 			{
 				var $el = $('.overviewing'),
@@ -2286,7 +2292,7 @@ timeline = {
 			var $arrow = $(this),
 				$arrowNext = $('.arrow-down');
 
-			if( $('.overviewing').length > 0 
+			if( $('.overviewing').length > 0
 					&& (!$(this).hasClass('moving') || !TweenMax.isTweening( $('.overviewing .sub-stage') ) ) )
 			{
 				var $el = $('.overviewing'),
@@ -2409,12 +2415,12 @@ timeline = {
 
 		//when clicking left arrow, go to prev slide
 		.on('click', '.prev-slide', function(){
-			
+
 			if( view == entries )
 			{
 
 				killTimer('slideSides');
-			
+
 
 				//check if one time entry is full expanded
 				if ( $('.overviewing').length > 0 )
@@ -2451,17 +2457,17 @@ timeline = {
 
 				// TweenMax.killChildTweensOf($next);
 				$next.addClass('preview');
-				TweenMax.to( $next, 0, { zIndex: 51 } );	
-				TweenMax.to( $next, 0.5, { x: -100 } );	
-				TweenMax.to( $next.find('.internal-wrapper'), 0, { opacity: 0 } );	
+				TweenMax.to( $next, 0, { zIndex: 51 } );
+				TweenMax.to( $next, 0.5, { x: -100 } );
+				TweenMax.to( $next.find('.internal-wrapper'), 0, { opacity: 0 } );
 				TweenMax.to( $next, 0, { opacity: 1 } );
 
 				$next.data('movedAsPrev', 0);
-				$next.data('movedAsNext', 1);	
+				$next.data('movedAsNext', 1);
 
 				var nextYear = $next.find('.time-title').length > 0 ? $next.find('.time-title').first().text() : "",
 					$nextArrow = $('.next-slide .abs-year');
-				
+
 				$nextArrow.find('span').text(nextYear);
 				TweenMax.to($nextArrow, 0.5, { opacity: 1 });
 			}
@@ -2475,7 +2481,7 @@ timeline = {
 
 				// TweenMax.killChildTweensOf($next);
 				$next.removeClass('preview');
-				TweenMax.to( $next, 0.5, { x: 0 } );	
+				TweenMax.to( $next, 0.5, { x: 0 } );
 
 				$next.data('movedAsPrev', 0);
 				$next.data('movedAsNext', 0);
@@ -2498,16 +2504,16 @@ timeline = {
 
 				// TweenMax.killChildTweensOf($prev);
 				$prev.addClass('preview');
-				TweenMax.to( $prev, 0, { zIndex: 51 } );	
-				TweenMax.to( $prev, 0.5, { x: 100 } );	
-				TweenMax.to( $prev.find('.internal-wrapper'), 0, { opacity: 0 } );	
+				TweenMax.to( $prev, 0, { zIndex: 51 } );
+				TweenMax.to( $prev, 0.5, { x: 100 } );
+				TweenMax.to( $prev.find('.internal-wrapper'), 0, { opacity: 0 } );
 				TweenMax.to( $prev, 0, { opacity: 1 } );
 				$prev.data('movedAsPrev', 1);
 				$prev.data('movedAsNext', 0);
 
 				var prevYear = $prev.find('.time-title').length > 0 ? $prev.find('.time-title').first().text() : "",
 					$prevArrow = $('.prev-slide .abs-year');
-				
+
 				$prevArrow.find('span').text(prevYear);
 				TweenMax.to($prevArrow, 0.5, { opacity: 1 });
 			}
@@ -2523,14 +2529,12 @@ timeline = {
 				TweenMax.to( $prev, 0.5, { x: 0 } );
 
 				$prev.data('movedAsPrev', 0);
-				$prev.data('movedAsNext', 0);	
+				$prev.data('movedAsNext', 0);
 
 				var $prevArrow = $('.prev-slide .abs-year');
 				TweenMax.to($prevArrow, 0.5, { opacity: 0 });
 			}
 		})
-
-
 
 
 
@@ -2554,7 +2558,7 @@ timeline = {
 		.on('click', '.close-button', function(e){
 			e.preventDefault(); e.stopPropagation();
 			var $el = $(this);
-			
+
 			var $lightbox = $('.timeline-lightbox');
 			if( $lightbox.is('.open') )
 			{
@@ -2596,12 +2600,12 @@ timeline = {
 
 			// console.log('overlay');
 
-			var require = !($(e.target).closest('.wrapper').length > 0) 
+			var require = !($(e.target).closest('.wrapper').length > 0)
 				&& ($(e.target).closest('.timeline-lightbox').length > 0);
 
-			// console.log(require, 
+			// console.log(require,
 			// $(e.target).closest('.content').length > 0, $(e.target).closest('.timeline-lightbox').length > 0);
-			
+
 			if( require )
 			{
 				// console.log('not content');
@@ -2632,12 +2636,33 @@ timeline = {
 
 
 
+			.on('touchstart mousedown', '.internal-stage.viewport-visible', function(e){
 
+				var pointer = getPointerEvent(e);
+				var $el = $(this);
+
+				// caching the current x
+				cachedX = currX = pointer.pageX;
+				// caching the current y
+				cachedY = currY = pointer.pageY;
+				// a touch event is detected
+				touchStarted = true;
+				// detecting if after 200ms the finger is still in the same position
+				killTimer('tap');
+				timer['tap'] = setTimeout(function (){
+					if ((cachedX === currX) && !touchStarted && (cachedY === currY)) {
+						// Here you get the Tap event
+						console.log('tap');
+						timeline.times.expand($el);
+					}
+				},200);
+
+			}).on('touchend mouseup touchcancel','.internal-stage.viewport-visible', function(){ touchStarted = false; })
 
 
 
 		//when mouseenters, do quick expand to show more button
-		.on('mouseenter click touchstart', '.internal-stage.viewport-visible', function(){
+		.on('mouseenter', '.internal-stage.viewport-visible', function(){
 			// console.log('enter', $(this));
 			var $el = $(this),
 				$room = $('.second-room');
@@ -2646,7 +2671,7 @@ timeline = {
 					// $el.addClass('animationEnd');
 				}
 
-			if( !$(this).hasClass('static') && $(this).hasClass('animationEnd') 
+			if( !$(this).hasClass('static') && $(this).hasClass('animationEnd')
 				&& !$(this).hasClass('overviewing') && $('.overviewing').length == 0 )
 			{
 
@@ -2680,7 +2705,7 @@ timeline = {
 
 					// alert($el.index());
 					// alert($room.find('.internal-stage').index());
-				if( $el.index() == $room.find('.internal-stage.viewport-visible').last().index() 
+				if( $el.index() == $room.find('.internal-stage.viewport-visible').last().index()
 					&& $el.position().left > vw(40) )
 				{
 					killTimer('scrollleft');
@@ -2700,7 +2725,7 @@ timeline = {
 			// console.log('leave', $(this));
 			var $room = $('.second-room');
 
-			if( !$(this).hasClass('static') && $(this).hasClass('animationEnd') 
+			if( !$(this).hasClass('static') && $(this).hasClass('animationEnd')
 			&& !$(this).hasClass('overviewing') && $('.overviewing').length == 0 )
 			{
 				var id = 'internal-stage-enter-' + $(this).index(),
@@ -2768,33 +2793,32 @@ timeline = {
 
 
 
-
 		//swipe actions
 		$("body").swipe( {
-		      //Generic swipe handler for all directions
-		      swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-		        // console.log("You swiped " + direction );  
-		        // if( $('#lightbox').length > 0 && $('#lightbox:visible').length > 0 ){
+			//Generic swipe handler for all directions
+			swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+				// console.log("You swiped " + direction );
+				// if( $('#lightbox').length > 0 && $('#lightbox:visible').length > 0 ){
 
-	        	var $lightbox = $('.timeline-lightbox');
+				var $lightbox = $('.timeline-lightbox');
 				if( !$lightbox.is('.open') )
 				{
 
-			          if( direction == "left"){
-			            $('.next-slide').trigger('click');
-			          }
+					if( direction == "left"){
+						$('.next-slide').trigger('click');
+					}
 
-			          if( direction == "right"){
-			            $('.prev-slide').trigger('click');
-			          }
+					if( direction == "right"){
+						$('.prev-slide').trigger('click');
+					}
 
-			          if( direction == "up" && $('.arrow-down').is(':visible') ){
-			            $('.arrow-down').trigger('click');
-			          }
+					if( direction == "up" && $('.arrow-down').is(':visible') ){
+						$('.arrow-down').trigger('click');
+					}
 
-			          if( direction == "down" && $('.arrow-up').is(':visible') ){
-			            $('.arrow-up').trigger('click');
-			          }
+					if( direction == "down" && $('.arrow-up').is(':visible') ){
+						$('.arrow-up').trigger('click');
+					}
 
 				}
 
@@ -2803,15 +2827,20 @@ timeline = {
 
 
 
-		        // }
-		      }, allowPageScroll:"vertical",
-		      fingers:1,  
-			  threshold:100
-		    });
+				// }
+			},
+			allowPageScroll:"vertical",
+			fingers:1,
+			threshold:100
+		})
 
 
 
-	},
+
+
+
+
+			},
 	destroy: function(from)
 	{
 		var _self = this;
