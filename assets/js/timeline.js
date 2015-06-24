@@ -961,11 +961,11 @@ timeline = {
 				left = - visible.first().nextAll('.viewport-visible').first().position().left;
 
 				visible.last().nextAll('.active').first().addClass('viewport-visible');
-				TweenMax.to(visible.last().next('.active'), 0, {x: "+=" + vw(25), opacity: 0});
+				TweenMax.to(visible.last().next('.active'), 0, {x: "+=" + vw(50), opacity: 0});
 				TweenMax.to($room, 0.5, {marginLeft: left, delay: 0.2, ease:Cubic.easeInOut});
 				TweenMax.to(visible.first(), 0.5, {x: "-=" + vw(25), opacity: 0, delay: 0.1, ease:Cubic.easeInOut});
 			
-				TweenMax.to(visible.last().nextAll('.active').first(), 0.7, {x: 0, opacity: 1, ease:Cubic.easeInOut, 
+				TweenMax.to(visible.last().nextAll('.active').first(), 0.7, {x: 0, opacity: 1, ease:Cubic.easeInOut,
 					onComplete: function(){
 						visible.last().nextAll('.active').first().addClass('animationEnd');
 					}});
@@ -1226,17 +1226,17 @@ timeline = {
 										.prevAll('.active').first().position().left : 0;
 
 
-				$visibleViewport.first().prev('.active').addClass('viewport-visible');
-				TweenMax.to($visibleViewport.first().prev('.active'), 0, {x: "-=" + vw(25), opacity: 0});
+				$visibleViewport.first().prevAll('.active').first().addClass('viewport-visible');
+				TweenMax.to($visibleViewport.first().prevAll('.active').first(), 0, {x: "-=" + vw(25), opacity: 0});
 				TweenMax.to($room, 0.5, {marginLeft: left, delay: 0.2, ease:Cubic.easeInOut});
 				TweenMax.to($visibleViewport.last(), 0.5, {x: "+=" + vw(25), opacity: 0, delay: 0.1, 
 					ease:Cubic.easeInOut, onComplete: function(){
-						$visibleViewport.first().prev('.active').addClass('animationEnd');
+						$visibleViewport.first().prevAll('.active').first().addClass('animationEnd');
 					}});
 				
 
 
-				TweenMax.to($visibleViewport.first().prev('.active'), 0.7, {x: 0, opacity: 1, ease:Cubic.easeInOut});
+				TweenMax.to($visibleViewport.first().prevAll('.active').first(), 0.7, {x: 0, opacity: 1, ease:Cubic.easeInOut});
 				TweenMax.to($visibleViewport.last(), 0, {x: 0, delay: 0.7});
 				$visibleViewport.last().removeClass('viewport-visible animationEnd');
 
