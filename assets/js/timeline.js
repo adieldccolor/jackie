@@ -1506,7 +1506,7 @@ timeline = {
 										+ $prev.prevAll('.active').first().outerWidth() 
 									: 0;
 
-                        
+
 						TweenMax.to($prev, 0.5, { x: 0, onComplete: function(){
                             $el.removeClass('overviewing hover expanded').css({ opacity: 1 });
                         } });
@@ -2486,7 +2486,7 @@ timeline = {
 
 
 		//when clicking on right arrow, go to next slide
-		.on('click touchstart', '.next-slide', function(){
+		.on('click', '.next-slide', function(){
 
 			if( view == entries )
 			{
@@ -2514,7 +2514,7 @@ timeline = {
 		})
 
 		//when clicking left arrow, go to prev slide
-		.on('click touchstart', '.prev-slide', function(){
+		.on('click', '.prev-slide', function(){
 
 			if( view == entries )
 			{
