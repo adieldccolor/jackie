@@ -6431,7 +6431,7 @@ body.timeline {
                 -o-transition: all 0.3s;
                 transition: all 0.3s; }
                 body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .internal-stage .bg-overlay-intense.textured {
-                  background: transparent url(../img/timeline/texture.png) center center repeat; filter: progid:DXImageTransform.Microsoft.gradient(
+                  background: transparent url(../img/timeline/halftone-texture.png) center center repeat; filter: progid:DXImageTransform.Microsoft.gradient(
                         startColorstr=#00FFFFFF, endColorstr=#00FFFFFF
                 ); }
               body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .internal-stage .internal-wrapper {
