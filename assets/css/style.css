@@ -5715,10 +5715,16 @@ body.timeline {
     font-size: 10.6em; }
 @media screen and (max-width: 1024px) {
   body.timeline h1 {
-    font-size: 8em; } }
-    @media screen and (max-width: 600px) {
+    font-size: 8em; }
+  body.timeline .overlay-year h1 {
+    font-size: 6.9em; } }
+@media screen and (max-width: 992px) {
+  body.timeline .overlay-year h1 {
+    font-size: 5.9em; } }
+    @media screen and (max-width: 768px) {
       body.timeline h1 {
-        font-size: 6.9em; } }
+        font-size: 6.9em; } body.timeline .overlay-year h1 {
+                                    font-size: 5.9em; } }
     body.timeline h1.min {
       font-size: 6.9em;
       line-height: 0.75em;
@@ -6178,7 +6184,7 @@ body.timeline {
       body.timeline .navigation-arrows .arrow-down.arrow-up, body.timeline .navigation-arrows .arrow-up.arrow-up {
         bottom: auto;
         top: 70px; }
-      @media screen and (max-width: 750px) {
+      @media screen and (max-width: 1025px) {
         body.timeline .navigation-arrows .arrow-down, body.timeline .navigation-arrows .arrow-up {
           bottom: 70px; }
           body.timeline .navigation-arrows .arrow-down.arrow-up, body.timeline .navigation-arrows .arrow-up.arrow-up {
@@ -6190,7 +6196,7 @@ body.timeline {
         text-align: center;
         position: absolute;
         margin-left: -88px; }
-        @media screen and (max-width: 750px) {
+        @media screen and (max-width: 1025px) {
           body.timeline .navigation-arrows .arrow-down .date, body.timeline .navigation-arrows .arrow-up .date {
             display: none; } }
   body.timeline .close-button {
@@ -6510,7 +6516,7 @@ body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .inter
     position: relative;
     color: #333333;
     font-size: 10px; }
-    body.timeline .timeline-wrapper-mobile .time-entry {
+body.timeline .timeline-wrapper-mobile.jr-filter .acordion .accordion-item.jr-filter, body.timeline .timeline-wrapper-mobile.jr-filter .acordion .jr-filter.time-entry {
       display: none; }
     body.timeline .timeline-wrapper-mobile .acordion .accordion-item {
       border-top: 2px solid #eeeeee;
@@ -6699,6 +6705,9 @@ body.timeline .timeline-wrapper .stagesWrapper .stage .roomsWrapper .room .inter
       display: block; }
     body.timeline .timeline-wrapper-mobile.rr-filter .acordion .accordion-item.rr-filter, body.timeline .timeline-wrapper-mobile.rr-filter .acordion .rr-filter.time-entry {
       display: block; }
+
+body.timeline .toolbars .page-toolbar.js-hidden-bar .toolbar-title, body.timeline .toolbars .page-toolbar.js-hidden-bar  .container .row{
+  display: none;}
 
 body.timeline .icon, body.timeline .collapse-icon, body.timeline .icon-close, body.timeline .search-button.search-open, body.timeline #programs ul li:before, #programs ul body.timeline li:before, body.timeline .main-donate-info ul li:before, .main-donate-info ul body.timeline li:before, body.timeline .faqs .acordion .accordion-item .acordion-text ul li:before, .faqs .acordion .accordion-item .acordion-text ul body.timeline li:before, body.timeline .terms .container ul li:before, .terms .container ul body.timeline li:before {
   background: url(../img/sprite-timeline.png) 0 0;

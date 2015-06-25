@@ -115,6 +115,18 @@ var getPointerEvent = function(event) {
 };
 
 
+
+//function to free memory
+function freeMemory(){
+	//kill all tweenmax tweens
+	TweenMax.killTweensOf("*");
+
+	//kill all timers
+	for(var i=0; i<timer.length; i++){
+		clearTimeout(timer[i]);
+	}
+}
+
 timeline = {
 	jqueryInit: function()
 	{
@@ -489,6 +501,7 @@ timeline = {
 
             //hide animation
             TweenMax.to($('.page-toolbar'), 0, { y: 0 });
+
             TweenMax.to($('.internal-stage'), 0, { x: 0 });
             $('.internal-stage').removeClass('viewport-visible hover expanded overviewing preview active');
             $('.second-room').css({ marginLeft: 0 });
@@ -721,6 +734,11 @@ timeline = {
 				toggleElements( $('.arrow-down,.arrow-up'), 'hide', durationCond(0.5), 0 );
 			}
 
+			if( vw(100) < 1025 ){
+				extraSpace = extraSpace > 40 ? extraSpace - 40 : extraSpace;
+			}
+
+
 			$wrapp.each(function(event, index){
 				var wrappHeight = $(this).find('.container').outerHeight(),
 				$toolbarHeight = $('.page-toolbar').outerHeight(),
@@ -921,7 +939,13 @@ timeline = {
                 //show internal rooms with animation
                 TweenMax.staggerTo( $toShow, durationCond(1), {x: 0, opacity: 1, delay: durationCond(1)},
                     0.2, function(){
-                        TweenMax.to($('.page-toolbar'), durationCond(1), { y: 0 } );
+
+						if( vw(100) < 1125 && $('.overviewing').length > 0 ){
+							TweenMax.to($('.page-toolbar'), durationCond(1), { y: 120 } );
+						}else{
+							TweenMax.to($('.page-toolbar'), durationCond(1), { y: 0 } );
+						}
+
                         $toShow.addClass('animationEnd');
 
                         if( durationCond(1) > 0 )
@@ -967,13 +991,16 @@ timeline = {
 				left = - visible.first().nextAll('.viewport-visible').first().position().left;
 
 				visible.last().nextAll('.active').first().addClass('viewport-visible');
-				TweenMax.to(visible.last().next('.active'), 0, {x: "+=" + vw(50), opacity: 0});
+				TweenMax.to(visible.last().next('.active'), 0, {x: "+=" + vw(25), opacity: 0});
 				TweenMax.to($room, 0.5, {marginLeft: left, delay: 0.2, ease:Cubic.easeInOut});
 				TweenMax.to(visible.first(), 0.5, {x: "-=" + vw(25), opacity: 0, delay: 0.1, ease:Cubic.easeInOut});
 			
 				TweenMax.to(visible.last().nextAll('.active').first(), 0.7, {x: 0, opacity: 1, ease:Cubic.easeInOut,
 					onComplete: function(){
 						visible.last().nextAll('.active').first().addClass('animationEnd');
+
+						left = - visible.first().nextAll('.viewport-visible').first().position().left;
+						TweenMax.to($room, 0.5, {marginLeft: left});
 					}});
 				TweenMax.to(visible.first(), 0, {x: 0});
 				visible.first().removeClass('viewport-visible animationEnd');
@@ -1475,6 +1502,7 @@ timeline = {
 				$viewportVisible = $('.internal-stage.viewport-visible'),
                 i;
 
+
             lastEntryOpen = $el;
             lastEntryIsOpen = true;
 
@@ -1543,17 +1571,25 @@ timeline = {
 
 			$('.arrow-down,.arrow-up').css({opacity: 0});
 
+
+
+
             function toggleMoreInfoButtonMobile() {
                 if (($wrapp.length > 1 && $wrapp.first().find('script[data-additional]').length > 0)
                     || ($wrapp.length == 1 && $wrapp.first().find('script[data-additional]').length > 0)) {
                     toggleElements($more, 'show', (animated ? 0.5 : 0), (animated ? mdelay : 0));
 
 
-                    if (vw(100) > 1225) {
-                        TweenMax.to($more, (animated ? 0.5 : 0), {y: 0, delay: (animated ? mdelay : 0), right: -62});
-                    } else {
+                    //if (vw(100) > 1024) {
+
+
+
                         TweenMax.to($more, (animated ? 0.5 : 0), {y: -120, delay: (animated ? mdelay : 0), right: -31});
-                    }
+                    //} else {
+                    //    TweenMax.to($more, (animated ? 0.5 : 0), {y: 0, delay: (animated ? mdelay : 0), right: -31});
+                    //}
+
+
                 }
                 else {
                     TweenMax.to($more, 0, {y: 60, right: '-31px'});
@@ -1576,11 +1612,13 @@ timeline = {
 
 
 
+
             if( smallScreen )
             {
                 mdelay = durationCond(1);
 
 				TweenMax.to( $ptoolbar, (animated?1:0), { y: 120, onComplete: function(){
+					$('.page-toolbar').addClass("js-hidden-bar");
 					TweenMax.to( $ptoolbar.find('.row'), 0, { width: 0 } );
 					TweenMax.to( $ptoolbar.find('.container'), 0, { width: 0, padding: 0 } );
 				} } );
@@ -1595,6 +1633,7 @@ timeline = {
 			else
 			{
 				TweenMax.to( $ptoolbar, 0, { y: 0 } );
+				$('.page-toolbar').removeClass("js-hidden-bar");
 				TweenMax.to( $ptoolbar.find('.row'), 0, { width: 'auto' } );
 				TweenMax.to( $ptoolbar.find('.container'), 0, { width: 'auto', padding: 'auto' } );
 
@@ -1603,6 +1642,8 @@ timeline = {
                     toggleMoreInfoButton();
 				}
 			}
+
+
 
 			//hide share button if is bio item or screen is small
 			if( $el.hasClass('static') || vw(100) < 767 ){
@@ -1614,7 +1655,7 @@ timeline = {
 
 			/* ************************************* */
 			//positionate each item
-			timeline.times.fitToExpand($el, animated);
+			//timeline.times.fitToExpand($el, animated);
 			/* ************************************* */
 
 			var hasYearTitle = $el.find('.time-title').length > 0;
@@ -1778,6 +1819,7 @@ timeline = {
 					TweenMax.to( $ptoolbar, 0, { y: 0 } );
 				}
 
+				$('.page-toolbar').removeClass("js-hidden-bar");
 				TweenMax.to( $ptoolbar.find('.row'), 0, { width: 'auto', delay: mdelay } );
 				TweenMax.to( $ptoolbar.find('.container'), 0, { width: 'auto', padding: '0 0', delay: mdelay } );
 
@@ -1994,7 +2036,7 @@ timeline = {
 
 		toggleElements('.overlay-title,.toolbars', 'hide', 0);
 		TweenMax.to($wrapper, 0.5, {opacity: 0});
-		TweenMax.to($('.page-toolbar'), 0, { y: 90 } );
+		TweenMax.to($('.page-toolbar'), 0, { y: 120 } );
 		TweenMax.to($stage, 0, { x: - vw(25), opacity: 0});
 
 
@@ -2045,7 +2087,13 @@ timeline = {
 
 		//show internal rooms with animation
 		TweenMax.to( $toShow, 0, {x: 0, opacity: 1, width: (vw(100) / maxItems), onComplete: function(){
-			TweenMax.to($('.page-toolbar'), 0, { y: 0 } );
+
+			if( vw(100) < 1125 && $('.overviewing').length > 0 ){
+				TweenMax.to($('.page-toolbar'), 0, { y: 120 } );
+			}else{
+				TweenMax.to($('.page-toolbar'), 0, { y: 0 } );
+			}
+
 			$toShow.addClass('animationEnd');
 
 			refactorArrows();
@@ -2386,7 +2434,7 @@ timeline = {
 
 
 		//when clicking on right arrow, go to next slide
-		.on('click', '.next-slide', function(){
+		.on('click touchstart', '.next-slide', function(){
 
 			if( view == entries )
 			{
@@ -2414,7 +2462,7 @@ timeline = {
 		})
 
 		//when clicking left arrow, go to prev slide
-		.on('click', '.prev-slide', function(){
+		.on('click touchstart', '.prev-slide', function(){
 
 			if( view == entries )
 			{
@@ -2540,16 +2588,19 @@ timeline = {
 
 
 		//when click on more button, full expand to see overview of time entry
-		.on('click touchstart', '.internal-stage.viewport-visible .overview-trigger, .internal-stage.viewport-visible.hover', function(e){
+		.on('click', '.internal-stage.viewport-visible .overview-trigger', function(e){
 			e.preventDefault(); e.stopPropagation();
 
 			if( $(this).hasClass("internal-stage") && $(this).hasClass("overviewing") ){
-				return false;
+				//return false;
 			}
 
-			var $el = $(this).closest('.internal-stage');
+				if( !$(this).hasClass("overviewing") ){
+					var $el = $(this).closest('.internal-stage');
 
-			_self.times.expand($el);
+					_self.times.expand($el);
+				}
+
 
 
 		})
@@ -2638,26 +2689,39 @@ timeline = {
 
 			.on('touchstart mousedown', '.internal-stage.viewport-visible', function(e){
 
-				var pointer = getPointerEvent(e);
-				var $el = $(this);
 
-				// caching the current x
-				cachedX = currX = pointer.pageX;
-				// caching the current y
-				cachedY = currY = pointer.pageY;
-				// a touch event is detected
-				touchStarted = true;
-				// detecting if after 200ms the finger is still in the same position
-				killTimer('tap');
-				timer['tap'] = setTimeout(function (){
-					if ((cachedX === currX) && !touchStarted && (cachedY === currY)) {
-						// Here you get the Tap event
-						console.log('tap');
-						timeline.times.expand($el);
-					}
-				},200);
+				//detect if it is not expanded
+				if( !$(this).hasClass("overviewing") ){
 
-			}).on('touchend mouseup touchcancel','.internal-stage.viewport-visible', function(){ touchStarted = false; })
+					var pointer = getPointerEvent(e);
+					var $el = $(this);
+
+					// caching the current x
+					cachedX = currX = pointer.pageX;
+					// caching the current y
+					cachedY = currY = pointer.pageY;
+					// a touch event is detected
+					touchStarted = true;
+
+					// detecting if after 300ms the finger is still in the same position
+					killTimer('tap');
+					timer['tap'] = setTimeout(function (){
+						if ((cachedX === currX) && !touchStarted && (cachedY === currY)) {
+							// Here you get the Tap event
+							//console.log('tap');
+
+							if( !$el.hasClass("overviewing") ){
+								timeline.times.expand($el);
+							}
+						}
+					},300);
+				}
+
+			}).on('touchend mouseup touchcancel','.internal-stage.viewport-visible', function(){
+				if( !$(this).hasClass('overviewing') ){
+					touchStarted = false;
+				}
+			})
 
 
 
@@ -2800,6 +2864,13 @@ timeline = {
 				// console.log("You swiped " + direction );
 				// if( $('#lightbox').length > 0 && $('#lightbox:visible').length > 0 ){
 
+				//reset tap pointer positions to never get executed if I swipe
+				cachedY = -1;
+				cachedX = -1;
+
+				console.log("swipe", direction, $(event.target));
+
+
 				var $lightbox = $('.timeline-lightbox');
 				if( !$lightbox.is('.open') )
 				{
@@ -2823,16 +2894,11 @@ timeline = {
 				}
 
 
-
-
-
-
 				// }
 			},
 			allowPageScroll:"vertical",
-			fingers:1,
 			threshold:100
-		})
+		});
 
 
 
