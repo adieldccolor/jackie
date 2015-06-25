@@ -10,7 +10,8 @@
 var timeline, timer = [], $elems = [], screenSize = {}, router = false, maxItems = 4,
 	smallScreen = false, isMobile = false, isPhone = false, 
 	home = "home", entries = "entries", mobileEntries = "mobileEntries", view = home,
-    lastEntryOpen = "", lastEntryIsOpen = false, chain = {};
+    lastEntryOpen = "", lastEntryIsOpen = false, chain = {},
+	leftSidePreviewIsOpen = false, rightSidePreviewIsOpen = false, singleIsOpen = false;
 
 function refactorArrows() {
     var $nextArrow = $('.next-slide'),
@@ -116,7 +117,9 @@ var getPointerEvent = function(event) {
 
 
 
-//function to free memory
+/* *****
+function to free memory
+ */
 function freeMemory(){
 	//kill all tweenmax tweens
 	TweenMax.killTweensOf("*");
@@ -125,6 +128,27 @@ function freeMemory(){
 	for(var i=0; i<timer.length; i++){
 		clearTimeout(timer[i]);
 	}
+}
+
+
+
+
+/* **********************************************
+* function to collapse navigatioin previews if open
+ //if left or right side preview is open close it inmediatelly */
+function collapseNavigationPreviews(){
+    if( leftSidePreviewIsOpen || rightSidePreviewIsOpen || singleIsOpen ){
+        var $nextEntry = $('.overviewing').nextAll('.active').first(),
+            $prevEntry = $('.overviewing').prevAll('.active').first();
+
+        $nextEntry.removeClass('preview');
+        $prevEntry.removeClass('preview');
+        TweenMax.to( [$nextEntry, $prevEntry], 0.5, { x: 0 } );
+        $nextEntry.data('movedAsPrev', 0); $nextEntry.data('movedAsNext', 0);
+        $prevEntry.data('movedAsPrev', 0); $prevEntry.data('movedAsNext', 0);
+        var $navigationArrowYear = $('.next-slide .abs-year, .prev-slide .abs-year');
+        TweenMax.to($nextArrowYear, 0.5, { opacity: 0 });
+    }
 }
 
 timeline = {
@@ -1511,6 +1535,7 @@ timeline = {
             lastEntryOpen = $el;
             lastEntryIsOpen = true;
 
+
 			for( i = 0; i < $viewportVisible.length; i++)
 			{
 				if( $el.is($viewportVisible.eq(i)) )
@@ -1719,6 +1744,8 @@ timeline = {
 
 					$el.addClass('overviewing');
 
+                    singleIsOpen = true;
+
 
 			}, delay: (animated?0.5:0) });
 		},
@@ -1730,6 +1757,11 @@ timeline = {
 				animated = animated != undefined ? animated : true;
 
             lastEntryIsOpen = false;
+
+            singleIsOpen = false;
+
+            collapseNavigationPreviews();
+
 
 			var $el = $('.overviewing'),
 				relative = 0,
@@ -2517,8 +2549,11 @@ timeline = {
 		//show previews when hoverin arrows
 		.on('mouseenter', '.next-slide', function(){
 
-			if( $('.overviewing').length > 0 && $('.overviewing').nextAll('.active').length > 0 )
+			if( $('.overviewing').length > 0 && $('.overviewing').nextAll('.active').length > 0 && singleIsOpen )
 			{
+
+                leftSidePreviewIsOpen = true;
+
 				var $next = $('.overviewing').nextAll('.active').first();
 
 				$next.data('position', $next.position().left);
@@ -2543,8 +2578,10 @@ timeline = {
 
 		.on('mouseleave', '.next-slide', function(){
 
-			if( $('.overviewing').length > 0 && $('.overviewing').nextAll('.active').length > 0 )
+			if( $('.overviewing').length > 0 && $('.overviewing').nextAll('.active').length > 0 && singleIsOpen )
 			{
+                leftSidePreviewIsOpen = false;
+
 				var $next = $('.overviewing').nextAll('.active').first();
 
 				// TweenMax.killChildTweensOf($next);
@@ -2564,8 +2601,11 @@ timeline = {
 		//show previews when hoverin arrows
 		.on('mouseenter', '.prev-slide', function(){
 
-			if( $('.overviewing').length > 0 && $('.overviewing').prevAll('.active').length > 0 )
+			if( $('.overviewing').length > 0 && $('.overviewing').prevAll('.active').length > 0 && singleIsOpen )
 			{
+
+                rightSidePreviewIsOpen = true;
+
 				var $prev = $('.overviewing').prevAll('.active').first();
 
 				$prev.data('position', $prev.position().left);
@@ -2589,8 +2629,10 @@ timeline = {
 
 		.on('mouseleave', '.prev-slide', function(){
 
-			if( $('.overviewing').length > 0 && $('.overviewing').prevAll('.active').length > 0 )
+			if( $('.overviewing').length > 0 && $('.overviewing').prevAll('.active').length > 0 && singleIsOpen )
 			{
+                rightSidePreviewIsOpen = false;
+
 				var $prev = $('.overviewing').prevAll('.active').first();
 				// TweenMax.killChildTweensOf($prev);
 				$prev.removeClass('preview');
