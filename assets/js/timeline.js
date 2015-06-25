@@ -1916,13 +1916,13 @@ timeline = {
 
 		$('.stage .roomsWrapper .room .wrapper').css({height: "auto"});
 
-
+		$('.overlay-title').css({ top: 'auto' });
 
 		var _self = this,
 			$title = $('.overlay-title'),
 			titleHeight = $title.outerHeight(),
 			titleTop = $title.position().top,
-			titleTop = titleTop < 60 ? 85 : titleTop,
+			titleTop = titleTop < 60 ? 60 : titleTop,
 			$toolbar = $('.toolbars .home-toolbar'),
 			//toolbarHeight = $toolbar.outerHeight(),
 			toolbarHeight = 100,
@@ -1943,7 +1943,7 @@ timeline = {
 			}
 
 			var setTitleTop = titleTop,
-				neededHeight = ( (titleHeight + wrapperHeight + offsetWrapper + 60) + toolbarHeight ),
+				neededHeight = ( (titleHeight + wrapperHeight + offsetWrapper + 90) + toolbarHeight ),
 				testIfScreenIsSmaller = ( neededHeight > vh(100) );
 
 
@@ -1958,7 +1958,7 @@ timeline = {
 			}
 			else
 			{
-				setTitleTop = (vh(100) - neededHeight) / 2;
+				setTitleTop = (vh(100) - (neededHeight) ) / 2;
 			}
 
 
@@ -1967,8 +1967,8 @@ timeline = {
 				setTitleTop = ( ( $('.roomsWrapper').first().outerHeight() - $title.outerHeight() ) / 2 );
 				setTitleTop = setTitleTop < 0 ? 20 : setTitleTop + 65;
 			}else{
-				if( setTitleTop < 60 ){
-					setTitleTop = 60;
+				if( setTitleTop < 0 ){
+					setTitleTop = -5;
 				}
 			}
 
