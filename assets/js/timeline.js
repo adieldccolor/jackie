@@ -901,7 +901,11 @@ timeline = {
                 //move landing page rooms top up without animation
                 $stage.each(function(){
                     var fullWidth = ( ($(this).find('.internal-stage').length) * vw(100) );
-                    TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: '-' + vh(100), delay: durationCond(1) });
+
+					//to fix ipad with retina gray bar issue.. instead of positioning by offset we will set height to 0
+					//TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: '-' + vh(100), delay: durationCond(1) });
+					TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: 0, height: 0, delay: durationCond(1) });
+
                     TweenMax.to($(this), 0, {width: fullWidth, delay: durationCond(1)});
 
                     $(this).find('.internal-wrapper').each(function(){
@@ -2057,7 +2061,11 @@ timeline = {
 		//move landing page rooms top up without animation
 		$stage.each(function(){
 			var fullWidth = ( ($(this).find('.internal-stage').length) * vw(100) );
-			TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: '-' + vh(100) });
+
+			//fix for ipad
+			//TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: '-' + vh(100) });
+			TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: 0, height: 0 });
+
 			TweenMax.to($(this), 0, {width: fullWidth});
 
 			$(this).find('.internal-wrapper').each(function(){
@@ -2165,7 +2173,7 @@ timeline = {
 
 				TweenMax.staggerTo(".stage .roomsWrapper", animationCond(1), {width: '100%', delay: animationCond(0.8)}, animationCond(0.5));
 
-				TweenMax.to(".stage .roomsWrapper .room", 0, {marginTop: 0});
+				TweenMax.to(".stage .roomsWrapper .room", 0, {marginTop: 0, height: vh(100)});
 				TweenMax.to(".stage .roomsWrapper .room .wrapper", 0, {width: '100%'});
 				TweenMax.staggerTo(".stage .roomsWrapper .room .wrapper", animationCond(1), {width: '100%',
 					opacity: 1, delay: animationCond(1.8)}, animationCond(0.5));
@@ -3012,10 +3020,12 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 
 
 
-					killTimer("resize-home");
-					timer["resize-home"] = setTimeout(function(){
-						timeline.landingSpacer();
-					}, 100);
+					if( view == home ){
+						killTimer("resize-home");
+						timer["resize-home"] = setTimeout(function(){
+							timeline.landingSpacer();
+						}, 100);
+					}
 
 					forceMobileMenu();
 
