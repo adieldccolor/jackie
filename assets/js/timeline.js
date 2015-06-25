@@ -1216,7 +1216,6 @@ timeline = {
 						toggleElements($next.find('.internal-room'), 'show', 0.5, 0.5);
 
 						$next.addClass('overviewing');
-						$el.removeClass('overviewing hover expanded').css({ opacity: 1 });
 
 						if( $next.data('position') == undefined || $next.data('position') == "undefined" 
 							|| $next.data('position') == null)
@@ -1233,8 +1232,9 @@ timeline = {
 					
 						var newLeft = $el.position().left + $el.outerWidth();  
 
-						// TweenMax.to($room, 0.5, { marginLeft: - $prev.data('position') });
-						TweenMax.to($next, 0.5, { x: 0 });
+						TweenMax.to($next, 0.5, { x: 0, onComplete: function(){
+                            $el.removeClass('overviewing hover expanded').css({ opacity: 1 });
+                        } });
 						TweenMax.to($room, 0.5, { marginLeft: - newLeft });
 
 
@@ -1479,7 +1479,6 @@ timeline = {
 						toggleElements($prev.find('.internal-room'), 'show', 0.5, 0.5);
 
 						$prev.addClass('overviewing');
-						$el.removeClass('overviewing hover expanded').css({ opacity: 1 });
 
                         lastEntryOpen = $prev;
                         lastEntryIsOpen = true;
@@ -1507,9 +1506,10 @@ timeline = {
 										+ $prev.prevAll('.active').first().outerWidth() 
 									: 0;
 
-
-						// TweenMax.to($room, 0.5, { marginLeft: - $prev.data('position') });
-						TweenMax.to($prev, 0.5, { x: 0 });
+                        
+						TweenMax.to($prev, 0.5, { x: 0, onComplete: function(){
+                            $el.removeClass('overviewing hover expanded').css({ opacity: 1 });
+                        } });
 						TweenMax.to($room, 0.5, { marginLeft: - newLeft });
 
 				}, delay: 0 });
