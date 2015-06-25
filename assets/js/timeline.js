@@ -11,7 +11,7 @@ var timeline, timer = [], $elems = [], screenSize = {}, router = false, maxItems
 	smallScreen = false, isMobile = false, isPhone = false, 
 	home = "home", entries = "entries", mobileEntries = "mobileEntries", view = home,
     lastEntryOpen = "", lastEntryIsOpen = false, chain = {},
-	leftSidePreviewIsOpen = false, rightSidePreviewIsOpen = false, singleIsOpen = false;
+	leftSidePreviewIsOpen = false, rightSidePreviewIsOpen = false, singleIsOpen = false, expanding = false;
 
 function refactorArrows() {
     var $nextArrow = $('.next-slide'),
@@ -138,16 +138,24 @@ function freeMemory(){
  //if left or right side preview is open close it inmediatelly */
 function collapseNavigationPreviews(){
     if( leftSidePreviewIsOpen || rightSidePreviewIsOpen || singleIsOpen ){
-        var $nextEntry = $('.overviewing').nextAll('.active').first(),
-            $prevEntry = $('.overviewing').prevAll('.active').first();
 
-        $nextEntry.removeClass('preview');
-        $prevEntry.removeClass('preview');
-        TweenMax.to( [$nextEntry, $prevEntry], 0.5, { x: 0 } );
-        $nextEntry.data('movedAsPrev', 0); $nextEntry.data('movedAsNext', 0);
-        $prevEntry.data('movedAsPrev', 0); $prevEntry.data('movedAsNext', 0);
+        if ( $('.overviewing').nextAll('.active').length > 0 ){
+            var $nextEntry = $('.overviewing').nextAll('.active').first();
+            $nextEntry.removeClass('preview');
+            TweenMax.to( $nextEntry, 0.5, { x: 0 } );
+            $nextEntry.data('movedAsPrev', 0); $nextEntry.data('movedAsNext', 0);
+        }
+
+
+        if ( $('.overviewing').prevAll('.active').length > 0 ){
+            var $prevEntry = $('.overviewing').prevAll('.active').first();
+            $prevEntry.removeClass('preview');
+            TweenMax.to( $prevEntry, 0.5, { x: 0 } );
+            $prevEntry.data('movedAsPrev', 0); $prevEntry.data('movedAsNext', 0);
+        }
+
         var $navigationArrowYear = $('.next-slide .abs-year, .prev-slide .abs-year');
-        TweenMax.to($nextArrowYear, 0.5, { opacity: 0 });
+        TweenMax.to($navigationArrowYear, 0.5, { opacity: 0 });
     }
 }
 
@@ -1232,9 +1240,9 @@ timeline = {
 					
 						var newLeft = $el.position().left + $el.outerWidth();
 
-                        $el.removeClass('overviewing expanded');
+                        $el.removeClass('overviewing');
 						TweenMax.to($next, 0.5, { x: 0, onComplete: function(){
-                            $el.removeClass('hover').css({ opacity: 1 });
+                            $el.removeClass('hover expanded').css({ opacity: 1 });
                         } });
 						TweenMax.to($room, 0.5, { marginLeft: - newLeft });
 
@@ -1508,9 +1516,9 @@ timeline = {
 									: 0;
 
 
-                        $el.removeClass('overviewing expanded');
+                        $el.removeClass('overviewing');
 						TweenMax.to($prev, 0.5, { x: 0, onComplete: function(){
-                            $el.removeClass('hover').css({ opacity: 1 });
+                            $el.removeClass('hover expanded').css({ opacity: 1 });
                         } });
 						TweenMax.to($room, 0.5, { marginLeft: - newLeft });
 
@@ -1536,6 +1544,7 @@ timeline = {
 
             lastEntryOpen = $el;
             lastEntryIsOpen = true;
+            expanding = true;
 
 
 			for( i = 0; i < $viewportVisible.length; i++)
@@ -1747,6 +1756,7 @@ timeline = {
 					$el.addClass('overviewing');
 
                     singleIsOpen = true;
+                    expanding = false;
 
 
 			}, delay: (animated?0.5:0) });
@@ -2662,6 +2672,8 @@ timeline = {
 				if( !$(this).hasClass("overviewing") ){
 					var $el = $(this).closest('.internal-stage');
 
+                    expanding = true;
+
 					_self.times.expand($el);
 				}
 
@@ -2675,7 +2687,7 @@ timeline = {
 			var $el = $(this);
 
 			var $lightbox = $('.timeline-lightbox');
-			if( $lightbox.is('.open') )
+			if( $lightbox.hasClass('open') )
 			{
 				TweenMax.to( $lightbox, 0.1, { opacity: 0, onComplete: function(){
 					$lightbox.removeClass('open');
@@ -2698,7 +2710,10 @@ timeline = {
 				return false;
 			}
 
-			_self.times.collapse();
+			if( $('.overviewing').length > 0 ){
+                _self.times.collapse();
+            }
+
 			return false;
 		})
 
@@ -2767,6 +2782,7 @@ timeline = {
 					// a touch event is detected
 					touchStarted = true;
 
+
 					// detecting if after 300ms the finger is still in the same position
 					killTimer('tap');
 					timer['tap'] = setTimeout(function (){
@@ -2784,6 +2800,7 @@ timeline = {
 			}).on('touchend mouseup touchcancel','.internal-stage.viewport-visible', function(){
 				if( !$(this).hasClass('overviewing') ){
 					touchStarted = false;
+                    expanding = true;
 				}
 			})
 
@@ -2799,52 +2816,60 @@ timeline = {
 					// $el.addClass('animationEnd');
 				}
 
-			if( !$(this).hasClass('static') && $(this).hasClass('animationEnd')
-				&& !$(this).hasClass('overviewing') && $('.overviewing').length == 0 )
-			{
+                if( !expanding ){
 
-				//reset other stages
-				if( $('.internal-stage.hover, .internal-stage.expanded').not($(this)).length > 0 )
-				{
-					var $stages = $('.internal-stage.hover, .internal-stage.expanded');
 
-						$stages.each(function(){
-							$_stage = $(this);
-							idkill = 'reset-other-internal-stages-' + $_stage.index();
-							$stages.removeClass('hover expanded');
-							killTimer(idkill);
-							killTimer('internal-stage-enter-' + $el.index());
-							timer[idkill] = setTimeout(function(){
-								TweenMax.to($_stage, 0.5, {width: (vw(100) / maxItems)});
-							}, 50);
-						});
-				}
 
-				var id = 'internal-stage-enter-' + $el.index(),
-					$el = $el;
-				killTimer(id);
-				$el.addClass('expanded');
-				timer[id] = setTimeout(function(){
-					TweenMax.to($el, 0.5, {width: ((vw(100) / maxItems) + vw(15))});
-					timer[id] = setTimeout(function(){
-						$el.addClass('hover');
-					}, 500);
-				}, 50);
+                    if( !$(this).hasClass('static') && $(this).hasClass('animationEnd')
+                        && !$(this).hasClass('overviewing') && $('.overviewing').length == 0 )
+                    {
 
-					// alert($el.index());
-					// alert($room.find('.internal-stage').index());
-				if( $el.index() == $room.find('.internal-stage.viewport-visible').last().index()
-					&& $el.position().left > vw(40) )
-				{
-					killTimer('scrollleft');
-					timer['scrollleft'] = setTimeout(function(){
-						var marginLeft = $room.find('.internal-stage.viewport-visible').first()
-									.position().left + (((vw(100) / maxItems) + vw(15)) - (vw(100)/maxItems));
-						// TweenMax.to($room, 0.5, { marginLeft: "-=" + (vw(40) - vw(25)) });
-						TweenMax.to($room, 0.5, { marginLeft: - marginLeft });
-					}, 50);
-				}
-			}
+                        //reset other stages
+                        if( $('.internal-stage.hover, .internal-stage.expanded').not($(this)).length > 0 )
+                        {
+                            var $stages = $('.internal-stage.hover, .internal-stage.expanded');
+
+                            $stages.each(function(){
+                                $_stage = $(this);
+                                idkill = 'reset-other-internal-stages-' + $_stage.index();
+                                $stages.removeClass('hover expanded');
+                                killTimer(idkill);
+                                killTimer('internal-stage-enter-' + $el.index());
+                                timer[idkill] = setTimeout(function(){
+                                    TweenMax.to($_stage, 0.5, {width: (vw(100) / maxItems)});
+                                }, 50);
+                            });
+                        }
+
+                        var id = 'internal-stage-enter-' + $el.index(),
+                            $el = $el;
+                        killTimer(id);
+                        $el.addClass('expanded');
+                        timer[id] = setTimeout(function(){
+                            TweenMax.to($el, 0.5, {width: ((vw(100) / maxItems) + vw(15))});
+                            timer[id] = setTimeout(function(){
+                                $el.addClass('hover');
+                            }, 500);
+                        }, 50);
+
+                        // alert($el.index());
+                        // alert($room.find('.internal-stage').index());
+                        if( $el.index() == $room.find('.internal-stage.viewport-visible').last().index()
+                            && $el.position().left > vw(40) )
+                        {
+                            killTimer('scrollleft');
+                            timer['scrollleft'] = setTimeout(function(){
+                                var marginLeft = $room.find('.internal-stage.viewport-visible').first()
+                                        .position().left + (((vw(100) / maxItems) + vw(15)) - (vw(100)/maxItems));
+                                // TweenMax.to($room, 0.5, { marginLeft: "-=" + (vw(40) - vw(25)) });
+                                TweenMax.to($room, 0.5, { marginLeft: - marginLeft });
+                            }, 50);
+                        }
+                    }
+
+
+                }
+
 
 		})
 
