@@ -487,7 +487,7 @@ timeline = {
                 //reset
                 TweenMax.to($el, 0, { width: (vw(100) / maxItems) });
                 TweenMax.to($el, 0, { width: (vw(100) / maxItems) });
-                TweenMax.to($room, 0, { marginLeft: - $el.position().left });
+                TweenMax.to($room, 0, { marginLeft: - $el.position().left, height: vh(100) });
                 TweenMax.to($el.find('.internal-wrapper'),
                     0, { opacity: 1, width: 'auto' });
                 TweenMax.to($el.find('.internal-room'),
@@ -905,6 +905,7 @@ timeline = {
 					//to fix ipad with retina gray bar issue.. instead of positioning by offset we will set height to 0
 					//TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: '-' + vh(100), delay: durationCond(1) });
 					TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: 0, height: 0, delay: durationCond(1) });
+					TweenMax.to($(this).find('.room').not( $(this).find('.room').eq(0) ), 0, { height: vh(100), delay: durationCond(1) });
 
                     TweenMax.to($(this), 0, {width: fullWidth, delay: durationCond(1)});
 
@@ -1687,8 +1688,6 @@ timeline = {
 			toggleElements($('.close-button'), 'show', (animated?0.5:0) , (animated?0.5:0) );
 
 
-			$el.addClass('hover expanded overviewing');
-			$el.removeClass('animationEnd');
 
             forceMobileMenu();
 
@@ -1709,9 +1708,13 @@ timeline = {
                 timeline.times.fitToExpand($el, animated);
             }});
 			TweenMax.to($room, (animated?0.5:0), { marginLeft: "-" + $el.position().left, delay: (animated?0.5:0) });
-			TweenMax.to($el.find('.internal-wrapper'), (animated?0.5:0), {opacity: 0});
-			TweenMax.to($el.find('.internal-wrapper'), 0, { width: vw(100) / $viewportVisible.length, 
+			TweenMax.to($el.find('.internal-wrapper'), (animated?0.2:0), {opacity: 0});
+			TweenMax.to($el.find('.internal-wrapper'), 0, { width: vw(100) / $viewportVisible.length,
 				onComplete: function(){
+
+					$el.addClass('hover expanded overviewing');
+					$el.removeClass('animationEnd');
+
 					toggleElements($el.find('.internal-room'), 'show', (animated?1:0), (animated?0.5:0));
 
 					$el.addClass('overviewing');
@@ -1921,6 +1924,11 @@ timeline = {
 		$('.stage .roomsWrapper .room .wrapper').css({height: "auto"});
 
 		$('.overlay-title').css({ top: 'auto' });
+		if( view == home ){
+			TweenMax.to($(".stage .roomsWrapper .room").eq(0), 0, {marginTop: 0, height: vh(100)});
+		}else{
+			TweenMax.to($(".stage .roomsWrapper .room").eq(0), 0, {marginTop: 0, height: 0});
+		}
 
 		var _self = this,
 			$title = $('.overlay-title'),
@@ -2058,13 +2066,17 @@ timeline = {
 
 		TweenMax.to( [$stage, $rooms], 0, {opacity: 1} );
 
+
+
 		//move landing page rooms top up without animation
 		$stage.each(function(){
 			var fullWidth = ( ($(this).find('.internal-stage').length) * vw(100) );
 
 			//fix for ipad
 			//TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: '-' + vh(100) });
-			TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: 0, height: 0 });
+			TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: 0, height: vh(0) });
+			TweenMax.to($(this).find('.room').not( $(this).find('.room').eq(0) ), 0, { height: vh(100) });
+
 
 			TweenMax.to($(this), 0, {width: fullWidth});
 
@@ -3020,12 +3032,12 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 
 
 
-					if( view == home ){
-						killTimer("resize-home");
-						timer["resize-home"] = setTimeout(function(){
-							timeline.landingSpacer();
-						}, 100);
-					}
+
+					killTimer("resize-home");
+					timer["resize-home"] = setTimeout(function(){
+						timeline.landingSpacer();
+					}, 100);
+
 
 					forceMobileMenu();
 

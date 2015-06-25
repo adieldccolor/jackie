@@ -169,7 +169,7 @@
         <entry file="file://$PROJECT_DIR$/assets/js/timeline.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.42911154">
-              <caret line="2066" column="81" selection-start-line="2066" selection-start-column="81" selection-end-line="2066" selection-end-column="81" />
+              <caret line="1710" column="68" selection-start-line="0" selection-start-column="0" selection-end-line="3105" selection-end-column="15" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -907,7 +907,7 @@
     <entry file="file://$PROJECT_DIR$/assets/js/timeline.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42911154">
-          <caret line="2066" column="81" selection-start-line="2066" selection-start-column="81" selection-end-line="2066" selection-end-column="81" />
+          <caret line="1710" column="68" selection-start-line="0" selection-start-column="0" selection-end-line="3105" selection-end-column="15" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
