@@ -1230,10 +1230,11 @@ timeline = {
 						// TweenMax.to($room, 0.5, { marginLeft: - $next.position().left });
 
 					
-						var newLeft = $el.position().left + $el.outerWidth();  
+						var newLeft = $el.position().left + $el.outerWidth();
 
+                        $el.removeClass('overviewing expanded');
 						TweenMax.to($next, 0.5, { x: 0, onComplete: function(){
-                            $el.removeClass('overviewing hover expanded').css({ opacity: 1 });
+                            $el.removeClass('hover').css({ opacity: 1 });
                         } });
 						TweenMax.to($room, 0.5, { marginLeft: - newLeft });
 
@@ -1507,8 +1508,9 @@ timeline = {
 									: 0;
 
 
+                        $el.removeClass('overviewing expanded');
 						TweenMax.to($prev, 0.5, { x: 0, onComplete: function(){
-                            $el.removeClass('overviewing hover expanded').css({ opacity: 1 });
+                            $el.removeClass('hover').css({ opacity: 1 });
                         } });
 						TweenMax.to($room, 0.5, { marginLeft: - newLeft });
 

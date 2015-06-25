@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a564ffb7-07e4-4f58-b380-af3b4bde9fd6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/style.css" afterPath="$PROJECT_DIR$/assets/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/timeline.js" afterPath="$PROJECT_DIR$/assets/js/timeline.js" />
     </list>
     <ignored path="jackie.iws" />
@@ -158,8 +159,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6435" column="20" selection-start-line="6435" selection-start-column="20" selection-end-line="6435" selection-end-column="20" />
+            <state vertical-scroll-proportion="1513.3148">
+              <caret line="1658" column="35" selection-start-line="1658" selection-start-column="35" selection-end-line="1658" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -168,8 +169,8 @@
       <file leaf-file-name="timeline.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/timeline.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81621623">
-              <caret line="2522" column="0" selection-start-line="2522" selection-start-column="0" selection-end-line="2522" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5783784">
+              <caret line="1511" column="68" selection-start-line="0" selection-start-column="0" selection-end-line="3149" selection-end-column="15" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -193,8 +194,8 @@
         <option value="$PROJECT_DIR$/picasa-albums.js" />
         <option value="$PROJECT_DIR$/timeline.html" />
         <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/assets/css/style.css" />
         <option value="$PROJECT_DIR$/assets/js/timeline.js" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
       </list>
     </option>
   </component>
@@ -826,14 +827,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6435" column="20" selection-start-line="6435" selection-start-column="20" selection-end-line="6435" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/timeline.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -904,10 +897,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1513.3148">
+          <caret line="1658" column="35" selection-start-line="1658" selection-start-column="35" selection-end-line="1658" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/timeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81621623">
-          <caret line="2522" column="0" selection-start-line="2522" selection-start-column="0" selection-end-line="2522" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5783784">
+          <caret line="1511" column="68" selection-start-line="0" selection-start-column="0" selection-end-line="3149" selection-end-column="15" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

@@ -1656,6 +1656,7 @@ a:hover, a:focus {
             -o-transition: all 0.4s;
             transition: all 0.4s;
             overflow: hidden; } }
+    body.timeline a{ outline: none; }
     @media screen and (min-width: 769px) and (min-width: 769px) {
       .menuTop #navbar ul.navbar-nav li.active ul, .menuHidden #navbar ul.navbar-nav li.active ul {
         border-bottom: 1px solid #D6D6D6; } }
