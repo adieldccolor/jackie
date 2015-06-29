@@ -84,7 +84,7 @@ function showMoreInfoButton($more){
 
 
 function horizontalOrientation(){
-	return ( (screen.height < screen.width ) && ( vw(100) < 768 ) );
+	return ( (screen.height < screen.width ) );
 }
 
 
@@ -364,7 +364,7 @@ timeline = {
         refactor();
 
         // if is phone redirect to phone view
-		if( isPhone || horizontalOrientation() )
+		if( vw(100) < 768 )
 		{
 			if( view != mobileEntries )
 			{
@@ -639,7 +639,7 @@ timeline = {
 			if( isMobile )
 			{
 				$('.menuTop').addClass('sticky');
-				$('.timeline-wrapper-mobile').css({ marginTop: 65 });
+				$('.timeline-wrapper-mobile').css({ marginTop: 0 });
 			}
 
 			toggleElements( $('.close-button'), 'show', 0.5, 0 );
@@ -1037,7 +1037,7 @@ timeline = {
 						visible.last().nextAll('.active').first().addClass('animationEnd');
 
 						left = - visible.first().nextAll('.viewport-visible').first().position().left;
-						TweenMax.to($room, 0.5, {marginLeft: left});
+						TweenMax.to($room, 0.5, {marginLeft: left, delay: 0.2});
 					}});
 				TweenMax.to(visible.first(), 0, {x: 0});
 				visible.first().removeClass('viewport-visible animationEnd');
@@ -1751,7 +1751,7 @@ timeline = {
 					$el.addClass('hover expanded overviewing');
 					$el.removeClass('animationEnd');
 
-					toggleElements($el.find('.internal-room'), 'show', (animated?1:0), (animated?0.5:0));
+					toggleElements($el.find('.internal-room'), 'show', (animated?1:0), (animated?0.7:0));
 
 					$el.addClass('overviewing');
 
@@ -1969,7 +1969,8 @@ timeline = {
 
 		$('.overlay-title').css({ top: 'auto' });
 		if( view == home ){
-			TweenMax.to($(".stage .roomsWrapper .room").eq(0), 0, {marginTop: 0, height: vh(100)});
+			var newHeight = vw(100) < 768 ? $('.timeline-wrapper').outerHeight() : vh(100);
+			TweenMax.to($(".stage .roomsWrapper .room"), 0, {marginTop: 0, height: newHeight});
 		}else{
 			TweenMax.to($(".stage .roomsWrapper .room").eq(0), 0, {marginTop: 0, height: 0});
 		}
@@ -2040,9 +2041,30 @@ timeline = {
 
 			$wrapper.each(function(){
 				var $el = $(this);
-				var wrapperHeight = $el.find('.content-wrapper').outerHeight();
+				var wrapperHeight = $el.find('.content-wrapper').outerHeight(),
+					cropHeight = vh(100) - (titleTop + titleHeight + offsetWrapper + toolbarHeight + 20);
+
+				if( cropHeight < wrapperHeight ){
+					//alert("No hay espacio!");
+
+					if( view == home ){
+						var newHeight = vw(100) < 768 ? $('.timeline-wrapper').outerHeight() : vh(100) + ( wrapperHeight - cropHeight );
+						TweenMax.to($(".stage .roomsWrapper .room"), 0, {marginTop: 0, height: newHeight});
+
+						$('.body').css({ overflow: 'hidden', minHeight: newHeight });
+						$('.timeline-wrapper').css({ minHeight: newHeight });
+
+					}else{
+						TweenMax.to($(".stage .roomsWrapper .room"), 0, {marginTop: 0, height: 'auto'});
+					}
+
+				}else{
+					$('.body').css({ overflow: 'hidden', minHeight: 'auto' });
+					$('.timeline-wrapper').css({ minHeight: 'auto' });
+				}
+
 				$el.css({ marginTop: 0, top: (titleTop + titleHeight + (offsetWrapper/2)), paddingTop: 0,
-					height: vh(100) - (titleTop + titleHeight + offsetWrapper + toolbarHeight + 20),
+					height: 'auto',
 					overflowY: 'auto', overflowX: 'hidden'
                 });
 			});
@@ -2229,7 +2251,8 @@ timeline = {
 
 				TweenMax.staggerTo(".stage .roomsWrapper", animationCond(1), {width: '100%', delay: animationCond(0.8)}, animationCond(0.5));
 
-				TweenMax.to(".stage .roomsWrapper .room", 0, {marginTop: 0, height: vh(100)});
+				var newHeight = vw(100) < 768 ? $('.timeline-wrapper').outerHeight() : "100%";
+				TweenMax.to($(".stage .roomsWrapper .room"), 0, {marginTop: 0, height: newHeight});
 				TweenMax.to(".stage .roomsWrapper .room .wrapper", 0, {width: '100%'});
 				TweenMax.staggerTo(".stage .roomsWrapper .room .wrapper", animationCond(1), {width: '100%',
 					opacity: 1, delay: animationCond(1.8)}, animationCond(0.5));
@@ -2251,6 +2274,7 @@ timeline = {
 
 
 		$('body')
+
 
 
 
@@ -2783,6 +2807,9 @@ timeline = {
 					touchStarted = true;
 
 
+					expanding = true;
+
+
 					// detecting if after 300ms the finger is still in the same position
 					killTimer('tap');
 					timer['tap'] = setTimeout(function (){
@@ -2879,7 +2906,7 @@ timeline = {
 			var $room = $('.second-room');
 
 			if( !$(this).hasClass('static') && $(this).hasClass('animationEnd')
-			&& !$(this).hasClass('overviewing') && $('.overviewing').length == 0 )
+			&& !$(this).hasClass('overviewing') && $('.overviewing').length == 0 && !expanding )
 			{
 				var id = 'internal-stage-enter-' + $(this).index(),
 					$el = $(this);
@@ -2961,7 +2988,7 @@ timeline = {
 
 
 				var $lightbox = $('.timeline-lightbox');
-				if( !$lightbox.is('.open') )
+				if( !$lightbox.is('.open') && !expanding )
 				{
 
 					if( direction == "left"){
@@ -3092,6 +3119,7 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 				timer['reload'] = setTimeout(function(){
                     timeline.recalculateScreenSize();
 
+
                     if( $('.timeline-lightbox').hasClass('open') )
                     {
                         timeline.times.resizeLightbox();
@@ -3111,7 +3139,7 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 					forceMobileMenu();
 
 
-					if( view == home && vw(100) < 767 )
+					if( view == home && vw(100) < 768 )
 					{
 						toggleElements($('.toolbars .share-button'), 'hide', 0.2, 0);
 					}else{
@@ -3121,7 +3149,7 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 					if( view == entries )
 					{
 
-						if( vw(100) < 601 || horizontalOrientation() )
+						if( vw(100) < 768 )
 						{
 							$('.timeline-wrapper').hide();
 							timeline.openMobileTimeline({from: view});
@@ -3145,7 +3173,7 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 
 					if( view == mobileEntries )
 					{
-						if( vw(100) > 600 && !horizontalOrientation() )
+						if( vw(100) > 767 )
 						{
 							timeline.destroy({from: view});
 							//timeline.openTimeline();
@@ -3165,7 +3193,7 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 						}
 						else
 						{
-							$('.timeline-wrapper').hide();
+							//$('.timeline-wrapper').hide();
 							// timeline.openMobileTimeline();
 							view = mobileEntries;
 						}
@@ -3173,3 +3201,85 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 				}, 100);
 
 			});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+share functionalities
+ */
+
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: 562478230556234,
+        status: true,
+        cookie: true,
+        xfbml: true
+    });
+};
+
+;(function(d, debug){var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];if   (d.getElementById(id)) {return;}js = d.createElement('script'); js.id = id; js.async = true;js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";ref.parentNode.insertBefore(js, ref);}(document, /*debug*/ false));
+
+function postToFeed(title, desc, url, image) {
+    var obj = {method: 'feed',link: url, picture: image,name: title,description: desc};
+    function callback(response) {}
+    FB.ui(obj, callback);
+}
+
+
+function newPopup(url,name) {
+    newwindow=window.open(url,name,'height=300,width=400');
+    if (window.focus) {newwindow.focus()}
+    return false;
+}
+
+
+
+
+
+function shareTimeline($this){
+    var network = $this.attr('data-lightboxshare'),
+        description = image = href = api = desc = url = "";
+
+
+    description = $this.closest('.timeline-lightbox').find('.share-description').text();
+    title = $this.closest('.timeline-lightbox').find('.share-title').text();
+    image = $this.closest('.timeline-lightbox').find('.share-image').find("img").attr('src');
+    href = window.location.href;
+    url = href;
+
+    if (network == "pinterest") {
+        api = 'http://www.pinterest.com/pin/create/button/?url='
+            + encodeURI(image) + '&description=' + encodeURI(description) + '&media=' + image;
+
+        newPopup(api, title);
+    }
+
+    if (network == "linkedin") {
+        api = 'http://www.linkedin.com/shareArticle?mini=true&url='
+            + image + '&title=' + title + '&summary=' + image + ' - '
+            + description + '&source=' + href;
+        newPopup(api, title);
+    }
+
+    if (network == "twitter") {
+        api = 'http://twitter.com/share?url=' + href + ';text=' + title + ' - '
+            + image + ';size=l&amp;count=none';
+        newPopup(api, title);
+    }
+
+    if (network == "facebook") {
+        postToFeed(title, desc + ' - ' + url, image, image);
+    }
+}

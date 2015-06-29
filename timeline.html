@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
@@ -6445,17 +6445,23 @@
 	<script class="share-buttons-lightbox hidden" type="text/template">
 			<h6>Share JRF's Interactive Timeline</h6>
 			<ul class="social-links">
-				<li class="big-icons"><a href="#"><i class="icon facebook-big"></i></a></li>
-				<li class="big-icons"><a href="#"><i class="icon twitter-big"></i></a></li>
-				<li class="big-icons"><a href="#"><i class="icon pinterest-big"></i></a></li>
-				<li class="big-icons"><a href="#"><i class="icon linkedin-big"></i></a></li>
+				<li class="big-icons"><a href="javascript:;" onclick="shareTimeline($(this))" data-lightboxShare="facebook"><i class="icon facebook-big"></i></a></li>
+				<li class="big-icons"><a href="javascript:;" onclick="shareTimeline($(this))" data-lightboxShare="twitter"><i class="icon twitter-big"></i></a></li>
+				<li class="big-icons"><a href="javascript:;" onclick="shareTimeline($(this))" data-lightboxShare="pinterest"><i class="icon pinterest-big"></i></a></li>
+				<li class="big-icons"><a href="javascript:;" onclick="shareTimeline($(this))" data-lightboxShare="linkedin"><i class="icon linkedin-big"></i></a></li>
 				
-				<li class="small-icons"><a href="#"><i class="icon facebook-small"></i></a></li>
-				<li class="small-icons"><a href="#"><i class="icon twitter-small"></i></a></li>
-				<li class="small-icons"><a href="#"><i class="icon pinterest-small"></i></a></li>
-				<li class="small-icons"><a href="#"><i class="icon linkedin-small"></i></a></li>
+				<li class="small-icons"><a href="javascript:;" onclick="shareTimeline($(this))" data-lightboxShare="facebook"><i class="icon facebook-small"></i></a></li>
+				<li class="small-icons"><a href="javascript:;" onclick="shareTimeline($(this))" data-lightboxShare="twitter"><i class="icon twitter-small"></i></a></li>
+				<li class="small-icons"><a href="javascript:;" onclick="shareTimeline($(this))" data-lightboxShare="pinterest"><i class="icon pinterest-small"></i></a></li>
+				<li class="small-icons"><a href="javascript:;" onclick="shareTimeline($(this))" data-lightboxShare="linkedin"><i class="icon linkedin-small"></i></a></li>
 
 			</ul>
+
+			<div class="hidden-data" style="display:none">
+				<span class="share-description">JRF TImeline test info</span>
+				<span class="share-title">Jackie Robinson Foundation Timeline</span>
+				<span class="share-image"><img src="assets/img/logo.png" alt="Jackie Robinson Foundation logo"/></span>
+			</div>
 		</script>
 
 	<div class="home-toolbar">
