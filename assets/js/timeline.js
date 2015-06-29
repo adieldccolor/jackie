@@ -2041,26 +2041,29 @@ timeline = {
 
 			$wrapper.each(function(){
 				var $el = $(this);
-				var wrapperHeight = $el.find('.content-wrapper').outerHeight(),
-					cropHeight = vh(100) - (titleTop + titleHeight + offsetWrapper + toolbarHeight + 20);
+				var cropHeight = vh(100) - (titleTop + titleHeight + offsetWrapper + toolbarHeight + 20);
 
 				if( cropHeight < wrapperHeight ){
 					//alert("No hay espacio!");
 
 					if( view == home ){
-						var newHeight = vw(100) < 768 ? $('.timeline-wrapper').outerHeight() : vh(100) + ( wrapperHeight - cropHeight );
+						var newHeight = vw(100) < 768 ? $('.timeline-wrapper').outerHeight() : ( vh(100) + ( wrapperHeight - cropHeight ) );
 						TweenMax.to($(".stage .roomsWrapper .room"), 0, {marginTop: 0, height: newHeight});
+
 
 						$('.body').css({ overflow: 'hidden', minHeight: newHeight });
 						$('.timeline-wrapper').css({ minHeight: newHeight });
 
 					}else{
-						TweenMax.to($(".stage .roomsWrapper .room"), 0, {marginTop: 0, height: 'auto'});
+						//TweenMax.to($(".stage .roomsWrapper .room"), 0, {marginTop: 0, height: 'auto'});
 					}
 
+
 				}else{
-					$('.body').css({ overflow: 'hidden', minHeight: 'auto' });
-					$('.timeline-wrapper').css({ minHeight: 'auto' });
+					//$('.body').css({ overflow: 'hidden', minHeight: vh(100), height: 'auto' });
+
+					$('.body').css({ overflow: 'hidden', minHeight: vh(100) });
+					$('.timeline-wrapper').css({ minHeight: vh(100) });
 				}
 
 				$el.css({ marginTop: 0, top: (titleTop + titleHeight + (offsetWrapper/2)), paddingTop: 0,
