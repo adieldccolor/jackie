@@ -556,6 +556,8 @@ timeline = {
 				$('.collapse-nav').trigger('click');
 			}
 
+			toggleElements($('.arrow-up'), 'hide', 0.3);
+
 			$('.timeline-wrapper,.toolbars').show();
 			_self.recalculateScreenSize();
 			$('body').css({ overflow: 'hidden', backgroundColor: '#000' });;
