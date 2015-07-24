@@ -227,6 +227,8 @@ var base = window.base_font_size || 10,
 			  itemsTablet : [768,1],
 			  itemsMobile : [480,1],
 			  autoHeight : true,
+				slideSpeed: 800,
+				responsiveRefreshRate: 200,
 			  afterAction: app.getCurrent
 			});
 			owl = $('#owl-demo').data('owlCarousel');
@@ -425,7 +427,8 @@ var base = window.base_font_size || 10,
 		}, setFirst: function(){
 			$('#owl-demo-2 .owl-item').eq(0).addClass('active').siblings().removeClass('active');
 		}, getCurrent: function(){
-			var current = owl.currentItem;
+			var current = owl.currentItem || 0;
+			console.log(current, typeof current);
 			$('#owl-demo-2 .owl-item').eq(current).addClass('active').siblings().removeClass('active');
 			owlSmall&&owlSmall.goTo(current);
 		}, sticky:function  () {

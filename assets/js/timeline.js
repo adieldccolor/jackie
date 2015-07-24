@@ -11,7 +11,164 @@ var timeline, timer = [], $elems = [], screenSize = {}, router = false, maxItems
 	smallScreen = false, isMobile = false, isPhone = false, 
 	home = "home", entries = "entries", mobileEntries = "mobileEntries", view = home,
     lastEntryOpen = "", lastEntryIsOpen = false, chain = {},
-	leftSidePreviewIsOpen = false, rightSidePreviewIsOpen = false, singleIsOpen = false, expanding = false;
+	leftSidePreviewIsOpen = false, rightSidePreviewIsOpen = false, singleIsOpen = false, expanding = false,
+	all = "all", jr = "jr", jrf = "jrf", rr = "rr",
+	activeTimeline = all;
+
+
+/*
+* Function: getKeys
+* param: Object obj
+* return: Object.keys
+* */
+function getKeys(obj){
+	var keys = [];
+	for(var key in obj){
+		keys.push(key);
+	}
+	return keys;
+}
+
+
+
+
+/*
+* Function: isUrl
+* param: String string
+* return: boolean
+* */
+function isURL(string){
+	return /((?:(http|https|Http|Https|rtsp|Rtsp):\/\/(?:(?:[a-zA-Z0-9\$\-\_\.\+\!\*\'\(\)\,\;\?\&\=]|(?:\%[a-fA-F0-9]{2})){1,64}(?:\:(?:[a-zA-Z0-9\$\-\_\.\+\!\*\'\(\)\,\;\?\&\=]|(?:\%[a-fA-F0-9]{2})){1,25})?\@)?)?((?:(?:[a-zA-Z0-9][a-zA-Z0-9\-]{0,64}\.)+(?:(?:aero|arpa|asia|a[cdefgilmnoqrstuwxz])|(?:biz|b[abdefghijmnorstvwyz])|(?:cat|com|coop|c[acdfghiklmnoruvxyz])|d[ejkmoz]|(?:edu|e[cegrstu])|f[ijkmor]|(?:gov|g[abdefghilmnpqrstuwy])|h[kmnrtu]|(?:info|int|i[delmnoqrst])|(?:jobs|j[emop])|k[eghimnrwyz]|l[abcikrstuvy]|(?:mil|mobi|museum|m[acdghklmnopqrstuvwxyz])|(?:name|net|n[acefgilopruz])|(?:org|om)|(?:pro|p[aefghklmnrstwy])|qa|r[eouw]|s[abcdeghijklmnortuvyz]|(?:tel|travel|t[cdfghjklmnoprtvwz])|u[agkmsyz]|v[aceginu]|w[fs]|y[etu]|z[amw]))|(?:(?:25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9])\.(?:25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9]|0)\.(?:25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9]|0)\.(?:25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[0-9])))(?:\:\d{1,5})?)(\/(?:(?:[a-zA-Z0-9\;\/\?\:\@\&\=\#\~\-\.\+\!\*\'\(\)\,\_])|(?:\%[a-fA-F0-9]{2}))*)?(?:\b|$)/gi.test(string);
+}
+
+
+
+function getActiveTimeline(){
+	activeTimeline = activeTimeline == all ? [jr, rr, jrf] : activeTimeline;
+    return typeof activeTimeline == "string" ? [activeTimeline] : activeTimeline;
+}
+
+function isActiveTimeline(compare){
+    var result = false;
+
+    if( typeof activeTimeline == "object" ){
+        if( typeof compare == "object" && compare.length == activeTimeline.length ){
+
+
+            var result = [], i;
+            for(i=0; i<compare.length; i++){
+                result.push(compare[i] == activeTimeline[i]);
+            }
+
+
+        }else{
+            result = false;
+        }
+    }
+
+    if( typeof activeTimeline == "string" ){
+        result = compare == activeTimeline;
+    }
+
+    return result;
+
+}
+
+
+function getDataSet($stage){
+    return JSON.parse($stage.attr('data-background').replace(/'/g,'"'));
+}
+
+
+
+function getStageContent($stage, t){
+
+    var $subs = $stage.find('.internal-room').find('.stage-wrapper'),
+        multiple = false,
+        dataset = getDataSet($stage),
+        v = [0, 0, 0];
+
+
+	console.log($stage, t);
+
+    if(t.length < 2 ){
+
+        if( $subs.length > 1 ){
+
+            $subs.hide();
+         for(var i=0; i< t.length; i++){
+             $subs.filter('[data-filter="' + t[i] + '"], [data-filter~="' + t[i] + '"]').show();
+         }
+        }
+
+
+		var data = dataset[t],
+			data = typeof data == "string" ? dataset[data] : data;
+
+        return data;
+
+    }else{
+
+
+		if( $subs.length > 1 ){
+
+			$subs.hide();
+			for(i=0; i< t.length; i++){
+				$subs.filter('[data-filter="' + t[i] + '"], [data-filter~="' + t[i] + '"]').show();
+			}
+		}
+
+
+		var initial = dataset.initial;
+
+		if( $.inArray(initial, getActiveTimeline()) > -1 ){
+			return dataset[initial];
+		}
+
+		var keys = getKeys(dataset),
+			key = keys[0] != initial ? keys[0] : keys[1];
+
+		return dataset[key];
+
+
+    }
+}
+
+
+
+function toggleEntries(){
+
+    var t = getActiveTimeline(),
+        $stages = $('.internal-stage');
+
+
+    $stages.filter('.tweeked').each(function(){
+        var c = getStageContent($(this), t);
+
+		if( c ){
+
+			if( isURL(c.bg) ){
+				$(this).css({
+					backgroundImage: 'url(' + c.bg + ')'
+				})
+			}else{
+				$(this).css({
+					backgroundColor: c.bg
+				})
+			}
+
+			$(this).find('.hidden-data')
+				.find('.bodytext2').first().text(c.text)
+			;
+
+		}
+
+    });
+
+
+}
+
+
 
 function refactorArrows() {
     var $nextArrow = $('.next-slide'),
@@ -280,6 +437,8 @@ timeline = {
 
 				$('.second-room, .timeline-wrapper-mobile').addClass('jrf-filter').removeClass('jr-filter rr-filter');
 
+                activeTimeline = jrf;
+
 				break;
 			case 'jackie-timeline':
 			case 'jr-timeline-':
@@ -290,6 +449,8 @@ timeline = {
 					.prop('checked', false);
 
 				$('.second-room, .timeline-wrapper-mobile').addClass('jr-filter').removeClass('jrf-filter rr-filter');
+
+                activeTimeline = jr;
 
 				break;
 			case 'rachel-timeline':
@@ -302,6 +463,8 @@ timeline = {
 
 				$('.second-room, .timeline-wrapper-mobile').addClass('rr-filter').removeClass('jr-filter jrf-filter');
 
+                activeTimeline = rr;
+
 				break;
 			case 'jrf-timeline-jr-timeline-':
 			case 'jr-timeline-jrf-timeline-':
@@ -313,6 +476,8 @@ timeline = {
 
 				$('.second-room, .timeline-wrapper-mobile').addClass('jr-filter jrf-filter').removeClass('rr-filter');
 
+                activeTimeline = [jrf, jr];
+
 				break;
 			case 'jrf-timeline-rr-timeline-':
 			case 'rr-timeline-jrf-timeline-':
@@ -322,6 +487,8 @@ timeline = {
 					.prop('checked', true);
 
 				$('.second-room, .timeline-wrapper-mobile').addClass('rr-filter jrf-filter').removeClass('jr-filter');
+
+                activeTimeline = [jrf, rr];
 
 				break;
 
@@ -334,6 +501,8 @@ timeline = {
 					.prop('checked', true);
 
 				$('.second-room, .timeline-wrapper-mobile').addClass('rr-filter jr-filter').removeClass('jrf-filter');
+
+                activeTimeline = [jr, rr];
 
 				break;
 
@@ -353,6 +522,8 @@ timeline = {
 
 				$('.second-room, .timeline-wrapper-mobile').addClass('jrf-filter jr-filter rr-filter');
 
+                activeTimeline = all;
+
 				break;
 		}
 
@@ -362,6 +533,8 @@ timeline = {
             $(".timeline-lightbox *").first().trigger("click");
         }
         refactor();
+
+		toggleEntries();
 
         // if is phone redirect to phone view
 		if( vw(100) < 768 )
@@ -739,7 +912,7 @@ timeline = {
 
 		fitToExpand: function($el,animated)
 		{
-			var $wrapp = $el.find('.stage-wrapper');
+			var $wrapp = $el.find('.stage-wrapper:visible');
 			$wrapp.css({ height: '100%' });
 			$wrapp.find('.container').css({ height: '100%' });
 
@@ -910,6 +1083,8 @@ timeline = {
 
                 $('.timeline-wrapper').addClass('timeline');
 
+				TweenMax.to($(".stage .roomsWrapper .room"), 0, {marginTop: 0, height: vh(100)});
+
 
 
                 TweenMax.to([$roomsWrapper, $wrapper], 0, { width: '100%', delay: 1 } );
@@ -939,7 +1114,8 @@ timeline = {
 					TweenMax.to($(this).find('.room').eq(0), 0, { marginTop: 0, height: 0, delay: durationCond(1) });
 					TweenMax.to($(this).find('.room').not( $(this).find('.room').eq(0) ), 0, { height: vh(100), delay: durationCond(1) });
 
-                    TweenMax.to($(this), 0, {width: fullWidth, delay: durationCond(1)});
+
+                    TweenMax.to($(this), 0, {width: fullWidth, height: vh(100), delay: durationCond(1)});
 
                     $(this).find('.internal-wrapper').each(function(){
                         TweenMax.to($(this), 0, {position: 'relative',
@@ -972,6 +1148,8 @@ timeline = {
                 if( durationCond(1) == 0 ){
                     restoreArrows();
                 }
+
+                $stage.find('.internal-stage').css({ height: vh(100) });
 
                 //show internal rooms with animation
                 TweenMax.staggerTo( $toShow, durationCond(1), {x: 0, opacity: 1, delay: durationCond(1)},
@@ -2010,7 +2188,7 @@ timeline = {
 				// console.log("screen is smaller? ", testIfScreenIsSmaller);
 				
 				setTitleTop = 0;
-				$stage.css({ overflow: 'auto' });
+				$stage.css({ overflow: 'hidden' });
 				offsetWrapper = 20;
 			}
 			else
@@ -2063,7 +2241,7 @@ timeline = {
 					//$('.body').css({ overflow: 'hidden', minHeight: vh(100), height: 'auto' });
 
 					$('.body').css({ overflow: 'hidden', minHeight: vh(100) });
-					$('.timeline-wrapper').css({ minHeight: vh(100) });
+					$('.timeline-wrapper').css({ minHeight: vh(100), overflow: 'hidden' });
 				}
 
 				$el.css({ marginTop: 0, top: (titleTop + titleHeight + (offsetWrapper/2)), paddingTop: 0,
@@ -2133,7 +2311,7 @@ timeline = {
 
 		//TweenMax.to($('.internal-stage.viewport-visible'), 0, {x: vw(85), opacity: 0});
 
-		TweenMax.to( [$stage, $rooms], 0, {opacity: 1} );
+		TweenMax.to( [$stage, $rooms], 0, {opacity: 1, height: vh(100)} );
 
 
 
@@ -2172,6 +2350,8 @@ timeline = {
 
 
 		// alert($toShow.length);
+
+        $stage.find('.internal-stage').css({ height: vh(100) });
 
 
 		//show internal rooms with animation
@@ -3133,10 +3313,13 @@ $(window).load(function(){ timer['global'] = setTimeout(function(){ timeline.ini
 
 
 
-					killTimer("resize-home");
-					timer["resize-home"] = setTimeout(function(){
-						timeline.landingSpacer();
-					}, 100);
+					if( view == home )
+					{
+						killTimer("resize-home");
+						timer["resize-home"] = setTimeout(function(){
+							timeline.landingSpacer();
+						}, 100);
+					}
 
 
 					forceMobileMenu();
